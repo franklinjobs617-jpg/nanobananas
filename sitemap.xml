@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- 首页 -->
+    <url>
+        <loc>https://nanobananas.me/</loc>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- 3D模型页面 -->
+    <url>
+        <loc>https://nanobananas.me/nano-banana-model.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Bandai风格页面 -->
+    <url>
+        <loc>https://nanobananas.me/bandai-nano-banana.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- 服务条款页面 -->
+    <url>
+        <loc>https://nanobananas.me/terms.html</loc>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- 隐私政策页面 -->
+    <url>
+        <loc>https://nanobananas.me/privacy.html</loc>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- 首页内锚点链接 -->
+    <url>
+        <loc>https://nanobananas.me/#features</loc>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://nanobananas.me/#prompts</loc>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://nanobananas.me/#examples</loc>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://nanobananas.me/#figures</loc>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://nanobananas.me/#ratings</loc>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://nanobananas.me/#faq</loc>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://nanobananas.me/#generator</loc>
+        <priority>0.9</priority>
+    </url>
+</urlset>

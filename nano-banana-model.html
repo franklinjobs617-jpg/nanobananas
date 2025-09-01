@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Banana Model - 3D Models for Printing & Design</title>
+    <meta name="description" content="Generate high-quality nano banana 3D models with our AI tool. Perfect for 3D printing, digital design, and collection displays.">
+    <meta name="keywords" content="nano banana model, nano banana 3d model, nano banana model bandai, 3d printable nano banana">
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFD166',
+                        secondary: '#073B4C',
+                        accent: '#EF476F',
+                        light: '#F8F9FA',
+                        dark: '#111827'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .gradient-text {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+            }
+            .model-view {
+                @apply relative rounded-xl overflow-hidden border border-gray-200 bg-gray-50;
+            }
+            .model-angle {
+                @apply absolute top-3 right-3 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm px-2 py-1 text-sm font-medium text-gray-700;
+            }
+            .model-tag {
+                @apply absolute bottom-3 left-3 bg-secondary/90 text-white backdrop-blur-sm rounded-lg shadow-sm px-3 py-1 text-sm font-medium;
+            }
+            .download-btn {
+                @apply flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all;
+            }
+            .scroll-indicator {
+                @apply fixed bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce opacity-70 hover:opacity-100 transition-opacity;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-light text-dark">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">N</span>
+                    </div>
+                    <span class="text-xl md:text-2xl font-bold gradient-text">
+                        NanoBananas
+                    </span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#features" class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+                    <a href="index.html#prompts" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+                    <a href="index.html#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+                    <a href="index.html#figures" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+                    <a href="bandai-nano-banana.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+                    <a href="nano-banana-model.html" class="text-primary font-medium">Models</a>
+                    <a href="index.html#ratings" class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+                    <a href="index.html#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+                </nav>
+                
+                <div class="flex items-center gap-3">
+                    <a href="index.html#generator" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-medium shadow-md hover:shadow-lg transition-all">
+                        <i class="fa fa-magic mr-2"></i> Try Free
+                    </a>
+                    
+                    <!-- 移动端菜单按钮 -->
+                    <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="index.html#features" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+                <a href="index.html#prompts" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+                <a href="index.html#examples" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+                <a href="index.html#figures" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+                <a href="bandai-nano-banana.html" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+                <a href="nano-banana-model.html" class="block py-2 text-primary font-medium">Models</a>
+                <a href="index.html#ratings" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+                <a href="index.html#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面标题区 -->
+    <section class="py-12 md:py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight mb-4 gradient-text">
+                    Nano Banana 3D Models
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8">
+                    Download high-precision nano banana 3D models optimized for printing, digital design, and collectible displays.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#models" class="download-btn bg-primary text-dark hover:bg-primary/90 shadow-md">
+                        <i class="fa fa-download"></i> Browse Models
+                    </a>
+                    <a href="#custom" class="download-btn bg-secondary text-white hover:bg-secondary/90 shadow-md">
+                        <i class="fa fa-paint-brush"></i> Custom Model
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精选模型展示 -->
+    <section id="featured" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Nano Banana Model</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our most popular high-detail nano banana model, perfect for 3D printing enthusiasts and collectors.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- 3D模型展示 -->
+                <div class="model-view card-hover aspect-[4/3]">
+                    <img src="https://picsum.photos/id/102/800/600" 
+                         alt="High-detail nano banana 3D model with realistic texture and details" 
+                         class="w-full h-full object-cover">
+                    <div class="model-angle">3D View</div>
+                    <div class="model-tag">High Detail</div>
+                </div>
+                
+                <!-- 模型详情 -->
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-3">Premium Nano Banana</h3>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="flex">
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star-half-o text-yellow-400"></i>
+                        </div>
+                        <span class="text-gray-600">(128 reviews)</span>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-600">File Formats</span>
+                            <span class="font-medium">STL, OBJ, 3MF, FBX</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-600">Polygon Count</span>
+                            <span class="font-medium">124,500</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-600">Texture Resolution</span>
+                            <span class="font-medium">4K PBR</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Print Ready</span>
+                            <span class="font-medium text-green-600"><i class="fa fa-check"></i> Yes</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6">
+                        This premium nano banana model features exceptional detail with realistic textures and proportions. Optimized for 3D printing with pre-supported versions available. Perfect for collectors and 3D printing enthusiasts.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="download-btn bg-accent text-white hover:bg-accent/90 shadow-lg">
+                            <i class="fa fa-download"></i> Download ($19.99)
+                        </a>
+                        <a href="#" class="download-btn bg-gray-200 text-gray-800 hover:bg-gray-300">
+                            <i class="fa fa-info-circle"></i> More Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模型集合展示 -->
+    <section id="models" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Explore Our Model Collection</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Choose from our variety of nano banana 3D models designed for different purposes and styles.</p>
+            </div>
+            
+            <!-- 筛选选项 -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button class="px-4 py-2 bg-primary text-dark rounded-full text-sm font-medium">All Models</button>
+                <button class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors">3D Printable</button>
+                <button class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors">Digital Art</button>
+                <button class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors">Low Poly</button>
+                <button class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors">High Detail</button>
+                <button class="px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors">Bandai Style</button>
+            </div>
+            
+            <!-- 模型网格 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- 模型卡片 1 - 迷你模型 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="relative aspect-square">
+                        <img src="https://picsum.photos/id/1080/400/400" 
+                             alt="Tiny miniature nano banana 3D model with keychain attachment" 
+                             class="w-full h-full object-cover">
+                        <div class="model-tag">Miniature</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">Mini Nano Banana</h3>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star-o text-yellow-400 text-sm"></i>
+                            <span class="text-gray-500 text-sm ml-1">(86)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Compact design, perfect for keychains and small displays.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-lg">$9.99</span>
+                            <a href="#" class="download-btn bg-primary/20 text-dark hover:bg-primary/30">
+                                <i class="fa fa-download"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 模型卡片 2 - 解剖模型 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="relative aspect-square">
+                        <img src="https://picsum.photos/id/292/400/400" 
+                             alt="Anatomical cross-section of nano banana showing internal structure" 
+                             class="w-full h-full object-cover">
+                        <div class="model-tag">Anatomical</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">Anatomical Nano</h3>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-gray-500 text-sm ml-1">(142)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Scientifically accurate with internal structure details.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-lg">$14.99</span>
+                            <a href="#" class="download-btn bg-primary/20 text-dark hover:bg-primary/30">
+                                <i class="fa fa-download"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 模型卡片 3 - 卡通模型 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="relative aspect-square">
+                        <img src="https://picsum.photos/id/106/400/400" 
+                             alt="Cartoon style nano banana with big eyes and smile" 
+                             class="w-full h-full object-cover">
+                        <div class="model-tag">Cartoon</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">Cartoon Nano Banana</h3>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star-half-o text-yellow-400 text-sm"></i>
+                            <span class="text-gray-500 text-sm ml-1">(97)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Fun, stylized design with exaggerated features.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-lg">$12.99</span>
+                            <a href="#" class="download-btn bg-primary/20 text-dark hover:bg-primary/30">
+                                <i class="fa fa-download"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 模型卡片 4 - 复古模型 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="relative aspect-square">
+                        <img src="https://picsum.photos/id/152/400/400" 
+                             alt="Vintage style nano banana with classic toy appearance" 
+                             class="w-full h-full object-cover">
+                        <div class="model-tag">Vintage</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">Vintage Nano</h3>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star-o text-yellow-400 text-sm"></i>
+                            <i class="fa fa-star-o text-yellow-400 text-sm"></i>
+                            <span class="text-gray-500 text-sm ml-1">(54)</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Retro design inspired by classic toys and models.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-lg">$11.99</span>
+                            <a href="#" class="download-btn bg-primary/20 text-dark hover:bg-primary/30">
+                                <i class="fa fa-download"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 加载更多按钮 -->
+            <div class="text-center mt-10">
+                <button class="px-6 py-3 bg-white border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-colors shadow-sm">
+                    <i class="fa fa-refresh mr-2"></i> Load More Models
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 定制模型区域 -->
+    <section id="custom" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Create Your Custom Nano Banana Model</h2>
+                    <p class="text-gray-600 mb-6">
+                        Can't find exactly what you're looking for? Our AI-powered customization tool lets you design the perfect nano banana model according to your specifications.
+                    </p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-check-circle text-green-500 mt-1 text-lg"></i>
+                            <span>Choose from various styles and details</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-check-circle text-green-500 mt-1 text-lg"></i>
+                            <span>Adjust size, texture, and complexity</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-check-circle text-green-500 mt-1 text-lg"></i>
+                            <span>Get instant previews before finalizing</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-check-circle text-green-500 mt-1 text-lg"></i>
+                            <span>Receive optimized files for your specific use case</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="index.html#generator" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-medium shadow-md hover:shadow-lg transition-all">
+                        <i class="fa fa-magic mr-2"></i> Start Custom Design
+                    </a>
+                </div>
+                
+                <div class="relative">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                        <img src="https://picsum.photos/id/180/800/600" 
+                             alt="3D model customization interface showing nano banana design options" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg max-w-xs">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                                <i class="fa fa-lightbulb-o text-primary text-xl"></i>
+                            </div>
+                            <h4 class="font-bold">Pro Tip</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            For 3D printing, choose the "Print Optimized" option to ensure your model has proper wall thickness and is ready for production.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模型格式说明 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Available File Formats</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">All our nano banana models come in multiple formats to suit your specific needs and software.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 格式卡片 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-cube text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">STL</h3>
+                    <p class="text-gray-600 text-sm">
+                        Standard 3D printing format, compatible with most slicing software and printers.
+                    </p>
+                </div>
+                
+                <!-- 格式卡片 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-object-group text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">OBJ</h3>
+                    <p class="text-gray-600 text-sm">
+                        Versatile format supported by most 3D software, includes texture mapping.
+                    </p>
+                </div>
+                
+                <!-- 格式卡片 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-file-text-o text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">3MF</h3>
+                    <p class="text-gray-600 text-sm">
+                        Modern format with enhanced 3D printing capabilities and metadata support.
+                    </p>
+                </div>
+                
+                <!-- 格式卡片 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-film text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">FBX</h3>
+                    <p class="text-gray-600 text-sm">
+                        Ideal for animation and game development with advanced rigging support.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Read reviews from 3D printing enthusiasts and designers who've used our nano banana models.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 评价 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover">
+                    <div class="flex mb-4">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        "The detail on these nano banana models is incredible! My 3D print came out perfectly, and the proportions are spot on. Will definitely purchase more."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://picsum.photos/id/1005/40/40" alt="Customer avatar - Sarah Johnson" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-medium">Sarah Johnson</h4>
+                            <p class="text-gray-500 text-sm">3D Printing Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 评价 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover">
+                    <div class="flex mb-4">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star-half-o text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        "As a game developer, I needed a unique prop for my scene. The FBX file imported perfectly, and the texture quality is excellent. Great work!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://picsum.photos/id/1012/40/40" alt="Customer avatar - Michael Chen" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-medium">Michael Chen</h4>
+                            <p class="text-gray-500 text-sm">Game Developer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 评价 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover">
+                    <div class="flex mb-4">
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                        <i class="fa fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        "The custom model service is fantastic! I got exactly what I envisioned, and the turnaround time was much faster than I expected. Highly recommend!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://picsum.photos/id/1027/40/40" alt="Customer avatar - Elena Rodriguez" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-medium">Elena Rodriguez</h4>
+                            <p class="text-gray-500 text-sm">Product Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Find answers to common questions about our nano banana 3D models.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ 项目 1 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-5 flex justify-between items-center">
+                        <span class="font-medium text-lg">What software do I need to use these 3D models?</span>
+                        <i class="fa fa-plus text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-5">
+                        <p class="text-gray-600">
+                            Our models are compatible with most 3D software including Blender, Maya, 3ds Max, Cura, PrusaSlicer, and many others. The STL format works with virtually all 3D printers and slicing software, while OBJ and FBX formats are better suited for digital design and animation.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 项目 2 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-5 flex justify-between items-center">
+                        <span class="font-medium text-lg">Are your models ready for 3D printing?</span>
+                        <i class="fa fa-plus text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-5">
+                        <p class="text-gray-600">
+                            Yes! All our models marked as "Print Ready" have been optimized for 3D printing with proper wall thickness, no overlapping geometry, and watertight meshes. We also offer versions with optional support structures for more complex models.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 项目 3 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-5 flex justify-between items-center">
+                        <span class="font-medium text-lg">What's included in a model purchase?</span>
+                        <i class="fa fa-plus text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-5">
+                        <p class="text-gray-600">
+                            Each purchase includes multiple file formats (STL, OBJ, 3MF, FBX), texture files where applicable, and a README with usage instructions. Premium models also include pre-supported versions for 3D printing and additional detail variations.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 项目 4 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-5 flex justify-between items-center">
+                        <span class="font-medium text-lg">Can I modify the models after purchasing?</span>
+                        <i class="fa fa-plus text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-5 pb-5">
+                        <p class="text-gray-600">
+                            Yes, you're free to modify the models for personal use. Commercial use is allowed with a commercial license, which can be purchased as an add-on during checkout. Redistribution or resale of the original or modified models is prohibited without explicit permission.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行动召唤 -->
+    <section class="py-20 bg-gradient-to-r from-secondary to-dark text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Nano Banana Project?</h2>
+            <p class="text-white/80 max-w-2xl mx-auto mb-8 text-lg">
+                Download our premium models or create your custom design today. Join thousands of satisfied designers and 3D printing enthusiasts!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#models" class="inline-flex items-center px-6 py-3 bg-white text-secondary rounded-lg font-medium shadow-md hover:shadow-lg transition-all">
+                    <i class="fa fa-download mr-2"></i> Browse Models
+                </a>
+                <a href="index.html#generator" class="inline-flex items-center px-6 py-3 bg-primary text-dark rounded-lg font-medium shadow-md hover:shadow-lg transition-all">
+                    <i class="fa fa-magic mr-2"></i> Create Custom Model
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white/80 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">N</span>
+                        </div>
+                        <span class="text-xl font-bold text-white">
+                            NanoBananas
+                        </span>
+                    </a>
+                    <p class="mb-4">
+                        Premium 3D models of nano bananas for printing, design, and collection.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-white/60 hover:text-primary transition-colors">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-white/60 hover:text-primary transition-colors">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white/60 hover:text-primary transition-colors">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white/60 hover:text-primary transition-colors">
+                            <i class="fa fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="nano-banana-model.html" class="hover:text-primary transition-colors">3D Models</a></li>
+                        <li><a href="bandai-nano-banana.html" class="hover:text-primary transition-colors">Bandai Style</a></li>
+                        <li><a href="index.html#generator" class="hover:text-primary transition-colors">Model Generator</a></li>
+                        <li><a href="index.html#examples" class="hover:text-primary transition-colors">Examples</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#faq" class="hover:text-primary transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Tutorials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Newsletter</h4>
+                    <p class="mb-4">Subscribe to get updates on new models and special offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary text-white">
+                        <button type="submit" class="bg-primary text-dark px-4 py-2 rounded-r-lg hover:bg-primary/90 transition-colors">
+                            <i class="fa fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>&copy; 2023 NanoBananas. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-dark w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all z-50">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- 向下滚动指示器 -->
+    <a href="#featured" class="scroll-indicator text-gray-500">
+        <i class="fa fa-angle-down text-2xl"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // FAQ 切换
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-45');
+            });
+        });
+        
+        // 回到顶部按钮
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动菜单（如果打开）
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // 导航栏滚动效果
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('shadow-sm');
+            }
+            
+            lastScrollY = window.scrollY;
+        });
+    </script>
+</body>
+</html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nano Banana AI - Free Gemini Powered Figure & Model Generator</title>
-    <meta name="description" content="Create stunning nano banana figures and models with our free AI generator. Use Nano Banana AI prompts to design Bandai-style models easily with Google's advanced technology.">
-    <meta name="keywords" content="nano banana, nano banana ai, nano banana gemini, nano banana google, nano banana figure, nano banana model, nano banana prompt, nano banana figure prompt, nano banana ai free, nano banana bandai">
+    <title>Nano Banana AI - Free AI Image Generator | Create Stunning Models & Figures</title>
+    <meta name="description" content="Nano Banana AI lets you create amazing figures, models and images with simple prompts. Free to use nano banana AI tool with powerful capabilities.">
+    <meta name="keywords" content="nano banana, nano banana ai, nano banana ai gemini, nano banana prompt, nano banana figure, nano banana model, nano banana ai free, nano banana bandai">
     <link rel="canonical" href="https://nanobananas.me/">
     
     <!-- External Resources -->
@@ -38,14 +38,20 @@
     
     <style type="text/tailwindcss">
         @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
             .gradient-text {
                 @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
             }
             .card-hover {
                 @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
             }
-            .text-balance {
-                text-wrap: balance;
+            .star-rating .star {
+                @apply text-gray-300 cursor-pointer transition-colors;
+            }
+            .star-rating .star.active {
+                @apply text-primary;
             }
         }
     </style>
@@ -70,6 +76,7 @@
                     <a href="#prompts" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
                     <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
                     <a href="#figures" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+                    <a href="#ratings" class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
                     <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
                 </nav>
                 
@@ -78,7 +85,7 @@
                         <i class="fa fa-magic mr-2"></i> Try Free
                     </a>
                     
-                    <!-- 移动端移动端端菜单按钮 -->
+                    <!-- 移动端菜单按钮 -->
                     <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-primary">
                         <i class="fa fa-bars text-xl"></i>
                     </button>
@@ -93,6 +100,7 @@
                 <a href="#prompts" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
                 <a href="#examples" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
                 <a href="#figures" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+                <a href="#ratings" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
                 <a href="#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
                 <a href="#generator" class="block py-2 mt-2 text-center bg-gradient-to-r from-primary to-accent text-white rounded-lg font-medium">Try Free</a>
             </div>
@@ -100,690 +108,805 @@
     </header>
 
     <!-- 英雄区域 -->
-    <section class="py-16 md:py-24 bg-gradient-to-br from-secondary/5 to-primary/10">
+    <section class="py-16 md:py-24 bg-gradient-to-b from-white to-secondary/5">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/2 space-y-6">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                        Create Amazing <span class="gradient-text">Nano Banana</span> Figures & Models
+                        Create Amazing <span class="gradient-text">Nano Banana</span> Models & Figures
                     </h1>
-                    <p class="text-xl text-gray-600 text-balance">
-                        Our free nano banana AI generator brings your ideas to life. Design stunning Bandai-style figures and models with simple prompts, powered by advanced technology.
+                    <p class="text-xl text-gray-600">
+                        Our free Nano Banana AI tool transforms simple prompts into stunning visuals. Design custom figures, models, and artwork in seconds—no experience needed.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="#generator" class="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all text-center">
-                            <i class="fa fa-cube mr-2"></i> Generate Now
+                        <a href="#generator" class="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-center">
+                            <i class="fa fa-rocket mr-2"></i> Generate Now (Free)
                         </a>
-                        <a href="#examples" class="px-8 py-4 bg-white border border-gray-200 text-dark rounded-lg font-semibold text-lg shadow-md hover:shadow-lg transition-all text-center">
+                        <a href="#examples" class="px-8 py-4 border-2 border-secondary text-secondary text-lg font-semibold rounded-xl hover:bg-secondary/5 transition-all text-center">
                             <i class="fa fa-image mr-2"></i> View Examples
                         </a>
                     </div>
                     <div class="flex items-center gap-2 text-gray-500 pt-2">
-                        <i class="fa fa-check-circle text-primary"></i>
-                        <span>100% Free to Use</span>
-                        <i class="fa fa-check-circle text-primary ml-4"></i>
-                        <span>No Signup Required</span>
+                        <span><i class="fa fa-check-circle text-primary"></i> 100% Free to Use</span>
+                        <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                        <span><i class="fa fa-check-circle text-primary"></i> No Signup Required</span>
+                        <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                        <span><i class="fa fa-check-circle text-primary"></i> Unlimited Generations</span>
                     </div>
                 </div>
                 <div class="lg:w-1/2 relative">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                        <img src="https://picsum.photos/seed/nanobanana1/800/600" alt="Nano Banana AI generated figure example - detailed 3D model of a character with vibrant colors" class="w-full h-auto">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark/80 to-transparent p-6">
-                            <p class="text-white font-medium">Nano Banana Figure Example</p>
-                            <p class="text-gray-200 text-sm">Created with simple prompts</p>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://picsum.photos/seed/nanobanana/600/400" alt="Nano Banana AI generated figure example" class="w-full h-auto">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                            <p class="text-white font-medium">"vibrant nano banana figure, detailed model, high quality"</p>
                         </div>
                     </div>
                     <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 hidden md:block">
-                        <img src="https://picsum.photos/seed/nanobanana2/300/300" alt="Nano Banana AI model closeup showing intricate details" class="w-32 h-32 object-cover rounded-lg">
+                        <p class="font-semibold text-secondary"><i class="fa fa-lightbulb-o text-primary mr-2"></i> Simple prompts, amazing results</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 优势特点 -->
-    <section id="features" class="py-16 md:py-24">
+    <!-- 关键词标签云 -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-6">
+                <h3 class="text-lg font-medium text-gray-500">Popular searches for Nano Banana</h3>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano banana</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano banana ai</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano banana prompt</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano banana figure</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano banana model</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano banana ai free</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano banana bandai</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能区域 -->
+    <section id="features" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Choose Our Nano Banana AI</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">What Can <span class="gradient-text">Nano Banana AI</span> Do For You?</h2>
                 <p class="text-xl text-gray-600">
-                    Our nano banana generator offers powerful features that make creating stunning figures and models easier than ever before
+                    Our powerful AI tool solves common creative challenges with simple, intuitive features designed for everyone.
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 特点1 -->
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fa fa-bolt text-2xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Lightning Fast Generation</h3>
-                    <p class="text-gray-600">
-                        Create high-quality nano banana figures in seconds, not minutes. Our optimized AI delivers rapid results without compromising quality.
-                    </p>
-                </div>
-                
-                <!-- 特点2 -->
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fa fa-clone text-2xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Character Consistency</h3>
-                    <p class="text-gray-600">
-                        Maintain perfect consistency across all your nano banana models. Create series of figures with identical characters in different poses and场景.
-                    </p>
-                </div>
-                
-                <!-- 特点3 -->
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fa fa-lightbulb-o text-2xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Smart Prompt Understanding</h3>
-                    <p class="text-gray-600">
-                        Our nano banana AI understands even complex prompts, turning your detailed descriptions into accurate, stunning figures and models.
-                    </p>
-                </div>
-                
-                <!-- 特点4 -->
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                <!-- 功能卡片 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
                         <i class="fa fa-paint-brush text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Versatile Style Options</h3>
-                    <p class="text-gray-600">
-                        Generate nano banana figures in various styles, from realistic 3D renders to cartoonish designs, including Bandai-inspired aesthetics.
+                    <h3 class="text-xl font-bold mb-3">Create Custom Figures</h3>
+                    <p class="text-gray-600 mb-4">
+                        Generate unique nano banana figures with any style, pose, or detail you can imagine using simple text prompts.
                     </p>
+                    <a href="#generator" class="text-primary font-medium inline-flex items-center hover:underline">
+                        Try figure generator <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
                 </div>
                 
-                <!-- 特点5 -->
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fa fa-mobile text-2xl text-primary"></i>
+                <!-- 功能卡片 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa fa-cubes text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Works Everywhere</h3>
-                    <p class="text-gray-600">
-                        Create nano banana models on any device. Our lightweight AI works smoothly on desktops, tablets, and even mobile phones.
+                    <h3 class="text-xl font-bold mb-3">Design 3D Models</h3>
+                    <p class="text-gray-600 mb-4">
+                        Transform ideas into detailed nano banana 3D models perfect for printing, digital projects, or collection displays.
                     </p>
+                    <a href="#generator" class="text-primary font-medium inline-flex items-center hover:underline">
+                        Create 3D models <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
                 </div>
                 
-                <!-- 特点6 -->
-                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
-                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                <!-- 功能卡片 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa fa-magic text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Masterful Prompts</h3>
+                    <p class="text-gray-600 mb-4">
+                        Get expert prompt suggestions optimized for creating the best nano banana figures and models every time.
+                    </p>
+                    <a href="#prompts" class="text-primary font-medium inline-flex items-center hover:underline">
+                        Explore prompts <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- 功能卡片 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa fa-lightbulb-o text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Inspiration Gallery</h3>
+                    <p class="text-gray-600 mb-4">
+                        Browse thousands of community-created nano banana designs for inspiration for your next project.
+                    </p>
+                    <a href="#examples" class="text-primary font-medium inline-flex items-center hover:underline">
+                        View gallery <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- 功能卡片 5 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa fa-download text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">High-Res Downloads</h3>
+                    <p class="text-gray-600 mb-4">
+                        Download your nano banana creations in high resolution formats perfect for printing or digital use.
+                    </p>
+                    <a href="#generator" class="text-primary font-medium inline-flex items-center hover:underline">
+                        Generate & download <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- 功能卡片 6 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
                         <i class="fa fa-gift text-2xl text-primary"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">100% Free to Use</h3>
-                    <p class="text-gray-600">
-                        Our nano banana AI is completely free. Generate unlimited figures and models without any hidden costs or subscription fees.
+                    <p class="text-gray-600 mb-4">
+                        Create unlimited nano banana figures and models without any cost. No hidden fees or premium subscriptions.
                     </p>
+                    <a href="#generator" class="text-primary font-medium inline-flex items-center hover:underline">
+                        Start for free <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 生成器区域 -->
-    <section id="generator" class="py-16 md:py-24 bg-gradient-to-br from-secondary/5 to-primary/10">
+    <section id="generator" class="py-16 md:py-24 bg-gradient-to-b from-secondary/5 to-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Nano Banana AI Generator</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Nano Banana <span class="gradient-text">AI Generator</span></h2>
                 <p class="text-xl text-gray-600">
-                    Create your own custom nano banana figures and models using simple text prompts. Try one of our examples or write your own!
+                    Create stunning nano banana figures and models in seconds. Simply enter a prompt and let our AI do the rest.
                 </p>
             </div>
             
-            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
                 <div class="p-6 md:p-8">
                     <div class="mb-6">
-                        <label for="prompt" class="block text-lg font-medium text-gray-700 mb-2">Enter your nano banana prompt:</label>
-                        <textarea id="prompt" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-none" placeholder="Example: A 1/7 scale nano banana figure of a cyberpunk warrior, Bandai style, highly detailed, standing on a futuristic base, dynamic pose"></textarea>
+                        <label for="prompt" class="block text-lg font-medium text-gray-700 mb-2">Enter your prompt</label>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <textarea id="prompt" rows="3" class="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all" placeholder="Describe your nano banana figure or model... e.g., 'a cyberpunk nano banana figure with glowing eyes, highly detailed, 8k resolution'"></textarea>
+                            <button id="generate-btn" class="px-6 py-3 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-xl shadow hover:shadow-lg transition-all flex items-center justify-center">
+                                <i class="fa fa-magic mr-2"></i> Generate
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Need help? <a href="#prompts" class="text-primary hover:underline">Try our prompt guide</a></p>
                     </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                        <div>
-                            <label for="style" class="block text-sm font-medium text-gray-700 mb-1">Style</label>
-                            <select id="style" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
-                                <option value="realistic">Realistic</option>
-                                <option value="bandai">Bandai Style</option>
-                                <option value="cartoon">Cartoon</option>
-                                <option value="anime">Anime</option>
-                                <option value="pixel">Pixel Art</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="angle" class="block text-sm font-medium text-gray-700 mb-1">Angle</label>
-                            <select id="angle" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
-                                <option value="front">Front View</option>
-                                <option value="side">Side View</option>
-                                <option value="3d">3D Perspective</option>
-                                <option value="closeup">Close-up</option>
-                                <option value="full">Full Body</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="quality" class="block text-sm font-medium text-gray-700 mb-1">Quality</label>
-                            <select id="quality" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
-                                <option value="standard">Standard</option>
-                                <option value="high">High (Recommended)</option>
-                                <option value="ultra">Ultra HD</option>
-                            </select>
-                        </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                        <button class="prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                            cute nano banana figure
+                        </button>
+                        <button class="prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                            realistic model
+                        </button>
+                        <button class="prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                            bandai style
+                        </button>
+                        <button class="prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                            futuristic design
+                        </button>
                     </div>
                     
-                    <div class="flex flex-wrap gap-3 mb-6">
-                        <span class="text-sm font-medium text-gray-500">Popular prompts:</span>
-                        <button class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-sm transition-colors">nano banana figure</button>
-                        <button class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-sm transition-colors">Bandai style model</button>
-                        <button class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-sm transition-colors">anime character figure</button>
-                        <button class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-sm transition-colors">robot model</button>
+                    <div class="mb-6">
+                        <label class="block text-lg font-medium text-gray-700 mb-2">Style Options</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
+                            <button class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                                Realistic
+                            </button>
+                            <button class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                                Cartoon
+                            </button>
+                            <button class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                                Cyberpunk
+                            </button>
+                            <button class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                                Vintage
+                            </button>
+                            <button class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                                Minimalist
+                            </button>
+                            <button class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                                Fantasy
+                            </button>
+                        </div>
                     </div>
-                    
-                    <button id="generate-btn" class="w-full py-4 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold text-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
-                        <i class="fa fa-magic"></i> Generate Nano Banana Figure
-                    </button>
                 </div>
                 
-                <div class="border-t border-gray-200 p-6 md:p-8 bg-gray-50">
-                    <h3 class="text-xl font-bold mb-4">Your Generated Nano Banana Figure</h3>
-                    <div class="flex items-center justify-center bg-gray-100 rounded-xl p-8 min-h-[300px]">
-                        <div class="text-center" id="generation-placeholder">
-                            <i class="fa fa-image text-5xl text-gray-300 mb-4"></i>
-                            <p class="text-gray-500">Your nano banana figure will appear here</p>
-                        </div>
-                        <div id="generated-image" class="hidden w-full max-w-lg mx-auto">
-                            <img src="" alt="Generated nano banana figure" class="w-full h-auto rounded-lg shadow-md">
-                            <div class="flex gap-3 mt-4 justify-center">
-                                <button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-700 transition-colors">
-                                    <i class="fa fa-download mr-1"></i> Download
-                                </button>
-                                <button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-700 transition-colors">
-                                    <i class="fa fa-refresh mr-1"></i> Regenerate
-                                </button>
-                                <button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-700 transition-colors">
-                                    <i class="fa fa-share-alt mr-1"></i> Share
-                                </button>
+                <div class="bg-gray-50 p-6 md:p-8 border-t border-gray-100">
+                    <h3 class="text-lg font-medium text-gray-700 mb-4">Your Generated Nano Banana</h3>
+                    <div id="generation-result" class="flex flex-col items-center justify-center py-12 border-2 border-dashed border-gray-300 rounded-xl bg-white">
+                        <i class="fa fa-image text-4xl text-gray-300 mb-4"></i>
+                        <p class="text-gray-500 text-center max-w-md">Your nano banana creation will appear here. Click "Generate" to create your first image.</p>
+                    </div>
+                    
+                    <!-- 评分系统 -->
+                    <div id="rating-section" class="mt-6 hidden">
+                        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                            <h4 class="font-medium text-gray-800 mb-3">Rate Your Creation</h4>
+                            <div class="star-rating flex justify-center gap-1 mb-3">
+                                <i class="fa fa-star star text-xl" data-rating="1"></i>
+                                <i class="fa fa-star star text-xl" data-rating="2"></i>
+                                <i class="fa fa-star star text-xl" data-rating="3"></i>
+                                <i class="fa fa-star star text-xl" data-rating="4"></i>
+                                <i class="fa fa-star star text-xl" data-rating="5"></i>
                             </div>
+                            <div class="mt-4">
+                                <label for="rating-comment" class="block text-sm font-medium text-gray-700 mb-1">Leave a comment (optional)</label>
+                                <textarea id="rating-comment" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all" placeholder="What did you think of your generated image?"></textarea>
+                            </div>
+                            <button id="submit-rating" class="mt-3 px-4 py-2 bg-secondary text-white rounded-lg text-sm font-medium hover:bg-secondary/90 transition-colors">
+                                Submit Rating
+                            </button>
                         </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-3 mt-4 justify-center">
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden" id="download-btn">
+                            <i class="fa fa-download mr-1"></i> Download
+                        </button>
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden" id="variation-btn">
+                            <i class="fa fa-random mr-1"></i> Create Variation
+                        </button>
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden" id="new-btn">
+                            <i class="fa fa-refresh mr-1"></i> New Generation
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 提示词示例 -->
-    <section id="prompts" class="py-16 md:py-24">
+    <!-- 评分和评论区域 -->
+    <section id="ratings" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Nano Banana Prompt Examples</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Community <span class="gradient-text">Ratings & Reviews</span></h2>
                 <p class="text-xl text-gray-600">
-                    Get inspired with these popular nano banana prompts that create amazing results
+                    See what users are saying about their Nano Banana AI creations and share your own experience.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- 提示词1 -->
-                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-                    <div class="mb-4">
-                        <img src="https://picsum.photos/seed/nanoprompt1/600/400" alt="Nano Banana figure of a space explorer generated with AI" class="w-full h-48 object-cover rounded-lg">
+            <div class="max-w-5xl mx-auto">
+                <!-- 总体评分 -->
+                <div class="bg-secondary/5 rounded-2xl p-6 md:p-8 mb-10">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl font-bold mb-2">Overall Rating</h3>
+                            <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+                                <div class="text-4xl font-bold text-primary">4.8</div>
+                                <div class="star-rating flex">
+                                    <i class="fa fa-star text-primary"></i>
+                                    <i class="fa fa-star text-primary"></i>
+                                    <i class="fa fa-star text-primary"></i>
+                                    <i class="fa fa-star text-primary"></i>
+                                    <i class="fa fa-star-half-o text-primary"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">Based on 1,248 user ratings</p>
+                        </div>
+                        
+                        <div class="w-full md:w-auto">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-24 text-sm text-gray-600">5 stars</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary h-2.5 rounded-full" style="width: 78%"></div>
+                                </div>
+                                <div class="w-8 text-sm text-gray-600 text-right">78%</div>
+                            </div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-24 text-sm text-gray-600">4 stars</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary h-2.5 rounded-full" style="width: 15%"></div>
+                                </div>
+                                <div class="w-8 text-sm text-gray-600 text-right">15%</div>
+                            </div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-24 text-sm text-gray-600">3 stars</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary h-2.5 rounded-full" style="width: 5%"></div>
+                                </div>
+                                <div class="w-8 text-sm text-gray-600 text-right">5%</div>
+                            </div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-24 text-sm text-gray-600">2 stars</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary h-2.5 rounded-full" style="width: 1%"></div>
+                                </div>
+                                <div class="w-8 text-sm text-gray-600 text-right">1%</div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-24 text-sm text-gray-600">1 star</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary h-2.5 rounded-full" style="width: 1%"></div>
+                                </div>
+                                <div class="w-8 text-sm text-gray-600 text-right">1%</div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Space Explorer Figure</h3>
-                    <p class="text-gray-700 text-sm mb-3">
-                        "A detailed nano banana figure of a female space explorer, white and blue futuristic suit with helmet, Bandai style, standing on a lunar surface base, highly detailed textures, 8K render"
-                    </p>
-                    <button class="text-primary hover:text-accent text-sm font-medium transition-colors">
-                        Use this prompt <i class="fa fa-arrow-right ml-1"></i>
-                    </button>
                 </div>
                 
-                <!-- 提示词2 -->
-                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-                    <div class="mb-4">
-                        <img src="https://picsum.photos/seed/nanoprompt2/600/400" alt="Anime style nano banana model generated with AI" class="w-full h-48 object-cover rounded-lg">
+                <!-- 用户评论 -->
+                <div class="space-y-6">
+                    <!-- 评论 1 -->
+                    <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
+                        <div class="flex items-start gap-4">
+                            <img src="https://picsum.photos/seed/user1/100/100" alt="User avatar" class="w-12 h-12 rounded-full object-cover">
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                                    <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
+                                    <div class="flex items-center gap-2">
+                                        <div class="star-rating flex">
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star text-primary"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-500">2 days ago</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 mb-4">I'm amazed by the quality of the nano banana figures I can create with this tool! The details are incredible, and it's so easy to use. I've made several custom designs for my collection.</p>
+                                <div class="rounded-lg overflow-hidden">
+                                    <img src="https://picsum.photos/seed/review1/600/400" alt="User's generated image" class="w-full h-auto max-h-48 object-cover">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Anime Character Model</h3>
-                    <p class="text-gray-700 text-sm mb-3">
-                        "Nano banana anime character model, spiky pink hair, school uniform, dynamic pose, detailed facial features, translucent base with light effects, Bandai quality, manga style"
-                    </p>
-                    <button class="text-primary hover:text-accent text-sm font-medium transition-colors">
-                        Use this prompt <i class="fa fa-arrow-right ml-1"></i>
-                    </button>
+                    
+                    <!-- 评论 2 -->
+                    <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
+                        <div class="flex items-start gap-4">
+                            <img src="https://picsum.photos/seed/user2/100/100" alt="User avatar" class="w-12 h-12 rounded-full object-cover">
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                                    <h4 class="font-bold text-gray-800">Michael Chen</h4>
+                                    <div class="flex items-center gap-2">
+                                        <div class="star-rating flex">
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star-o text-primary"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-500">1 week ago</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 mb-4">Great tool for quickly generating ideas. The prompt suggestions are helpful, and I love that I can download high-resolution images. Would recommend to any nano banana enthusiast!</p>
+                                <div class="rounded-lg overflow-hidden">
+                                    <img src="https://picsum.photos/seed/review2/600/400" alt="User's generated image" class="w-full h-auto max-h-48 object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 评论 3 -->
+                    <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
+                        <div class="flex items-start gap-4">
+                            <img src="https://picsum.photos/seed/user3/100/100" alt="User avatar" class="w-12 h-12 rounded-full object-cover">
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                                    <h4 class="font-bold text-gray-800">Elena Rodriguez</h4>
+                                    <div class="flex items-center gap-2">
+                                        <div class="star-rating flex">
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star text-primary"></i>
+                                            <i class="fa fa-star-half-o text-primary"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-500">3 days ago</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 mb-4">The bandai style generator is perfect! I've created some amazing figures that look like they could be official products. The rating system is a nice touch to help improve the AI.</p>
+                                <div class="rounded-lg overflow-hidden">
+                                    <img src="https://picsum.photos/seed/review3/600/400" alt="User's generated image" class="w-full h-auto max-h-48 object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- 提示词3 -->
-                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-                    <div class="mb-4">
-                        <img src="https://picsum.photos/seed/nanoprompt3/600/400" alt="Robot nano banana figure generated with AI" class="w-full h-48 object-cover rounded-lg">
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Mechanical Robot Figure</h3>
-                    <p class="text-gray-700 text-sm mb-3">
-                        "Nano banana mechanical robot figure, exposed gears and hydraulics, metallic red and black color scheme, standing pose, weapon in right hand, detailed joints, realistic textures"
-                    </p>
-                    <button class="text-primary hover:text-accent text-sm font-medium transition-colors">
-                        Use this prompt <i class="fa fa-arrow-right ml-1"></i>
-                    </button>
-                </div>
-                
-                <!-- 提示词4 -->
-                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-                    <div class="mb-4">
-                        <img src="https://picsum.photos/seed/nanoprompt4/600/400" alt="Fantasy nano banana model generated with AI" class="w-full h-48 object-cover rounded-lg">
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Fantasy Warrior Model</h3>
-                    <p class="text-gray-700 text-sm mb-3">
-                        "Fantasy knight nano banana model, full armor with dragon motifs, sword and shield, medieval base, dynamic battle pose, glowing runes, highly detailed, realistic lighting"
-                    </p>
-                    <button class="text-primary hover:text-accent text-sm font-medium transition-colors">
-                        Use this prompt <i class="fa fa-arrow-right ml-1"></i>
+                <!-- 加载更多按钮 -->
+                <div class="text-center mt-10">
+                    <button class="px-6 py-3 border border-secondary text-secondary font-medium rounded-xl hover:bg-secondary/5 transition-colors">
+                        Load More Reviews
                     </button>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 提示词指南 -->
+    <section id="prompts" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Perfect <span class="gradient-text">Nano Banana Prompts</span></h2>
+                <p class="text-xl text-gray-600">
+                    Learn how to write effective prompts to create amazing nano banana figures and models.
+                </p>
+            </div>
             
-            <div class="text-center mt-12">
-                <a href="#generator" class="inline-flex items-center px-6 py-3 bg-white border border-primary text-primary rounded-lg font-medium hover:bg-primary/5 transition-colors">
-                    <i class="fa fa-pencil mr-2"></i> Try These Prompts in Generator
-                </a>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-secondary/5 rounded-2xl p-6 md:p-8 mb-10">
+                    <h3 class="text-2xl font-bold mb-4">Prompt Structure Guide</h3>
+                    <p class="text-gray-700 mb-6">A good nano banana prompt includes these elements:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-5 rounded-xl shadow-sm">
+                            <h4 class="font-bold text-primary mb-2">1. Subject</h4>
+                            <p class="text-gray-600">Clearly state what you want: "nano banana figure", "nano banana model", etc.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl shadow-sm">
+                            <h4 class="font-bold text-primary mb-2">2. Style</h4>
+                            <p class="text-gray-600">Specify art style: "anime", "realistic", "bandai style", "cartoon", etc.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl shadow-sm">
+                            <h4 class="font-bold text-primary mb-2">3. Details</h4>
+                            <p class="text-gray-600">Add specific details: "with hat", "mechanical arms", "glowing elements", etc.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl shadow-sm">
+                            <h4 class="font-bold text-primary mb-2">4. Quality</h4>
+                            <p class="text-gray-600">Include quality descriptors: "highly detailed", "8k", "photorealistic", etc.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="text-2xl font-bold mb-6 text-center">Example Prompts</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-medium mb-2">"detailed nano banana figure in bandai style, futuristic armor, glowing blue eyes, high quality, 4k resolution"</p>
+                        <div class="mt-4 rounded-lg overflow-hidden">
+                            <img src="https://picsum.photos/seed/nanobanana1/500/300" alt="Nano banana figure in bandai style" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-medium mb-2">"cute nano banana model, chibi style, holding a tiny sword, soft colors, digital art"</p>
+                        <div class="mt-4 rounded-lg overflow-hidden">
+                            <img src="https://picsum.photos/seed/nanobanana2/500/300" alt="Cute nano banana model" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-medium mb-2">"nano banana cyberpunk figure, neon lights, rain effect, detailed texture, realistic rendering"</p>
+                        <div class="mt-4 rounded-lg overflow-hidden">
+                            <img src="https://picsum.photos/seed/nanobanana3/500/300" alt="Nano banana cyberpunk figure" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-medium mb-2">"vintage nano banana model, steampunk elements, brass and copper details, old photograph style"</p>
+                        <div class="mt-4 rounded-lg overflow-hidden">
+                            <img src="https://picsum.photos/seed/nanobanana4/500/300" alt="Vintage nano banana model" class="w-full h-auto">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 示例展示 -->
-    <section id="examples" class="py-16 md:py-24 bg-gradient-to-br from-secondary/5 to-primary/10">
+    <section id="examples" class="py-16 md:py-24 bg-gradient-to-b from-white to-secondary/5">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Nano Banana AI Examples</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Nano Banana <span class="gradient-text">Examples</span></h2>
                 <p class="text-xl text-gray-600">
-                    Explore these amazing nano banana figures and models created with our AI generator
+                    Browse these amazing creations made with our free Nano Banana AI tool.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 示例1 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg card-hover">
-                    <img src="https://picsum.photos/seed/nanoexample1/600/600" alt="Nano Banana AI generated sci-fi figure with detailed armor" class="w-full h-80 object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <h3 class="text-white font-bold text-xl">Sci-Fi Commander</h3>
-                        <p class="text-gray-200 text-sm">Detailed military nano banana figure with futuristic armor</p>
-                    </div>
-                </div>
-                
-                <!-- 示例2 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg card-hover">
-                    <img src="https://picsum.photos/seed/nanoexample2/600/600" alt="Bandai style nano banana model of a fantasy creature" class="w-full h-80 object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <h3 class="text-white font-bold text-xl">Mythical Beast</h3>
-                        <p class="text-gray-200 text-sm">Bandai style nano banana model with vibrant colors</p>
-                    </div>
-                </div>
-                
-                <!-- 示例3 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg card-hover">
-                    <img src="https://picsum.photos/seed/nanoexample3/600/600" alt="Anime nano banana figure with detailed clothing and accessories" class="w-full h-80 object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <h3 class="text-white font-bold text-xl">Anime Heroine</h3>
-                        <p class="text-gray-200 text-sm">Anime style nano banana figure with dynamic pose</p>
-                    </div>
-                </div>
-                
-                <!-- 示例4 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg card-hover">
-                    <img src="https://picsum.photos/seed/nanoexample4/600/600" alt="Steampunk nano banana model with intricate mechanical details" class="w-full h-80 object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <h3 class="text-white font-bold text-xl">Steampunk Explorer</h3>
-                        <p class="text-gray-200 text-sm">Intricate mechanical details on this nano banana model</p>
-                    </div>
-                </div>
-                
-                <!-- 示例5 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg card-hover">
-                    <img src="https://picsum.photos/seed/nanoexample5/600/600" alt="Chibi style nano banana figure with cute proportions" class="w-full h-80 object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <h3 class="text-white font-bold text-xl">Chibi Character</h3>
-                        <p class="text-gray-200 text-sm">Cute chibi-style nano banana figure with big head</p>
-                    </div>
-                </div>
-                
-                <!-- 示例6 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg card-hover">
-                    <img src="https://picsum.photos/seed/nanoexample6/600/600" alt="Robot nano banana model with futuristic design" class="w-full h-80 object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <h3 class="text-white font-bold text-xl">Future Robot</h3>
-                        <p class="text-gray-200 text-sm">Sleek robot nano banana model with glowing elements</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <button class="px-6 py-3 bg-white border border-gray-200 text-dark rounded-lg font-medium shadow-md hover:shadow-lg transition-all">
-                    <i class="fa fa-refresh mr-2"></i> Load More Examples
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- 人物模型展示 -->
-    <section id="figures" class="py-16 md:py-24">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Nano Banana Figures & Models</h2>
-                <p class="text-xl text-gray-600">
-                    Discover the versatility of our AI generator for creating various types of nano banana figures
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-                <div>
-                    <img src="https://picsum.photos/seed/nanofigure1/800/600" alt="Collection of nano banana figures showing different styles and poses" class="w-full h-auto rounded-xl shadow-xl">
-                </div>
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-bold">Create Any Type of Nano Banana Figure</h3>
-                    <p class="text-gray-600">
-                        Our AI generator specializes in producing high-quality nano banana figures and models for any genre or style. Whether you're a collector, designer, or enthusiast, you can create:
-                    </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-primary mt-1"></i>
-                            <span>Detailed Bandai-style action figures with articulation points</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-primary mt-1"></i>
-                            <span>Anime and manga character models with accurate proportions</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-primary mt-1"></i>
-                            <span>Sci-fi and fantasy creatures with intricate details</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-primary mt-1"></i>
-                            <span>Historical and military figures with realistic uniforms</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-primary mt-1"></i>
-                            <span>Custom original characters with unique designs</span>
-                        </li>
-                    </ul>
-                    <a href="#generator" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-medium shadow-md hover:shadow-lg transition-all">
-                        <i class="fa fa-cube mr-2"></i> Create Your Figure
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 常见问题 -->
-    <section id="faq" class="py-16 md:py-24 bg-gradient-to-br from-secondary/5 to-primary/10">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Frequently Asked Questions</h2>
-                <p class="text-xl text-gray-600">
-                    Everything you need to know about our nano banana AI generator
-                </p>
-            </div>
-            
-            <div class="max-w-3xl mx-auto space-y-6">
-                <!-- FAQ项目1 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold">Is Nano Banana AI really free to use?</span>
-                        <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6">
-                        <p class="text-gray-600">
-                            Yes! Our nano banana AI generator is completely free to use. You can create unlimited figures and models without any cost or subscription required. We may offer premium features in the future, but the core functionality will always remain free.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ项目2 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold">What makes a good nano banana prompt?</span>
-                        <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6">
-                        <p class="text-gray-600">
-                            Effective nano banana prompts include details about the character's appearance, style, pose, and environment. For best results, specify the genre (anime, sci-fi, fantasy), color scheme, and any unique features. Example: "A cyberpunk nano banana figure with neon blue hair, black leather jacket, standing on a futuristic city street, Bandai style."
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ项目3 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold">Can I use the generated nano banana figures commercially?</span>
-                        <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6">
-                        <p class="text-gray-600">
-                            Yes, you can use the nano banana figures generated with our tool for commercial purposes, including merchandise, marketing materials, and product designs. However, you may not use generated content that infringes on existing copyrights or trademarks.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ项目4 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold">How long does it take to generate a nano banana model?</span>
-                        <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6">
-                        <p class="text-gray-600">
-                            Our optimized AI generates most nano banana models in just 5-10 seconds. The exact time may vary slightly depending on the complexity of your prompt and current server load, but we've engineered the system for rapid results.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ项目5 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold">Can I create a series of consistent nano banana figures?</span>
-                        <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6">
-                        <p class="text-gray-600">
-                            Absolutely! Our nano banana AI excels at maintaining character consistency across multiple generations. You can create a series of figures featuring the same character in different poses, outfits, and environments while keeping their core features recognizable.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 行动召唤 -->
-    <section class="py-16 md:py-24">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto bg-gradient-to-r from-secondary to-primary rounded-3xl overflow-hidden shadow-2xl">
-                <div class="p-8 md:p-12 text-center text-white">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Start Creating Amazing Nano Banana Figures Today</h2>
-                    <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-                        Our free AI generator makes it easy to design stunning nano banana models. No experience required - just enter your idea and let our AI bring it to life.
-                    </p>
-                    <a href="#generator" class="inline-flex items-center px-8 py-4 bg-white text-secondary rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all">
-                        <i class="fa fa-magic mr-2"></i> Try Nano Banana AI Free
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer class="bg-dark text-white py-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <a href="/" class="flex items-center gap-2 mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                            <span class="text-white font-bold text-xl">N</span>
+            <div id="figures" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- 示例 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/nbfig1/400/400" alt="Nano banana figure example" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="bg-white text-secondary px-3 py-1 rounded-lg text-sm font-medium">
+                                <i class="fa fa-download mr-1"></i> Download
+                            </button>
                         </div>
-                        <span class="text-2xl font-bold">NanoBananas</span>
-                    </a>
-                    <p class="text-gray-400 mb-4">
-                        Free AI tool for creating amazing nano banana figures, models and artwork with simple prompts.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Discord">
-                            <i class="fa fa-discord"></i>
-                        </a>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Samurai Nano Banana</h3>
+                        <p class="text-sm text-gray-500 mt-1">"samurai nano banana figure, traditional armor, katana, detailed"</p>
+                        <!-- 示例评分 -->
+                        <div class="flex items-center mt-2">
+                            <div class="star-rating flex text-xs">
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(42)</span>
+                        </div>
                     </div>
                 </div>
                 
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Product</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                        <li><a href="#generator" class="text-gray-400 hover:text-white transition-colors">Generator</a></li>
-                        <li><a href="#prompts" class="text-gray-400 hover:text-white transition-colors">Prompts</a></li>
-                        <li><a href="#examples" class="text-gray-400 hover:text-white transition-colors">Examples</a></li>
-                        <li><a href="#figures" class="text-gray-400 hover:text-white transition-colors">Figures</a></li>
-                    </ul>
+                <!-- 示例 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/nbfig2/400/400" alt="Nano banana model example" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="bg-white text-secondary px-3 py-1 rounded-lg text-sm font-medium">
+                                <i class="fa fa-download mr-1"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Space Explorer Model</h3>
+                        <p class="text-sm text-gray-500 mt-1">"nano banana astronaut model, space suit, helmet, stars background"</p>
+                        <!-- 示例评分 -->
+                        <div class="flex items-center mt-2">
+                            <div class="star-rating flex text-xs">
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star-half-o text-primary"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(28)</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Resources</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutorials</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Community</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-                    </ul>
+                <!-- 示例 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/nbfig3/400/400" alt="Nano banana bandai style example" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="bg-white text-secondary px-3 py-1 rounded-lg text-sm font-medium">
+                                <i class="fa fa-download mr-1"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Bandai Style Figure</h3>
+                        <p class="text-sm text-gray-500 mt-1">"nano banana bandai figure, super sentai style, colorful, action pose"</p>
+                        <!-- 示例评分 -->
+                        <div class="flex items-center mt-2">
+                            <div class="star-rating flex text-xs">
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star-o text-primary"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(56)</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Copyright</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Usage Rights</a></li>
-                    </ul>
+                <!-- 示例 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/nbfig4/400/400" alt="Nano banana fantasy example" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="bg-white text-secondary px-3 py-1 rounded-lg text-sm font-medium">
+                                <i class="fa fa-download mr-1"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Wizard Nano Banana</h3>
+                        <p class="text-sm text-gray-500 mt-1">"fantasy nano banana model, wizard hat, magic staff, glowing aura"</p>
+                        <!-- 示例评分 -->
+                        <div class="flex items-center mt-2">
+                            <div class="star-rating flex text-xs">
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(37)</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-                <p>&copy; 2023 NanoBananas.me. All rights reserved. Free nano banana AI generator.</p>
+                
+                <!-- 示例 5 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/nbfig5/400/400" alt="Nano banana robot example" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="bg-white text-secondary px-3 py-1 rounded-lg text-sm font-medium">
+                                <i class="fa fa-download mr-1"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Robot Figure</h3>
+                        <p class="text-sm text-gray-500 mt-1">"mechanical nano banana robot, metal parts, glowing eyes, futuristic"</p>
+                        <!-- 示例评分 -->
+                        <div class="flex items-center mt-2">
+                            <div class="star-rating flex text-xs">
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star-half-o text-primary"></i>
+                                <i class="fa fa-star-o text-primary"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(19)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 示例 6 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/nbfig6/400/400" alt="Nano banana chibi example" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="bg-white text-secondary px-3 py-1 rounded-lg text-sm font-medium">
+                                <i class="fa fa-download mr-1"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Chibi Style Model</h3>
+                        <p class="text-sm text-gray-500 mt-1">"cute nano banana chibi figure, big head, small body, smiling"</p>
+                        <!-- 示例评分 -->
+                        <div class="flex items-center mt-2">
+                            <div class="star-rating flex text-xs">
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star-half-o text-primary"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(48)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 示例 7 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/nbfig7/400/400" alt="Nano banana vintage example" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="bg-white text-secondary px-3 py-1 rounded-lg text-sm font-medium">
+                                <i class="fa fa-download mr-1"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Vintage Toy</h3>
+                        <p class="text-sm text-gray-500 mt-1">"retro nano banana toy model, 1980s style, plastic texture, worn look"</p>
+                        <!-- 示例评分 -->
+                        <div class="flex items-center mt-2">
+                            <div class="star-rating flex text-xs">
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star-o text-primary"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(25)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 示例 8 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/nbfig8/400/400" alt="Nano banana cyber example" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="bg-white text-secondary px-3 py-1 rounded-lg text-sm font-medium">
+                                <i class="fa fa-download mr-1"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Cyberpunk Nano</h3>
+                        <p class="text-sm text-gray-500 mt-1">"cyberpunk nano banana, neon lights, city background, futuristic"</p>
+                        <!-- 示例评分 -->
+                        <div class="flex items-center mt-2">
+                            <div class="star-rating flex text-xs">
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                                <i class="fa fa-star text-primary"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-1">(63)</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
 
     <script>
         // 移动端菜单切换
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuToggle.addEventListener('click', () => {
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
-        
-        // 导航栏滚动效果
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('shadow-md');
-                header.classList.remove('shadow-sm');
-            } else {
-                header.classList.remove('shadow-md');
-                header.classList.add('shadow-sm');
-            }
-        });
-        
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+
+        // 星级评分功能
+        document.querySelectorAll('.star-rating .star').forEach(star => {
+            star.addEventListener('mouseover', function() {
+                const rating = this.getAttribute('data-rating');
+                const parent = this.closest('.star-rating');
                 
-                // 关闭移动菜单（如果打开）
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
+                parent.querySelectorAll('.star').forEach(s => {
+                    s.classList.toggle('active', s.getAttribute('data-rating') <= rating);
+                });
+            });
+            
+            star.addEventListener('mouseout', function() {
+                const parent = this.closest('.star-rating');
+                const activeStars = parent.querySelectorAll('.star.active');
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+                if (activeStars.length === 0) {
+                    parent.querySelectorAll('.star').forEach(s => {
+                        s.classList.remove('active');
                     });
                 }
             });
-        });
-        
-        // FAQ 折叠功能
-        const faqToggles = document.querySelectorAll('.faq-toggle');
-        
-        faqToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const content = toggle.nextElementSibling;
-                const icon = toggle.querySelector('i');
+            
+            star.addEventListener('click', function() {
+                const rating = this.getAttribute('data-rating');
+                const parent = this.closest('.star-rating');
                 
-                // 切换当前FAQ的显示状态
-                content.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
-                
-                // 关闭其他打开的FAQ
-                faqToggles.forEach(otherToggle => {
-                    if (otherToggle !== toggle) {
-                        const otherContent = otherToggle.nextElementSibling;
-                        const otherIcon = otherToggle.querySelector('i');
-                        
-                        if (!otherContent.classList.contains('hidden')) {
-                            otherContent.classList.add('hidden');
-                            otherIcon.classList.remove('rotate-180');
-                        }
-                    }
+                parent.querySelectorAll('.star').forEach(s => {
+                    s.classList.toggle('active', s.getAttribute('data-rating') <= rating);
                 });
             });
         });
-        
-        // 生成按钮功能
-        const generateBtn = document.getElementById('generate-btn');
-        const generationPlaceholder = document.getElementById('generation-placeholder');
-        const generatedImage = document.getElementById('generated-image');
-        const imageElement = generatedImage.querySelector('img');
-        
-        generateBtn.addEventListener('click', () => {
-            // 显示加载状态
-            generateBtn.innerHTML = '<i class="fa fa-circle-o-notch fa-spin"></i> Generating...';
-            generateBtn.disabled = true;
+
+        // 生成按钮功能示例
+        document.getElementById('generate-btn').addEventListener('click', function() {
+            const resultContainer = document.getElementById('generation-result');
+            const downloadBtn = document.getElementById('download-btn');
+            const variationBtn = document.getElementById('variation-btn');
+            const newBtn = document.getElementById('new-btn');
+            const ratingSection = document.getElementById('rating-section');
             
-            // 模拟生成过程
-            setTimeout(() => {
-                // 随机选择一个示例图片
-                const imageId = Math.floor(Math.random() * 6) + 1;
-                imageElement.src = `https://picsum.photos/seed/nanogenerated${imageId}/800/600`;
-                imageElement.alt = 'Your generated nano banana figure';
-                
-                // 显示生成的图片
-                generationPlaceholder.classList.add('hidden');
-                generatedImage.classList.remove('hidden');
-                
-                // 恢复按钮状态
-                generateBtn.innerHTML = '<i class="fa fa-magic"></i> Generate Nano Banana Figure';
-                generateBtn.disabled = false;
-            }, 2000);
+            // 显示生成的图片
+            resultContainer.innerHTML = `
+                <img src="https://picsum.photos/seed/generated/600/400" alt="Generated nano banana image" class="w-full h-auto rounded-lg">
+            `;
+            
+            // 显示操作按钮
+            downloadBtn.classList.remove('hidden');
+            variationBtn.classList.remove('hidden');
+            newBtn.classList.remove('hidden');
+            
+            // 显示评分区域
+            ratingSection.classList.remove('hidden');
         });
-        
-        // 提示词按钮功能
-        const promptButtons = document.querySelectorAll('#generator button:not(#generate-btn)');
-        const promptInput = document.getElementById('prompt');
-        
-        promptButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const promptText = button.textContent;
-                promptInput.value += ` ${promptText}`;
-                promptInput.focus();
+
+        // 提交评分功能
+        document.getElementById('submit-rating').addEventListener('click', function() {
+            const activeStars = document.querySelectorAll('#rating-section .star.active');
+            const comment = document.getElementById('rating-comment').value;
+            
+            if (activeStars.length === 0) {
+                alert('Please select a rating before submitting.');
+                return;
+            }
+            
+            alert(`Thank you for your rating of ${activeStars.length} stars!${comment ? ' Your comment has been submitted.' : ''}`);
+            
+            // 重置评分
+            document.querySelectorAll('#rating-section .star').forEach(star => {
+                star.classList.remove('active');
             });
+            document.getElementById('rating-comment').value = '';
         });
     </script>
 </body>
 </html>
-    

@@ -213,6 +213,312 @@
       </div>
     </header>
 
+    <section
+      id="generator"
+      class="py-16 md:py-24 bg-gradient-to-b from-secondary/5 to-white"
+    >
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Nano Banana <span class="gradient-text">AI Generator</span>
+          </h2>
+          <p class="text-xl text-gray-600">
+            Create stunning nano banana figures from text, or upload an image to
+            modify.
+          </p>
+        </div>
+
+        <!-- Main Generator Card with Glassmorphism Effect -->
+        <div
+          class="max-w-7xl mx-auto bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-gray-200/50"
+        >
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- =============================================================== -->
+            <!-- Left Column: Controls & Inputs                            -->
+            <!-- =============================================================== -->
+            <div
+              class="p-6 md:p-10 border-b lg:border-b-0 lg:border-r border-gray-200/50"
+            >
+              <!-- Image Upload Section -->
+              <div class="mb-8">
+                <label class="block text-lg font-medium text-gray-800 mb-3"
+                  >1. Upload Image (Optional)</label
+                >
+                <div
+                  id="image-preview-container"
+                  class="hidden mb-4 relative w-fit mx-auto"
+                >
+                  <img
+                    id="image-preview"
+                    src="#"
+                    alt="Your uploaded image"
+                    class="max-h-60 rounded-xl shadow-lg"
+                  />
+                  <button
+                    id="remove-image-btn"
+                    class="absolute -top-3 -right-3 bg-white rounded-full p-1.5 shadow-md hover:bg-red-500 hover:text-white transition-all duration-300"
+                    title="Remove image"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  id="image-upload-zone"
+                  class="flex justify-center items-center w-full"
+                >
+                  <label
+                    for="image-upload-input"
+                    class="flex flex-col items-center justify-center w-full h-36 border-2 border-gray-300 border-dashed rounded-2xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
+                  >
+                    <div
+                      id="upload-initial-state"
+                      class="flex flex-col items-center justify-center"
+                    >
+                      <svg
+                        class="w-10 h-10 mb-3 text-gray-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                        ></path>
+                      </svg>
+                      <p class="mb-2 text-sm text-gray-500">
+                        <span class="font-semibold">Click to upload</span>
+                        or drag and drop
+                      </p>
+                      <p class="text-xs text-gray-500">PNG, JPG, or WEBP</p>
+                    </div>
+                    <input
+                      id="image-upload-input"
+                      type="file"
+                      class="hidden"
+                      accept="image/png, image/jpeg, image/webp"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <!-- Prompt Section -->
+              <div class="mb-8">
+                <label
+                  for="prompt"
+                  class="block text-lg font-medium text-gray-800 mb-3"
+                  >2. Describe Your Vision</label
+                >
+                <textarea
+                  id="prompt"
+                  rows="4"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all text-base"
+                  placeholder="e.g., 'a cyberpunk nano banana soldier, glowing neon details, cinematic lighting, 8k'"
+                ></textarea>
+
+                <!-- 提示词建议按钮 -->
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <button
+                    class="prompt-suggestion px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors"
+                  >
+                    Realistic Desk Scene
+                  </button>
+                  <button
+                    class="prompt-suggestion px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors"
+                  >
+                    3x3 Portrait Grid
+                  </button>
+                  <button
+                    class="prompt-suggestion px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors"
+                  >
+                    Bandai Style
+                  </button>
+                  <button
+                    class="prompt-suggestion px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors"
+                  >
+                    Futuristic Design
+                  </button>
+                </div>
+
+                <p class="text-sm text-gray-500 mt-3">
+                  Need more inspiration?
+                  <a href="#" class="text-primary hover:underline font-medium"
+                    >Try our prompt guide</a
+                  >
+                </p>
+              </div>
+
+              <!-- Style Options -->
+              <div class="mb-8">
+                <label class="block text-lg font-medium text-gray-800 mb-3"
+                  >3. Choose a Style</label
+                >
+                <div class="grid grid-cols-3 sm:grid-cols-3 gap-3">
+                  <button
+                    class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors"
+                  >
+                    Realistic
+                  </button>
+                  <button
+                    class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors"
+                  >
+                    Cartoon
+                  </button>
+                  <button
+                    class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors"
+                  >
+                    Cyberpunk
+                  </button>
+                  <button
+                    class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors"
+                  >
+                    Vintage
+                  </button>
+                  <button
+                    class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors"
+                  >
+                    Minimalist
+                  </button>
+                  <button
+                    class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors"
+                  >
+                    Fantasy
+                  </button>
+                </div>
+              </div>
+
+              <!-- Generate Button -->
+              <div>
+                <button
+                  id="generate-btn"
+                  class="w-full px-8 py-4 bg-gradient-to-r from-primary to-accent text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform transition-all duration-300 flex items-center justify-center"
+                >
+                  <i class="fa fa-magic mr-2"></i> Generate
+                </button>
+              </div>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- Right Column: Output & Actions                              -->
+            <!-- =============================================================== -->
+            <div class="bg-gray-50/70 p-6 md:p-10 flex flex-col">
+              <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                Your Generated Nano Banana
+              </h3>
+              <!-- Result Display Area -->
+              <div
+                id="generation-result"
+                class="w-full aspect-square flex flex-col items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-2xl bg-white shadow-inner transition-all duration-300"
+              >
+                <!-- Placeholder Content -->
+                <div id="result-placeholder" class="text-center text-gray-400">
+                  <svg
+                    class="mx-auto h-16 w-16"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      vector-effect="non-scaling-stroke"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <p class="mt-4 text-gray-500">
+                    Your creation will appear here.
+                  </p>
+                </div>
+                <!-- The actual image will be inserted here by JS -->
+              </div>
+
+              <!-- Action Buttons -->
+              <div
+                id="action-buttons"
+                class="flex flex-wrap gap-3 mt-6 justify-center"
+              >
+                <button
+                  id="download-btn"
+                  class="px-5 py-2.5 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors hidden font-medium text-sm flex items-center"
+                >
+                  <i class="fa fa-download mr-2"></i>Download
+                </button>
+                <button
+                  id="variation-btn"
+                  class="px-5 py-2.5 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors hidden font-medium text-sm flex items-center"
+                >
+                  <i class="fa fa-random mr-2"></i>Create Variation
+                </button>
+                <button
+                  id="new-btn"
+                  class="px-5 py-2.5 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors hidden font-medium text-sm flex items-center"
+                >
+                  <i class="fa fa-refresh mr-2"></i>New Generation
+                </button>
+              </div>
+
+              <!-- Rating System -->
+              <div id="rating-section" class="mt-auto pt-6 hidden">
+                <div
+                  class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm"
+                >
+                  <h4 class="font-medium text-gray-800 mb-3 text-center">
+                    Rate Your Creation
+                  </h4>
+                  <div
+                    class="star-rating flex justify-center gap-1.5 mb-3 text-gray-300"
+                  >
+                    <i
+                      class="fa fa-star star text-2xl cursor-pointer transition-colors"
+                      data-rating="1"
+                    ></i>
+                    <i
+                      class="fa fa-star star text-2xl cursor-pointer transition-colors"
+                      data-rating="2"
+                    ></i>
+                    <i
+                      class="fa fa-star star text-2xl cursor-pointer transition-colors"
+                      data-rating="3"
+                    ></i>
+                    <i
+                      class="fa fa-star star text-2xl cursor-pointer transition-colors"
+                      data-rating="4"
+                    ></i>
+                    <i
+                      class="fa fa-star star text-2xl cursor-pointer transition-colors"
+                      data-rating="5"
+                    ></i>
+                  </div>
+                  <button
+                    id="submit-rating"
+                    class="mt-3 w-full px-4 py-2 bg-secondary text-white rounded-lg text-sm font-medium hover:bg-secondary/90 transition-colors"
+                  >
+                    Submit Rating
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="py-16 md:py-24 bg-gradient-to-b from-white to-secondary/5">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col lg:flex-row items-center gap-12">
@@ -569,268 +875,6 @@
             >
               Start for free <i class="fa fa-arrow-right ml-1"></i>
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 生成器区域 -->
-    <section
-      id="generator"
-      class="py-16 md:py-24 bg-gradient-to-b from-secondary/5 to-white"
-    >
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">
-            Nano Banana <span class="gradient-text">AI Generator</span>
-          </h2>
-          <p class="text-xl text-gray-600">
-            Create stunning nano banana figures from text, or upload an image to
-            modify.
-          </p>
-        </div>
-
-        <div
-          class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100"
-        >
-          <div class="p-6 md:p-8">
-            <!-- NEW: Image Upload Section -->
-            <div class="mb-6">
-              <label class="block text-lg font-medium text-gray-700 mb-2"
-                >Upload an Image (Optional)</label
-              >
-
-              <!-- This is the container for the image preview, hidden by default -->
-              <div
-                id="image-preview-container"
-                class="hidden mb-4 relative w-fit mx-auto"
-              >
-                <img
-                  id="image-preview"
-                  src="#"
-                  alt="Your uploaded image"
-                  class="max-h-60 rounded-xl shadow-md"
-                />
-                <button
-                  id="remove-image-btn"
-                  class="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-md hover:bg-red-500 hover:text-white transition-colors"
-                  title="Remove image"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
-
-              <!-- This is the dropzone/upload button, shown by default -->
-              <div
-                id="image-upload-zone"
-                class="flex justify-center items-center w-full"
-              >
-                <label
-                  for="image-upload-input"
-                  class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
-                >
-                  <!-- This is the wrapper for the initial state -->
-                  <div id="upload-initial-state">
-                    <div
-                      class="flex flex-col items-center justify-center pt-5 pb-6"
-                    >
-                      <i
-                        class="fa fa-cloud-upload text-3xl text-gray-400 mb-2"
-                      ></i>
-                      <p class="mb-2 text-sm text-gray-500">
-                        <span class="font-semibold">Click to upload</span> or
-                        drag and drop
-                      </p>
-                      <p class="text-xs text-gray-500">PNG, JPG, or WEBP</p>
-                    </div>
-                  </div>
-
-                  <input
-                    id="image-upload-input"
-                    type="file"
-                    class="hidden"
-                    accept="image/png, image/jpeg, image/webp"
-                  />
-                </label>
-              </div>
-            </div>
-            <!-- END NEW: Image Upload Section -->
-
-            <div class="mb-6">
-              <label
-                for="prompt"
-                class="block text-lg font-medium text-gray-700 mb-2"
-                >Enter your prompt</label
-              >
-              <div class="flex flex-col sm:flex-row gap-3">
-                <textarea
-                  id="prompt"
-                  rows="3"
-                  class="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all"
-                  placeholder="Describe your nano banana figure or model... e.g., 'a cyberpunk nano banana figure with glowing eyes, highly detailed, 8k resolution'"
-                ></textarea>
-                <button
-                  id="generate-btn"
-                  class="px-6 py-3 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-xl shadow hover:shadow-lg transition-all flex items-center justify-center"
-                >
-                  <i class="fa fa-magic mr-2"></i> Generate
-                </button>
-              </div>
-              <p class="text-sm text-gray-500 mt-2">
-                Need help?
-                <a href="#prompts" class="text-primary hover:underline"
-                  >Try our prompt guide</a
-                >
-              </p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-              <button
-                class="prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors"
-              >
-                cute nano banana figure
-              </button>
-              <button
-                class="prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors"
-              >
-                realistic model
-              </button>
-              <button
-                class="prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors"
-              >
-                bandai style
-              </button>
-              <button
-                class="prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors"
-              >
-                futuristic design
-              </button>
-            </div>
-
-            <div class="mb-6">
-              <label class="block text-lg font-medium text-gray-700 mb-2"
-                >Style Options</label
-              >
-              <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
-                <button
-                  class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors"
-                >
-                  Realistic
-                </button>
-                <button
-                  class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors"
-                >
-                  Cartoon
-                </button>
-                <button
-                  class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors"
-                >
-                  Cyberpunk
-                </button>
-                <button
-                  class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors"
-                >
-                  Vintage
-                </button>
-                <button
-                  class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors"
-                >
-                  Minimalist
-                </button>
-                <button
-                  class="style-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors"
-                >
-                  Fantasy
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-gray-50 p-6 md:p-8 border-t border-gray-100">
-            <h3 class="text-lg font-medium text-gray-700 mb-4">
-              Your Generated Nano Banana
-            </h3>
-            <div
-              id="generation-result"
-              class="flex flex-col items-center justify-center py-12 border-2 border-dashed border-gray-300 rounded-xl bg-white"
-            >
-              <i class="fa fa-image text-4xl text-gray-300 mb-4"></i>
-              <p class="text-gray-500 text-center max-w-md">
-                Your nano banana creation will appear here. Click "Generate" to
-                create your first image.
-              </p>
-            </div>
-
-            <!-- 评分系统 -->
-            <div id="rating-section" class="mt-6 hidden">
-              <div
-                class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm"
-              >
-                <h4 class="font-medium text-gray-800 mb-3">
-                  Rate Your Creation
-                </h4>
-                <div class="star-rating flex justify-center gap-1 mb-3">
-                  <i class="fa fa-star star text-xl" data-rating="1"></i>
-                  <i class="fa fa-star star text-xl" data-rating="2"></i>
-                  <i class="fa fa-star star text-xl" data-rating="3"></i>
-                  <i class="fa fa-star star text-xl" data-rating="4"></i>
-                  <i class="fa fa-star star text-xl" data-rating="5"></i>
-                </div>
-                <div class="mt-4">
-                  <label
-                    for="rating-comment"
-                    class="block text-sm font-medium text-gray-700 mb-1"
-                    >Leave a comment (optional)</label
-                  >
-                  <textarea
-                    id="rating-comment"
-                    rows="2"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all"
-                    placeholder="What did you think of your generated image?"
-                  ></textarea>
-                </div>
-                <button
-                  id="submit-rating"
-                  class="mt-3 px-4 py-2 bg-secondary text-white rounded-lg text-sm font-medium hover:bg-secondary/90 transition-colors"
-                >
-                  Submit Rating
-                </button>
-              </div>
-            </div>
-
-            <div class="flex flex-wrap gap-3 mt-4 justify-center">
-              <button
-                class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden"
-                id="download-btn"
-              >
-                <i class="fa fa-download mr-1"></i> Download
-              </button>
-              <button
-                class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden"
-                id="variation-btn"
-              >
-                <i class="fa fa-random mr-1"></i> Create Variation
-              </button>
-              <button
-                class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden"
-                id="new-btn"
-              >
-                <i class="fa fa-refresh mr-1"></i> New Generation
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -1608,7 +1652,6 @@
           }
 
           const data = await response.json();
-          console.log(data);
           let base64Image = data.data.img_base64;
           const imageUrl = `data:image/png;base64,${base64Image}`;
 

@@ -15,8 +15,7 @@
       name="keywords"
       content="nano banana, nano banana ai, nano banana ai gemini, nano banana prompt, nano banana figure, nano banana model, nano banana ai free, nano banana bandai"
     />
-    <link rel="canonical" href="https://nanobananas.me/" />
-
+    <link rel="canonical" href="https://www.nanobananas.me/" />
     <!-- External Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -70,6 +69,19 @@
         }
       }
     </style>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0BS5F771SF"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-0BS5F771SF");
+    </script>
   </head>
 
   <body class="font-inter bg-light text-dark">
@@ -952,7 +964,7 @@
                   <div class="rounded-lg overflow-hidden">
                     <img
                       src="./image/nano-banana-custom-detailed-figure.avif"
-                      alt="User's generated image"
+                      alt="A Zenitsu Agatsuma figure from Demon Slayer on a desk, with its 3D wireframe model visible in Blender on the monitor behind it."
                       class="w-full h-auto max-h-100 object-cover"
                     />
                   </div>
@@ -995,7 +1007,7 @@
                   <div class="rounded-lg overflow-hidden">
                     <img
                       src="./image/nano-banana-ai-idea-generation.webp"
-                      alt="User's generated image"
+                      alt="An anime-style portrait of a pensive young woman gently running a hand through her hair."
                       class="w-full h-auto max-h-100 object-cover"
                     />
                   </div>
@@ -1038,7 +1050,7 @@
                   <div class="rounded-lg overflow-hidden">
                     <img
                       src="./image/nano-banana-ai-bandai-style-figure.jpeg"
-                      alt="User's generated image"
+                      alt="A dramatic black and white portrait photograph of actor Daniel Radcliffe in profile, featuring strong lighting and shadow."
                       class="w-full h-auto max-h-100 object-cover"
                     />
                   </div>
@@ -1487,7 +1499,7 @@
       function handleFileSelect(file) {
         if (!file) return;
         const allowedTypes = ["image/png", "image/jpeg", "image/webp"];
-        const filesize = 8 * 1024 ;
+        const filesize = 8 * 1024;
         if (file.size > filesize) {
           alert("File size exceeds 8KB. Please upload a smaller file.");
           return;

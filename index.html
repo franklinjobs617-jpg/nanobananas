@@ -1499,11 +1499,6 @@
       function handleFileSelect(file) {
         if (!file) return;
         const allowedTypes = ["image/png", "image/jpeg", "image/webp"];
-        const filesize = 8 * 1024;
-        if (file.size > filesize) {
-          alert("File size exceeds 8KB. Please upload a smaller file.");
-          return;
-        }
         if (!allowedTypes.includes(file.type)) {
           alert("Invalid file type. Please upload a PNG, JPG, or WEBP file.");
           resetUploadZone();

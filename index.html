@@ -1295,12 +1295,12 @@
           body: formData,
         });
 
-        if (!response.ok) {
+        if (response.status != 0) {
           const errorData = await response
             .json()
             .catch(() => ({ message: response.statusText }));
           throw new Error(
-            `API Error: ${errorData.message || "Failed to generate image"}`
+            `The service has reached its daily request limi.`
           );
         }
 
@@ -1309,7 +1309,7 @@
         const imageUrl = `${base64Image}`;
 
         if (!imageUrl) {
-          throw new Error("API response did not include a valid image URL.");
+          throw new Error("The service has reached its daily request limi.");
         }
 
         resultContainer.innerHTML = `
@@ -1323,8 +1323,7 @@
         console.error("Generation Failed:", error);
         resultContainer.innerHTML = `
                 <div class="text-center text-red-500 bg-red-50 p-4 rounded-lg">
-                    <p class="font-bold">Oops! Something went wrong.</p>
-                    <p class="text-sm mt-1">${error.message}</p>
+                    <p class="font-bold">Oops! The service has reached its daily request limi.</p>
                 </div>
             `;
       }

@@ -951,6 +951,23 @@
     </div>
   </footer>
 
+
+  <div id="image-preview-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-opacity duration-300">
+    <div class="relative max-w-4xl max-h-[90vh] w-full h-full">
+      <!-- Close Button -->
+      <button id="close-preview-modal-btn" class="absolute -top-10 right-0 text-white hover:text-primary transition-colors z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Image Container -->
+      <div class="w-full h-full flex items-center justify-center">
+        <img id="preview-modal-image" src="" alt="Generated Image Preview" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
+      </div>
+    </div>
+  </div>
+
   <!-- =============================================================== -->
   <!-- Login Modal -->
   <!-- =============================================================== -->
@@ -1102,19 +1119,15 @@
           .getElementById("generation-result")
           .querySelector("img");
         const imgUrl = img.src;
-
         try {
-          const response = await fetch(imgUrl, { mode: "cors" });
+          const response = await fetch(imgUrl, { mode: "no-cors" });
           const blob = await response.blob();
           const blobUrl = URL.createObjectURL(blob);
-
           const link = document.createElement("a");
           link.href = blobUrl;
           link.download = "nano_banana.png";
           document.body.appendChild(link);
           link.click();
-
-          // 清理
           document.body.removeChild(link);
           URL.revokeObjectURL(blobUrl);
         } catch (err) {
@@ -1298,9 +1311,7 @@
           method: "post",
           body: formData,
         });
-
- 
-
+        
         const data = await response.json();
         if(data.status == 1){
           resultContainer.innerHTML = `
@@ -1332,10 +1343,8 @@
       prodLimit()
     });
 
-
     async function prodLimit() {
       console.log("开始执行 prodLimit");
-
       let textLimit = document.getElementById('textLimit');
       if (!textLimit) {
         console.error("元素 #textLimit 没找到");
@@ -1364,6 +1373,43 @@
       prodLimit().catch(err => console.error("prodLimit error:", err));
     };
 
+    //点击图片继续预览
+    const imagePreviewModal = document.getElementById('image-preview-modal');
+    const previewModalImage = document.getElementById('preview-modal-image');
+    const closePreviewModalBtn = document.getElementById('close-preview-modal-btn');
+    const generationResultContainer = document.getElementById('generation-result');
+
+    function openPreviewModal(imageUrl) {
+      previewModalImage.src = imageUrl;
+      imagePreviewModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closePreviewModal() {
+      imagePreviewModal.classList.add('hidden');
+      document.body.style.overflow = ''; // Restore scrolling
+      previewModalImage.src = ''; // Clear src to prevent flash of old image
+    }
+
+    generationResultContainer.addEventListener('click', function(event) {
+      if (event.target.tagName === 'IMG') {
+        openPreviewModal(event.target.src);
+      }
+    });
+
+    closePreviewModalBtn.addEventListener('click', closePreviewModal);
+
+    imagePreviewModal.addEventListener('click', function(event) {
+      if (event.target === imagePreviewModal) {
+        closePreviewModal();
+      }
+    });
+
+    window.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && !imagePreviewModal.classList.contains('hidden')) {
+        closePreviewModal();
+      }
+    });
 
    
 

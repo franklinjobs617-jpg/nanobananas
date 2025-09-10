@@ -1448,42 +1448,42 @@ const promptExampleList = [
     });
 
     generateBtn.addEventListener("click", async function () {
-      const promptText = document.getElementById("prompt").value.trim();
-      const resultContainer = document.getElementById("generation-result");
-      const ratingSection = document.getElementById("rating-section");
-      const actionButtons = document.querySelectorAll(
+    const promptText = document.getElementById("prompt").value.trim();
+    const resultContainer = document.getElementById("generation-result");
+    const ratingSection = document.getElementById("rating-section");
+    const actionButtons = document.querySelectorAll(
         "#download-btn, #variation-btn, #new-btn"
-      );
+    );
 
-      if (!promptText) {
+    if (!promptText) {
         alert("Please enter a prompt first!");
         return;
-      }
+    }
 
-      ratingSection.classList.add("hidden");
-      actionButtons.forEach((btn) => btn.classList.add("hidden"));
-      resultContainer.innerHTML = `<div class="flex justify-center items-center w-full min-h-[256px]">
+    ratingSection.classList.add("hidden");
+    actionButtons.forEach((btn) => btn.classList.add("hidden"));
+    resultContainer.innerHTML = `<div class="flex justify-center items-center w-full min-h-[256px]">
         <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
-    </div>`; // Abridged for clarity
+    </div>`;
 
-      const imageFile = getSelectedFile();
-      const formData = new FormData();
-      formData.append("prompt", promptText);
+    const imageFile = getSelectedFile();
+    const formData = new FormData();
+    formData.append("prompt", promptText);
 
-      if (imageFile) {
+    if (imageFile) {
         formData.append("file", imageFile);
-      }
+    }
 
-      try {
+    try {
         const apiUrl = "https://api.nanobananas.me/prod-api/gemini/gen";
         const response = await fetch(apiUrl, {
-          method: "post",
-          body: formData,
+            method: "post",
+            body: formData,
         });
         
         const data = await response.json();
         if(data.code == 1){
-          resultContainer.innerHTML = `
+            resultContainer.innerHTML = `
                 <div class="text-center text-red-500 bg-red-50 p-4 rounded-lg">
                     <p class="font-bold">${data.msg}</p>
                 </div>
@@ -1491,27 +1491,33 @@ const promptExampleList = [
             return;
         }
         let base64Image = data.data.url;
-      
+    
         const imageUrl = `${base64Image}`;
-        resultContainer.innerHTML = `
-                <img src="${imageUrl}" alt="AI image generated for prompt: ${promptText}" class="w-full h-auto rounded-lg shadow-lg">
-            `;
 
+        resultContainer.innerHTML = `
+            <img src="${imageUrl}" alt="AI image generated for prompt: ${promptText}" class="w-full h-auto rounded-lg shadow-lg">
+            
+            <div id="download-loader" class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white rounded-2xl hidden">
+              <svg class="animate-spin h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              <p class="mt-2 text-lg">Downloading...</p>
+            </div>
+        `;
         ratingSection.classList.remove("hidden");
         actionButtons.forEach((btn) => btn.classList.remove("hidden"));
         prodLimit()
-      } catch (error) {
+    } catch (error) {
         console.error("Generation Failed:", error);
         resultContainer.innerHTML = `
                 <div class="text-center text-red-500 bg-red-50 p-4 rounded-lg">
                     <p class="font-bold">Oops! The service has reached its daily request limit</p>
                 </div>
             `;
-     ;
-      }
-      prodLimit()
-    });
-
+    }
+    prodLimit()
+});
     async function prodLimit() {
       let textLimit = document.getElementById('textLimit');
 

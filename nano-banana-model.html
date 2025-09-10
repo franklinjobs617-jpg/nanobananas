@@ -74,71 +74,75 @@
 </head>
 <body class="font-inter bg-light text-dark">
     <!-- 导航栏 -->
-  <header class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16 md:h-20">
-        <a href="/" class="flex items-center gap-2">
-          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <span class="text-white font-bold text-xl">N</span>
+    <header class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-16 md:h-20">
+            <a href="/" class="flex items-center gap-2">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                <span class="text-white font-bold text-xl">N</span>
+              </div>
+              <span class="text-xl md:text-2xl font-bold gradient-text">
+                NanoBananas
+              </span>
+            </a>
+    
+            <nav class="hidden md:flex items-center space-x-8">
+              <a href="#features" class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+              <a href="#prompts" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+              <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+              <a href="#figures" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+              <a href="bandai-nano-banana.html"
+                class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+              <a href="nano-banana-model-kit.html"
+                class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+                <a href="nano-banana-model.html"
+                class="text-gray-600 hover:text-primary transition-colors font-medium">3d Model</a>
+              <a href="#ratings" class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+              <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-3">
+              <!-- Custom Sign In Button to open modal -->
+              <button id="open-login-modal-btn"
+                class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
+                Sign In
+              </button>
+    
+              <!-- User Info Display (hidden by default) - THIS STAYS THE SAME -->
+              <div id="user-info-container" class="hidden relative group">
+                <!-- ... (the user avatar and dropdown menu code is unchanged) ... -->
+              </div>
+    
+              <!-- Mobile Menu Toggle -->
+              <button id="menu-toggle" class="md:hidden text-2xl text-gray-600 hover:text-primary">
+                <i class="fa fa-bars"></i>
+              </button>
+            </div>
           </div>
-          <span class="text-xl md:text-2xl font-bold gradient-text">
-            NanoBananas
-          </span>
-        </a>
-
-        <nav class="hidden md:flex items-center space-x-8">
-          <a href="#features" class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
-          <a href="#prompts" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
-          <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-          <a href="#figures" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
-          <a href="bandai-nano-banana.html"
-            class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
-          <a href="nano_banana_model_kit.html"
-            class="text-gray-600 hover:text-primary transition-colors font-medium">Models</a>
-          <a href="#ratings" class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
-          <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
-        </nav>
-        <div class="flex items-center gap-3">
-          <!-- Custom Sign In Button to open modal -->
-          <button id="open-login-modal-btn"
-            class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
-            Sign In
-          </button>
-
-          <!-- User Info Display (hidden by default) - THIS STAYS THE SAME -->
-          <div id="user-info-container" class="hidden relative group">
-            <!-- ... (the user avatar and dropdown menu code is unchanged) ... -->
+        </div>
+    
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+          <div class="container mx-auto px-4 py-3 space-y-3">
+            <a href="#features"
+              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+            <a href="#prompts" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+            <a href="#examples"
+              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+            <a href="#figures" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+            <a href="bandai-nano-banana.html"
+              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+              <a href="nano-banana-model-kit.html"
+              class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+              <a href="nano-banana-model.html"
+              class="text-gray-600 hover:text-primary transition-colors font-medium">3d Model</a>
+            <a href="#ratings" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+            <a href="#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+    
+            <div class="">
+    
+            </div>
           </div>
-
-          <!-- Mobile Menu Toggle -->
-          <button id="menu-toggle" class="md:hidden text-2xl text-gray-600 hover:text-primary">
-            <i class="fa fa-bars"></i>
-          </button>
         </div>
-      </div>
-    </div>
-
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-      <div class="container mx-auto px-4 py-3 space-y-3">
-        <a href="#features"
-          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
-        <a href="#prompts" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
-        <a href="#examples"
-          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-        <a href="#figures" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
-        <a href="bandai-nano-banana.html"
-          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
-        <a href="nano_banana_model_kit.html"
-          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Models</a>
-        <a href="#ratings" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
-        <a href="#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
-
-        <div class="">
-
-        </div>
-      </div>
-    </div>
-  </header>
+      </header>
 
     <!-- 页面标题区 -->
     <section class="py-12 md:py-20 bg-gradient-to-b from-white to-gray-50">

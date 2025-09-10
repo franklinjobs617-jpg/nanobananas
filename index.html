@@ -21,6 +21,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <meta property="og:title" content="NanoBananas | AI-Powered Nano Banana Model Kit & 3D Creation Tools">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.nanobananas.me/">
+    <meta property="og:image" content="https://www.nanobananas.me/images/nano-banana-3d-model-og.jpg"> <!-- 建议替换为包含3D模型或Bandai风格的图片 -->
+    
+    <meta property="og:description" content="Create custom nano banana model kits, 3D models, and explore Bandai-style nano banana designs with AI. Perfect for hobbyists and creators.">
+    <meta property="og:site_name" content="NanoBananas">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:article:tag" content="nano banana model kit">
+    <meta property="og:article:tag" content="nano banana 3d model">
+    <meta property="og:article:tag" content="bandai nano banana">
+    <meta property="og:article:tag" content="nano banana bandai">
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3383070348689557"
      crossorigin="anonymous"></script>
@@ -292,20 +304,28 @@
             </h3>
             <!-- Result Display Area -->
             <div id="generation-result"
-              class="w-full aspect-square flex flex-col items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-2xl bg-white shadow-inner transition-all duration-300">
-              <!-- Placeholder Content -->
-              <div id="result-placeholder" class="text-center text-gray-400">
+            class="relative w-full aspect-square flex flex-col items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-2xl bg-white shadow-inner transition-all duration-300">
+            
+            <div id="result-placeholder" class="text-center text-gray-400">
                 <svg class="mx-auto h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 <p class="mt-4 text-gray-500">
-                  Your creation will appear here.
+                    Your creation will appear here.
                 </p>
-              </div>
-              <!-- The actual image will be inserted here by JS -->
             </div>
+            
+        
+            <!-- 新增：下载时的 Loading 覆盖层 -->
+            <div id="download-loader" class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white rounded-2xl hidden">
+              <svg class="animate-spin h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              <p class="mt-2 text-lg">Downloading...</p>
+          </div>
+        </div>
 
             <!-- Action Buttons -->
             <div id="action-buttons" class="flex flex-wrap gap-3 mt-6 justify-center">
@@ -1116,28 +1136,57 @@
     });
 
     //图片下载
-    document
-      .getElementById("download-btn")
-      .addEventListener("click", async function () {
-        const img = document
-          .getElementById("generation-result")
-          .querySelector("img");
+document.getElementById("download-btn").addEventListener("click", async function () {
+    const resultContainer = document.getElementById("generation-result");
+    const loader = document.getElementById("download-loader");
+    const img = resultContainer.querySelector("img");
+
+    if (!img || !img.src) {
+        console.error("No image found to download.");
+        alert("There is no image to download yet!");
+        return; // 提前退出
+    }
+
+    console.log("Downloading image:", img.src,loader);
+
+    // 2. 显示 loading 动画
+    loader.classList.remove("hidden");
+
+    const newData = () => {
+        const d = new Date();
+        return d.getFullYear().toString() +
+            (d.getMonth() + 1).toString().padStart(2, '0') +
+            d.getDate().toString().padStart(2, '0') +
+            d.getHours().toString().padStart(2, '0') +
+            d.getMinutes().toString().padStart(2, '0') +
+            d.getSeconds().toString().padStart(2, '0');
+    };
+
+    try {
         const imgUrl = `https://api.nanobananas.me/prod-api/gemini/download?url=${img.src}`;
-        try {
-          const response = await fetch(imgUrl, { mode: "cors" });
-          const blob = await response.blob();
-          const blobUrl = URL.createObjectURL(blob);
-          const link = document.createElement("a");
-          link.href = blobUrl;
-          link.download = `${newData()}nano_banana.png`;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          URL.revokeObjectURL(blobUrl);
-        } catch (err) {
-          console.error("download error:", err);
+        const response = await fetch(imgUrl, { mode: "cors" });
+
+        if (!response.ok) {
+            throw new Error(`Download failed with status: ${response.status}`);
         }
-      });
+
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = blobUrl;
+        link.download = `${newData()}_nano_banana.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(blobUrl);
+
+    } catch (err) {
+        console.error("download error:", err);
+        alert("Sorry, the download failed. Please try again.");
+    } finally {
+        loader.classList.add("hidden");
+    }
+});
 
 
       function newData(){

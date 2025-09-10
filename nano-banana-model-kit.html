@@ -928,7 +928,7 @@
         const img = document
           .getElementById("generation-result")
           .querySelector("img");
-        const imgUrl = `https://api.nanobananas.me/prod-api/download?url=${img.src}`;
+        const imgUrl = `https://api.nanobananas.me/prod-api/gemini/download?url=${img.src}`;
         try {
           const response = await fetch(imgUrl, { mode: "cors" });
           const blob = await response.blob();
@@ -941,7 +941,7 @@
           document.body.removeChild(link);
           URL.revokeObjectURL(blobUrl);
         } catch (err) {
-          console.error("下载失败:", err);
+          console.error("download error:", err);
         }
       });
 
@@ -960,7 +960,7 @@
         return;
       }
 
-      const response = await fetch('https://api.nanobananas.me/prod-api/limit', {
+      const response = await fetch('https://api.nanobananas.me/prod-api/gemini/limit', {
         method: "GET",
       });
 

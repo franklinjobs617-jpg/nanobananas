@@ -6,7 +6,6 @@
         <priority>1.0</priority>
     </url>
     
-    <!-- 3D模型页面 -->
     <url>
         <loc>https://nanobananas.me/nano-banana-model.html</loc>
         <priority>0.8</priority>
@@ -15,6 +14,11 @@
     <!-- Bandai风格页面 -->
     <url>
         <loc>https://nanobananas.me/bandai-nano-banana.html</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://nanobananas.me/nano-banana-model-kit.html</loc>
         <priority>0.8</priority>
     </url>
     

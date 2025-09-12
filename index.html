@@ -1599,114 +1599,164 @@
     }
   
 
-    generateBtn.addEventListener("click", async function () {
-   
-      const promptText = document.getElementById("prompt").value.trim();
+// --- 1. Constants and Configuration ---
+const API_BASE_URL = "https://api.nanobananas.me/prod-api/gemini";
+const CSS_HIDDEN_CLASS = "hidden";
 
-      const resultContainer = document.getElementById("generation-result");
-      const ratingSection = document.getElementById("rating-section");
-      const actionButtons = document.querySelectorAll(
-        "#download-btn, #variation-btn, #new-btn"
-      );
+// --- 2. DOM Element Caching ---
+// Cache frequently accessed DOM elements to avoid repeated lookups.
+const promptInput = document.getElementById("prompt");
+const resultContainer = document.getElementById("generation-result");
+const ratingSection = document.getElementById("rating-section");
+const textLimitDisplay = document.getElementById('textLimit');
+const actionButtons = document.querySelectorAll("#download-btn, #variation-btn, #new-btn");
 
-      if (!promptText) {
+// --- 3. UI Helper Functions ---
+
+/**
+ * Manages the visibility of action buttons and the rating section.
+ * @param {boolean} show - If true, shows the elements; otherwise, hides them.
+ */
+function toggleActionUI(show) {
+    const method = show ? 'remove' : 'add';
+    ratingSection.classList[method](CSS_HIDDEN_CLASS);
+    actionButtons.forEach((btn) => btn.classList[method](CSS_HIDDEN_CLASS));
+}
+
+/**
+ * Renders a loading spinner in the result container.
+ */
+function renderSpinner() {
+    resultContainer.innerHTML = `
+        <div class="flex justify-center items-center w-full min-h-[256px]">
+            <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary"></div>
+        </div>`;
+}
+
+/**
+ * Renders an error message in the result container.
+ * @param {string} title - The main error message or title.
+ * @param {string} [details] - Optional details or a call to action.
+ */
+function renderError(title, details = '') {
+    resultContainer.innerHTML = `
+        <div class="text-center text-red-500 bg-red-50 p-4 rounded-lg">
+            <p class="font-bold">${title}</p>
+            ${details ? `<div class="mt-2">${details}</div>` : ''}
+        </div>`;
+}
+
+/**
+ * Renders the successfully generated image.
+ * @param {string} imageUrl - The URL of the image to display.
+ * @param {string} altText - The alt text for the image.
+ */
+function renderSuccess(imageUrl, altText) {
+    resultContainer.innerHTML = `
+        <img src="${imageUrl}" alt="${altText}" class="w-full h-auto rounded-lg shadow-lg">
+        <div id="download-loader" class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white rounded-2xl hidden">
+          <svg class="animate-spin h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <p class="mt-2 text-lg">Downloading...</p>
+        </div>`;
+}
+
+
+
+/**
+ * Fetches and displays the production API limit.
+ */
+async function updateProdLimit() {
+    if (!textLimitDisplay) return; // Fail gracefully if the element doesn't exist
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/limit`);
+        
+        // Proper check for non-2xx responses
+        if (!response.ok) {
+            throw new Error(`API Error: ${response.status} ${response.statusText}`);
+        }
+
+        const { data } = await response.json();
+        const { limit, remaining, used, global_limit } = data; // Destructuring for clarity
+
+        textLimitDisplay.innerHTML =
+            `Due to the large number of visits, the overall access limit is: ${global_limit}, used: ${used}/${limit}, remaining: ${remaining}/${limit}`;
+
+    } catch (error) {
+        console.error("Failed to fetch production limit:", error);
+        textLimitDisplay.textContent = "Could not load usage limit.";
+    }
+}
+
+/**
+ * Handles the image generation process.
+ */
+async function handleImageGeneration() {
+    const promptText = promptInput.value.trim();
+    if (!promptText) {
         alert("Please enter a prompt first!");
         return;
-      }
-
-      ratingSection.classList.add("hidden");
-      actionButtons.forEach((btn) => btn.classList.add("hidden"));
-      resultContainer.innerHTML = `<div class="flex justify-center items-center w-full min-h-[256px]">
-        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary"></div>
-    </div>`;
-
-      const imageFile = getSelectedFile();
-      const formData = new FormData();
-      formData.append("prompt", promptText);
-
-      if (imageFile) {
-        formData.append("file", imageFile);
-      }
-
-      try {
-        const apiUrl = "https://api.nanobananas.me/prod-api/gemini/gen";
-        const response = await fetch(apiUrl, {
-          method: "post",
-          headers: {
-            "Authorization": "Bearer " +getToken()
-          },
-          body: formData,
-        });
-
-        const data = await response.json();
-        if (data.code == 1) {
-            updateUser()
-             updatePricing()
-          resultContainer.innerHTML = `
-                <div class="text-center text-red-500 bg-red-50 p-4 rounded-lg">
-                    <p class="font-bold">${data.msg}</p>
-                </div>
-            `;
-        
-          return;
-        }
-        let base64Image = data.data.url;
-
-        const imageUrl = `${base64Image}`;
-
-        resultContainer.innerHTML = `
-            <img src="${imageUrl}" alt="AI image generated for prompt: ${promptText}" class="w-full h-auto rounded-lg shadow-lg">
-            
-            <div id="download-loader" class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white rounded-2xl hidden">
-              <svg class="animate-spin h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              <p class="mt-2 text-lg">Downloading...</p>
-            </div>
-        `;
-        ratingSection.classList.remove("hidden");
-        actionButtons.forEach((btn) => btn.classList.remove("hidden"));
-        prodLimit()
-        updateUser();
-      } catch (error) {
-        console.error("Generation Failed:", error);
-        resultContainer.innerHTML = `
-                <div class="text-center text-red-500 bg-red-50 p-4 rounded-lg">
-                    <p class="font-bold">Oops! The service has reached its daily request limit<a href='pricing.html' class='bg-amber-100 text-amber-800 px-3 py-1.5 rounded-lg text-sm font-semibold hover:bg-amber-200 transition-colors flex items-center'>Upgrade package </a></p>
-                </div>
-            `;
-      }
-      prodLimit()
-      updateUser();
-      updatePricing()
-    });
-    async function prodLimit() {
-      let textLimit = document.getElementById('textLimit');
-
-
-      const response = await fetch('https://api.nanobananas.me/prod-api/gemini/limit', {
-        method: "GET",
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ message: response.statusText }));
-        throw new Error(`API Error: ${errorData.message || "Failed to fetch limit"}`);
-      }
-
-      const { data } = await response.json();
-      console.log("API response:", data);
-      const { limit, remaining, used, global_limit, global_remaining } = data;
-
-      textLimit.innerHTML =
-
-        `Due to the large number of visits, the overall access limit is: ${global_limit}, used: ${used}/${limit}, remaining: ${remaining}/${limit}`;
     }
 
-    window.onload = function () {
-      prodLimit().catch(err => console.error("prodLimit error:", err));
-      updateUser();
-    };
+    // --- Start: Set UI to loading state ---
+    toggleActionUI(false);
+    renderSpinner();
+    generateBtn.disabled = true; // Disable button to prevent multiple clicks
+
+    try {
+        const imageFile = getSelectedFile();
+        const formData = new FormData();
+        formData.append("prompt", promptText);
+        if (imageFile) {
+            formData.append("file", imageFile);
+        }
+
+        const response = await fetch(`${API_BASE_URL}/gen`, {
+            method: "post",
+            headers: {
+                 ...(getToken() && { "Authorization": "Bearer " + getToken() }),
+            },
+            body: formData,
+        });
+
+        if (!response.ok) {
+            throw new Error(`Server responded with ${response.status}`);
+        }
+        
+        const data = await response.json();
+        if (data.code === 1) {
+            renderError(data.msg);
+        } else {
+            // Handle success
+            const imageUrl = data.data.url; // Assumes structure is `data.data.url`
+            renderSuccess(imageUrl, `AI image generated for prompt: ${promptText}`);
+            toggleActionUI(true);
+        }
+
+    } catch (error) {
+        console.error("Generation Failed:", error);
+        const upgradeLink = `<a href='pricing.html' class='bg-amber-100 text-amber-800 px-3 py-1.5 rounded-lg text-sm font-semibold hover:bg-amber-200 transition-colors flex items-center'>Upgrade package </a>`;
+        renderError("Oops! Something went wrong.", `The service might be temporarily unavailable or has reached its request limit. Please try again later. ${upgradeLink}`);
+    
+    } finally {
+        generateBtn.disabled = false; // Re-enable the button
+        updateUser();
+        updatePricing();
+        updateProdLimit(); // Also good to refresh the limit info
+    }
+}
+
+
+generateBtn.addEventListener("click", handleImageGeneration);
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateUser();
+    updateProdLimit();
+    // updatePricing(); 
+});
 
     const imagePreviewModal = document.getElementById('image-preview-modal');
     const previewModalImage = document.getElementById('preview-modal-image');
@@ -1957,7 +2007,7 @@
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' +  getToken()
+               ...(getToken() && { "Authorization": "Bearer " + getToken() }),
         },
 
       });
@@ -1966,7 +2016,7 @@
     }
 
 
-    updateUser();
+    // updateUser();
 
 
     function updatePricing() {

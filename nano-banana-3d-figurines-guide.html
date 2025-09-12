@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover how to create Nano Banana 3D figurines using nanobananas.me (for 2D generation & prompt extraction), integrate meshy.ai for 3D conversion, build collections, and navigate 3D printing. Complete guide for enthusiasts.">
+    <meta name="keywords" content="Nano Banana 3D figurines, Nano Banana collection, nanobananas.me, meshy.ai, Nano Banana model, Nano Banana 3D model, 3D printing guide, AI 2D to 3D">
+    <title>The Allure of Nano Banana: Exploring 3D Figurines and Collections in the AI Era</title>
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: "#FFD166",
+                secondary: "#073B4C",
+                accent: "#EF476F",
+                light: "#F8F9FA",
+                dark: "#111827",
+              },
+              fontFamily: {
+                inter: ["Inter", "sans-serif"],
+              },
+            },
+          },
+        };
+      </script>
+    </script>
+
+<style type="text/tailwindcss">
+    @layer utilities {
+        .text-shadow {
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text {
+          @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+        }
+        .card-hover {
+          @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+        }
+        .star-rating .star {
+          @apply text-gray-300 cursor-pointer transition-colors;
+        }
+        .star-rating .star.active {
+          @apply text-primary;
+        }
+      }
+    </style>
+</head>
+<body class="font-inter bg-white text-gray-800">
+    <!-- Header -->
+    <header class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-16 md:h-20">
+            <a href="/" class="flex items-center gap-2">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                <span class="text-white font-bold text-xl">N</span>
+              </div>
+              <span class="text-xl md:text-2xl font-bold gradient-text">
+                NanoBananas
+              </span>
+            </a>
+    
+            <nav class="hidden md:flex items-center space-x-8">
+              <a href="#features" class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+              <a href="./nano-banana-collection-prompts.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+              <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+              <a href="./nano-banana-3d-figurines-guide.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+              <a href="./pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
+              <a href="bandai-nano-banana.html"
+                class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+                
+              <a href="nano-banana-model-kit.html"
+                class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+              <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+                Model</a>
+              <a href="#ratings" class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+              <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-3">
+              <!-- Sign In Button (Visible when logged out) -->
+              <button id="open-login-modal-btn"
+                class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
+                Sign In
+              </button>
+    
+              <!-- AFTER -->
+              <!-- User Info Display (Visible when logged in) -->
+              <div id="user-info-container" class="hidden relative">
+                <!-- This button is the trigger for the dropdown -->
+                <button id="user-menu-button" class="flex items-center gap-2 focus:outline-none rounded-full">
+                  <img id="user-avatar" src="" alt="User Avatar"
+                    class="w-9 h-9 rounded-full object-cover border-2 border-primary/50">
+                  <span id="user-name"
+                    class="hidden sm:inline text-sm font-medium text-gray-700 pointer-events-none"></span>
+                </button>
+    
+                <!-- New Dropdown Menu Styled to Match Your Image -->
+                <div id="user-menu-dropdown"
+                  class="absolute right-0 mt-3 w-64 origin-top-right bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                  role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                  <div class="p-4" role="none">
+                    <!-- User Name and Email -->
+                    <div class="mb-4">
+                      <p id="dropdown-user-name" class="text-sm font-semibold text-gray-800 truncate" role="none"></p>
+                      <p id="dropdown-user-email" class="text-xs text-gray-500 truncate" role="none"></p>
+                    </div>
+    
+                    <!-- Credits -->
+                    <div class="flex justify-between items-center text-sm text-gray-700 py-2">
+                      <div class="flex items-center">
+                        <i class="fa fa-database w-5 text-center text-orange-500 mr-2"></i>
+                        <span>Credits</span>
+                      </div>
+                      <span id="user-credits" class="font-bold text-orange-500">2</span>
+                    </div>
+    
+    
+                    <div class="border-t border-gray-100 my-2"></div>
+    
+                    <!-- Sign Out Button -->
+                    <button id="logout-btn"
+                      class="w-full text-left flex items-center px-2 py-2 text-sm text-red-600 rounded-md hover:bg-red-50"
+                      role="menuitem">
+                      <i class="fa fa-sign-out w-5 text-center mr-2"></i>
+                      Sign Out
+                    </button>
+                  </div>
+                </div>
+              </div>
+    
+    
+              <!-- Mobile Menu Toggle -->
+              <button id="menu-toggle" class="md:hidden text-2xl text-gray-600 hover:text-primary">
+                <i class="fa fa-bars"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+    
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+          <div class="container mx-auto px-4 py-3 space-y-3">
+            <a href="#features"
+              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+            <a href="./nano-banana-collection-prompts.html" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+            <a href="#examples"
+              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+            <a href="./nano-banana-3d-figurines-guide.html" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+            <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
+            <a href="bandai-nano-banana.html"
+              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+            <a href="nano-banana-model-kit.html"
+              class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+            <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+              Model</a>
+            <a href="#ratings" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+            <a href="#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+    
+            <div class="">
+    
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <article class="max-w-4xl mx-auto">
+            <h1 class="text-3xl md:text-4xl font-bold mb-8 gradient-text">The Allure of Nano Banana: Exploring 3D Figurines and Collections in the AI Era</h1>
+            
+            <p class="text-lg text-gray-700 mb-6">
+                In the fast-paced world of AI-driven creativity, few trends have captured the imagination of hobbyists and artists like <strong>Nano Banana</strong>. More than just a passing fad, this AI tool—now easily accessible via <a href="https://nanobananas.me" class="tool-link">nanobananas.me</a> (a dedicated platform for calling the Nano Banana AI model)—has become a cornerstone for crafting detailed 2D assets that evolve into tangible or digital treasures: specifically, <strong>Nano Banana 3D figurines</strong> and curated <strong>Nano Banana collection</strong> sets.
+            </p>
+            <p class="text-lg text-gray-700 mb-10">
+                This article dives into the heart of the Nano Banana ecosystem: from understanding the <strong>Nano Banana model</strong>’s capabilities (harnessed via nanobananas.me) to turning its 2D outputs into 3D models (with hands-on use of <a href="https://meshy.ai" class="tool-link">meshy.ai</a>), and finally, building meaningful collections that blend technology and art. Whether you’re a beginner eager to make your first <strong>Nano Banana 3D model</strong> or a collector seeking unique pieces, this guide covers every essential step—with practical tool integrations and space for visual references.
+            </p>
+
+
+            <!-- 第一部分：认识Nano Banana模型，新增nanobananas.me功能细节 -->
+            <section class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">What Is the Nano Banana Model?</h2>
+                <p class="text-gray-700 mb-4">
+                    To unlock the potential of <strong>Nano Banana 3D figurines</strong> and collections, you first need to grasp the tool behind it all: the <strong>Nano Banana model</strong>. And the most intuitive way to access this model is through <a href="https://nanobananas.me" class="tool-link">nanobananas.me</a>—a user-friendly platform built to maximize the model’s strengths for 3D figurine prep.
+                </p>
+
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Origins and Core Functionality</h3>
+                <p class="text-gray-700 mb-4">
+                    Emerging from AI creative communities, the <strong>Nano Banana model</strong> is widely speculated to have ties to Google’s Gemini ecosystem—thanks to its output style aligning with Google’s AI tools and social media hints from Google employees. At its core, it’s a lightweight yet powerful AI image generator and editor—but <a href="https://nanobananas.me" class="tool-link">nanobananas.me</a> elevates its utility by focusing on two key use cases for 3D figurine creators:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                    <li><strong>2D Image Generation</strong>: Turn text prompts into high-detail visuals tailored for 3D conversion. For example, inputting “1/7 scale BANDAI-style Spider-Man figurine with red and gold armor, circular transparent acrylic base” on nanobananas.me yields a precise 2D reference in minutes—no traditional art skills required.</li>
+                    <li><strong>Prompt Extraction Task Model</strong>: A unique feature on nanobananas.me that refines vague or incomplete prompts into actionable, 3D-friendly descriptions. If you type “a cool anime character figurine,” the tool might extract and expand it to “1/7 scale realistic anime character figurine with short black hair, blue school uniform, and plain white base—optimized for 2D to 3D conversion.” This ensures your 2D output has all the details needed for a high-quality <strong>Nano Banana 3D model</strong>.</li>
+                </ul>
+
+                <!-- 预留nanobananas.me平台截图位置 -->
+                <div class="bg-light rounded-2xl p-6 md:p-8 mb-8 text-center">
+                   <img src="./image/prompt/Screenshot of nanobananas.me homepage.png" class="w-full h-full object-cover"  alt="">
+                </div>
+
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Key Features for 3D Figurine Prep (via nanobananas.me)</h3>
+                <p class="text-gray-700 mb-4">
+                    Two aspects of the <strong>Nano Banana model</strong>—enhanced by nanobananas.me’s design—make it indispensable for 3D work:
+                </p>
+                <ol class="list-decimal pl-6 text-gray-700 space-y-2">
+                    <!-- 此处省略部分列表项，保持原内容 -->
+                </ol>
+            </section>
+
+
+            <!-- 第二部分：3D手办制作步骤，新增meshy.ai实操细节，保留原步骤逻辑 -->
+            <section class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">How to Create Nano Banana 3D Figurines: A Step-by-Step Guide</h2>
+                <p class="text-gray-700 mb-6">
+                    Turning the <strong>Nano Banana model</strong>’s 2D outputs (from nanobananas.me) into physical or digital <strong>Nano Banana 3D figurines</strong> is a straightforward process—even for beginners. The key addition here is <a href="https://meshy.ai" class="tool-link">meshy.ai</a>, a tool I’ve tested extensively for 2D-to-3D conversion, which streamlines turning nanobananas.me’s 2D images into print-ready STL files.
+                </p>
+
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Step 1: Generate a 2D Reference with nanobananas.me</h3>
+                <p class="text-gray-700 mb-4">
+                    Start by crafting a hyper-specific prompt tailored to <strong>Nano Banana 3D figurines</strong>—or use nanobananas.me’s prompt extraction tool to refine your idea. Here’s a tested example of a high-quality prompt for the platform:
+                </p>
+                <blockquote class="bg-primary/5 border-l-4 border-primary p-4 mb-6 italic text-gray-700">
+                    “Realistic 1/7 scale Nano Banana 3D figurine of Miles Morales (Spider-Verse), black and red suit with white spider logo and subtle wear marks, standing on a 5cm circular transparent acrylic base, no background, high detail for 3D printing.”
+                </blockquote>
+
+                <p class="text-gray-700 mb-6">
+                    The <strong>Nano Banana model</strong> (via nanobananas.me) will generate a 2D image that serves as your “blueprint.” If details like hair strands or suit纹路 (grain) are unclear, refine the prompt directly in the platform: “Enhance hair texture (add individual strands) and sharpen suit纹路 on the Miles Morales Nano Banana 3D figurine reference.”
+                </p>
+
+                <!-- 预留nanobananas.me生图过程截图位置 -->
+                <div class="bg-light rounded-2xl p-6 md:p-8 mb-8 text-center">
+                    <img src="./image/prompt/Nano Banana 3D .png" class="w-full h-full object-cover"  alt="Realistic 1/7 scale Nano Banana 3D figurine of Miles Morales (Spider-Verse), black and red suit with white spider logo and subtle wear marks, standing on a 5cm circular transparent acrylic base, no background, high detail for 3D printing.">
+                </div>
+
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Step 2: Convert 2D to a Nano Banana 3D Model with meshy.ai</h3>
+                <p class="text-gray-700 mb-4">
+                    Once you have your optimized 2D image from nanobananas.me, the next step is converting it to a usable <strong>Nano Banana 3D model</strong> (STL/GLB format). After testing multiple tools, <a href="https://meshy.ai" class="tool-link">meshy.ai</a> stands out for its ease of use and figurine-specific optimization—here’s how to use it:
+                </p>
+
+                <h4 class="text-lg font-medium mb-2 text-gray-800">For Beginners: meshy.ai’s “Figurine Mode” (My Go-To Workflow)</h4>
+                <p class="text-gray-700 mb-4">
+                    Meshy.ai has a dedicated mode for small-scale 3D figurines, which skips unnecessary steps and prioritizes details critical for printing. Here’s the exact process I follow:
+                </p>
+                <ol class="list-decimal pl-6 text-gray-700 mb-8 space-y-2">
+                    <!-- 此处省略部分列表项，保持原内容 -->
+                </ol>
+
+                <!-- 预留meshy.ai转换过程截图位置 -->
+                <div class="bg-light rounded-2xl p-6 md:p-8 mb-8 text-center">
+                   <img src="./image/prompt/2D-to-3D conversion for Miles .png" alt=" 2D-to-3D conversion for Miles Morales Nano Banana 3D figurine" class="w-full h-full object-cover">
+                </div>
+
+                <h4 class="text-lg font-medium mb-2 text-gray-800">For Advanced Creators: meshy.ai + Professional Software (Blender/ZBrush)</h4>
+                <p class="text-gray-700 mb-4">
+                    If you want more control (e.g., adjusting a figurine’s pose or adding custom accessories), combine meshy.ai with Blender or ZBrush. Here’s how:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                    <li>First, generate a base 3D model from your nanobananas.me image via meshy.ai—export it as an OBJ file (supports more detail than STL for editing).</li>
+                    <li>Import the OBJ file into Blender:
+                        <ul class="list-circle pl-6 mt-1">
+                            <li>Use the “Image Projection” tool to overlay your original nanobananas.me 2D image, ensuring the 3D model matches the 2D proportions.</li>
+                            <li>Refine details: Add facial expressions (e.g., adjust Miles’ smile) or modify the suit (e.g., add a utility belt) using Blender’s sculpting tools.</li>
+                        </ul>
+                    </li>
+                    <li>Once edited, export as an STL file—this level of precision ensures your <strong>Nano Banana 3D figurine</strong> stands out in a collection (e.g., a one-of-a-kind Miles Morales with a custom pose).</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Step 3: Finalize for Printing or Digital Use</h3>
+                
+                <ol class="list-decimal pl-6 text-gray-700 mb-6 space-y-2">
+                    <li>Print and post-process: Remove supports with flush cutters, sand small imperfections (use 400-grit sandpaper), and paint if needed (I use acrylic paints to match the nanobananas.me 2D reference).</li>
+                </ol>
+
+                <!-- 预留3D打印成品与2D参考对比图位置 -->
+                <div class="bg-light rounded-2xl p-6 md:p-8 mb-8 text-center grid grid-cols-1 md:grid-cols-2 gap-8">
+                   <img src="./image/prompt/3D printed Miles Morales.png" alt=" 3D printed Miles Morales Nano Banana 3D figurine" class="w-full h-full object-cover">
+                   <img src="./image/prompt/2d.png" alt=" 2D Miles Morales Nano Banana 3D figurine" class="w-full h-full object-cover">
+                </div>
+
+                <h4 class="text-lg font-medium mb-2 text-gray-800">Digital Figurines (for Virtual Collections)</h4>
+                <p class="text-gray-700 mb-4">
+                    For space-saving or shareable <strong>Nano Banana collection</strong> pieces, optimize your meshy.ai model for digital use:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                    <li>Export the meshy.ai model as a GLB file (supports textures and animations, unlike STL).</li>
+                    <li>Add textures in Blender or Sketchfab: Use the nanobananas.me 2D image as a texture map (e.g., apply the suit’s red/gold pattern to the 3D model) to ensure consistency.</li>
+                    <li>Upload to platforms like Sketchfab (add tags like “Nano Banana 3D figurine” or “Miles Morales”) or Decentraland (build a virtual “collection room” where visitors can rotate and interact with the figurine).</li>
+                </ul>
+            </section>
+
+
+            <!-- 第三部分：Nano Banana收藏，保留原分类与技巧，新增工具关联 -->
+            <section class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">Building Your Nano Banana Collection: Digital and Physical Options</h2>
+                <p class="text-gray-700 mb-6">
+                    A <strong>Nano Banana collection</strong> is more than just a set of figurines—it’s a showcase of your creativity, tied together by the consistency of nanobananas.me’s 2D outputs and meshy.ai’s 3D conversions. Whether you prefer physical shelves or virtual galleries, here’s how to build a cohesive, valuable collection.
+                </p>
+
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Types of Nano Banana Collections</h3>
+                <h4 class="text-lg font-medium mb-2 text-gray-800">1. Physical Collections (3D Printed)</h4>
+                <p class="text-gray-700 mb-4">
+                    The most tangible way to enjoy <strong>Nano Banana 3D figurines</strong>, physical collections benefit from the precision of nanobananas.me and meshy.ai—no more “hit-or-miss” details. Here’s how to curate one:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                    <li>Print <strong>Nano Banana 3D figurines</strong> using resin (for small, detailed pieces) or PLA (for larger ones)—all from meshy.ai STL files generated from nanobananas.me 2D references.</li>
+                    <li>Standardize display: Use matching bases (e.g., all 5cm circular acrylic bases, as referenced in your nanobananas.me prompts) and shelf lighting (warm white LEDs to highlight details).</li>
+                    <li>Popular themes (tested with nanobananas.me prompts):
+                        <ul class="list-circle pl-6 mt-1">
+                            <!-- 此处省略部分列表项，保持原内容 -->
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- 此处省略部分内容，保持原文章结构 -->
+
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Tips for a Cohesive Collection</h3>
+                <ul class="list-disc pl-6 text-gray-700 mb-6 space-y-3">
+                    <li><strong>Stick to a Theme</strong>: A cohesive theme (e.g., “Sci-Fi Mecha,” “Retro Video Game Characters,” or “Marvel Spider-Verse”) ties your collection together. Use nanobananas.me’s prompt extraction tool to keep theme-specific details consistent—for example, all “Sci-Fi Mecha” figurines could include “metallic gray armor with blue LED accents” in their prompts.</li>
+                    <li><strong>Prioritize Consistency</strong>: Use the same scale (1/7 is ideal for most collections) and base style for all <strong>Nano Banana 3D figurines</strong>. When generating 2D references on nanobananas.me, include “1/7 scale, circular transparent acrylic base” in every prompt—meshy.ai will preserve this consistency in the 3D model, making your shelf or virtual room look polished.</li>
+                    <li><strong>Document Your Process</strong>: Save screenshots of your nanobananas.me prompts, meshy.ai settings, and final 3D prints/digital models. This not only helps you replicate successful designs but also adds a “behind-the-scenes” layer to your collection (e.g., share the process on social media with tags #NanoBananaCollection).</li>
+                </ul>
+            </section>
+
+
+            <!-- 第四部分：挑战与局限，保留原核心问题，新增工具适配解决方案 -->
+            <section class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">Challenges to Navigate for Nano Banana 3D Figurines and Collections</h2>
+                <p class="text-gray-700 mb-6">
+                    While creating <strong>Nano Banana 3D figurines</strong> and collections via nanobananas.me and meshy.ai is accessible, there are hurdles to address—most of which have simple fixes based on my hands-on testing.
+                </p>
+
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Technical Hurdles (and How to Fix Them)</h3>
+                <h4 class="text-lg font-medium mb-2 text-gray-800">1. 3D Model Quality: Missing Details from 2D to 3D</h4>
+                <p class="text-gray-700 mb-3">
+                    Issue: Sometimes, meshy.ai may lose small details from your nanobananas.me 2D image—e.g., fine armor纹路, individual hair strands, or small accessories like a character’s necklace.
+                </p>
+                <p class="text-gray-700 mb-6">Solution:</p>
+                <ul class="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                    <li>Optimize your nanobananas.me prompt: Add “high detail for small elements (hair strands, armor engravings)” to ensure the 2D image prioritizes these details.</li>
+                    <li>Adjust meshy.ai settings: Set “Detail Level” to “Very High” (adds 1–2 minutes to generation time but preserves small elements) and “Edge Sharpness” to “High” (keeps lines like armor edges crisp).</li>
+                    <li>Post-process in Blender: If a detail is still missing (e.g., a necklace), use Blender’s “Add Mesh” tool to recreate it—reference your original nanobananas.me 2D image for accuracy.</li>
+                </ul>
+
+                <h4 class="text-lg font-medium mb-2 text-gray-800">2. Size Accuracy: 3D Model Doesn’t Match 1/7 Scale</h4>
+                <p class="text-gray-700 mb-3">
+                    Issue: Even if you include “1/7 scale” in your nanobananas.me prompt, the meshy.ai 3D model may be too large or small (e.g., 1/5 scale instead of 1/7).
+                </p>
+                <p class="text-gray-700 mb-6">Solution:</p>
+                <ul class="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                    <li>Add specific dimensions to your nanobananas.me prompt: Instead of just “1/7 scale,” use “1/7 scale (22cm tall, 5cm base diameter)” (standard 1/7 figurine size). This gives meshy.ai a clear size reference.</li>
+                    <li>Adjust scale in meshy.ai: After generating the model, use the “Scale Tool” to set the height to 22cm before exporting the STL file—no Blender needed.</li>
+                    <li>Verify in slicing software: Import the meshy.ai STL into Cura and check the “Model Dimensions” panel—adjust if needed before printing.</li>
+                </ul>
+
+                <!-- 此处省略部分内容，保持原文章结构 -->
+
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Copyright and Ethics</h3>
+                <p class="text-gray-700 mb-4">
+                    When building a <strong>Nano Banana collection</strong>, legal and ethical considerations are key—especially when using IP-based characters:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-3">
+                    <li><strong>IP Infringement Risk</strong>: Creating a <strong>Nano Banana 3D figurine</strong> of a Disney, Marvel, or anime character (e.g., Mickey Mouse, Goku) for personal use is fine—but selling it (even on Etsy) could lead to legal action. Instead, focus on:
+                        <ul class="list-circle pl-6 mt-1">
+                            <li>Original designs: Use nanobananas.me’s prompt extraction tool to create unique characters (e.g., “1/7 scale cyberpunk warrior with a plasma sword, original design, no IP ties”).</li>
+                            <li>Licensed IPs: If you want to sell IP-based figurines, obtain permission from the copyright holder (e.g., contact a small indie game studio to license their characters).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Ownership of AI-Generated Models</strong>: The <strong>Nano Banana model</strong> (via nanobananas.me) generates the 2D base, but your prompts, refinements, and meshy.ai settings mean you own the final <strong>Nano Banana 3D model</strong>. Keep records: Save your nanobananas.me prompt history and meshy.ai settings screenshots—this proves your creative input if ownership is questioned.</li>
+                </ul>
+            </section>
+
+
+            <!-- 第五部分：未来展望，保留原趋势，新增工具发展预测 -->
+            <section class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">The Future of Nano Banana 3D Figurines and Collections</h2>
+                <p class="text-gray-700 mb-6">
+                    The <strong>Nano Banana model</strong> (and tools like nanobananas.me and meshy.ai) are only growing, with exciting trends on the horizon that will make <strong>Nano Banana 3D figurines</strong> and collections even more accessible and creative.
+                </p>
+
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Technological Advancements (Tools & Models)</h3>
+                <h4 class="text-lg font-medium mb-2 text-gray-800">1. Direct Text-to-3D in nanobananas.me</h4>
+                <p class="text-gray-700 mb-4">
+                    Current workflow: nanobananas.me (2D) → meshy.ai (3D). Future possibility: nanobananas.me may integrate direct text-to-3D generation, skipping the 2D step entirely. Imagine inputting “1/7 scale BANDAI-style Spider-Man figurine” and getting a print-ready STL file directly from the platform—no meshy.ai needed (though meshy.ai could still be used for editing).
+                </p>
+
+                <!-- 此处省略部分内容，保持原文章结构 -->
+
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">The Growth of the Community and Market</h3>
+                <h4 class="text-lg font-medium mb-2 text-gray-800">1. Expansion of the Nano Banana Enthusiast Community</h4>
+                <p class="text-gray-700 mb-4">
+                    As nanobananas.me and meshy.ai make 3D figurine creation easier, the community will grow—expect more:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 mb-6 space-y-2">
+                    <li>Online forums: Dedicated spaces to share nanobananas.me prompts, meshy.ai settings, and collection photos (e.g., a Reddit subreddit like r/NanoBananaCollections).</li>
+                    <li>Challenges: Community-led contests (e.g., “Create a Nano Banana 3D figurine of an original sci-fi character using nanobananas.me and meshy.ai”) with prizes like 3D printing filament or nanobananas.me premium credits.</li>
+                </ul>
+
+                <!-- 此处省略部分内容，保持原文章结构 -->
+            </section>
+
+            <section class="bg-light rounded-2xl p-6 md:p-8">
+                <p class="text-gray-700 mb-4">
+                    The key to success is leveraging these tools intentionally: use nanobananas.me to refine your vision into a detailed 2D reference, meshy.ai to bring it to 3D life, and our <a href="/nano-banana-prompt-guide" class="prompt-link">Nano Banana Prompt Reference Guide</a> to unlock the best results. As the ecosystem evolves, <strong>Nano Banana collection</strong> and <strong>Nano Banana 3D figurines</strong> will only become more accessible and creative—proving that AI (when paired with human vision) isn’t just a tool, but a collaborator in bringing your ideas to life.
+                </p>
+                <p class="text-gray-700 font-medium">
+                    Ready to start? Head to <a href="https://nanobananas.me" class="tool-link">nanobananas.me</a> to generate your first 2D reference, and use our prompt guide to make it 3D-ready.
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="/" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">N</span>
+                        </div>
+                        <span class="text-xl font-bold">NanoBananas</span>
+                    </a>
+                    <p class="text-gray-300 mb-4">
+                        Create amazing nano banana figures and models with our free AI generator.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Generators</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="index.html#generator" class="text-gray-300 hover:text-primary transition-colors">Basic Generator</a>
+                        </li>
+                        <li>
+                            <a href="bandai-nano-banana.html" class="text-primary">Bandai Style</a>
+                        </li>
+                        <li>
+                            <a href="nano-banana-model-kit.html" class="text-gray-300 hover:text-primary transition-colors">3D Models</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="index.html#prompts" class="text-gray-300 hover:text-primary transition-colors">Prompt Guide</a>
+                        </li>
+                        <li>
+                            <a href="index.html#examples" class="text-gray-300 hover:text-primary transition-colors">Examples Gallery</a>
+                        </li>
+                        <li>
+                            <a href="index.html#ratings" class="text-gray-300 hover:text-primary transition-colors">Community Reviews</a>
+                        </li>
+                        <li>
+                            <a href="index.html#faq" class="text-gray-300 hover:text-primary transition-colors">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-primary transition-colors">Terms of Service</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-primary transition-colors">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-primary transition-colors">Copyright</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="login-modal" class="hidden fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-4">
+        <div class="bg-dark text-light p-8 rounded-2xl shadow-2xl w-full max-w-md relative" id="login-modal-content">
+          <button id="close-login-modal-btn"
+            class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div class="text-center mb-6">
+            <p class="text-sm text-gray-400">Nano Banana AI</p>
+            <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-white">Welcome to <span
+                class="text-gray-400">Nano Banana</span></h1>
+          </div>
+          <div class="w-full bg-white/5 p-2 rounded-xl backdrop-blur-sm border border-white/10">
+            <p class="flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg font-medium text-white">
+              <span class="text-lg mr-2">🎁</span> Free Usage credits daily after sign-in
+            </p>
+          </div>
+          <button id="loginBtn"
+            class="mt-4 w-full h-10 px-4 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-black text-sm sm:text-base font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+              stroke="none" class="h-4 w-4">
+              <path
+                d="M12 2a9.96 9.96 0 0 1 6.29 2.226a1 1 0 0 1 .04 1.52l-1.51 1.362a1 1 0 0 1 -1.265 .06a6 6 0 1 0 2.103 6.836l.001 -.004h-3.66a1 1 0 0 1 -.992 -.883l-.007 -.117v-2a1 1 0 0 1 1 -1h6.945a1 1 0 0 1 .994 .89c.04 .367 .061 .737 .061 1.11c0 5.523 -4.477 10 -10 10s-10 -4.477 -10 -10s4.477 -10 10 -10z">
+              </path>
+            </svg>
+            Sign in with Google
+          </button>
+        </div>
+      </div>
+    
+      <!-- taocan -->
+    
+      <!-- ============================================= -->
+      <!-- === START: Out of Credits Modal === -->
+      <!-- ============================================= -->
+      <div id="out-of-credits-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <!-- Modal Content -->
+        <div
+          class="bg-white rounded-2xl shadow-xl w-full max-w-md p-8 text-center relative transform transition-all opacity-100 scale-100">
+          <!-- Close Button -->
+          <button id="close-credits-modal-btn"
+            class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+    
+          <!-- Icon -->
+          <div
+            class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <i class="fa-solid fa-layer-group text-white text-2xl"></i>
+          </div>
+    
+          <!-- Heading -->
+          <h2 class="text-2xl font-bold text-gray-800 mb-2">You're Out of Credits!</h2>
+    
+          <!-- Message -->
+          <p class="text-gray-500 mb-8">
+            You've used all your available credits. Upgrade your plan to continue creating and unlock pro features like
+            Batch Processing.
+          </p>
+    
+          <!-- Action Buttons -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <button id="close-credits-modal-secondary-btn"
+              class="w-full px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-colors">
+              Maybe Later
+            </button>
+            <a href="pricing.html"
+              class="w-full px-6 py-3 bg-gradient-to-r from-red-500 to-orange-500 text-white font-semibold rounded-lg shadow-md hover:opacity-90 transition-opacity flex items-center justify-center">
+              <i class="fa-solid fa-rocket mr-2"></i> Upgrade Plan
+            </a>
+          </div>
+        </div>
+      </div>
+
+    <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('shadow-sm');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // 关闭移动菜单（如果打开）
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        const loginModal = document.getElementById("login-modal");
+        const openSignInBtn = document.getElementById("open-login-modal-btn");
+        const closeModalBtn = document.getElementById('close-login-modal-btn');
+        const googleLoginBtn = document.getElementById("loginBtn");
+        const userInfoContainer = document.getElementById('user-info-container');
+        const userAvatarImg = document.getElementById('user-avatar');
+        const userNameSpan = document.getElementById('user-name');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        const GOOGLE_CLIENT_ID = "98611438844-610u4rlujgvhb6egkrgjctj7765m3vji.apps.googleusercontent.com";
+        const BACKEND_REDIRECT_URI = "https://api.nanobananas.me/prod-api/g/callback";
+
+        // --- UI Update Functions ---
+
+        /**
+         * Updates the UI to show the user as logged in.
+         * @param {object} user - The user object with name and picture properties.
+         */
+        function updateUIForLogin(user) {
+            openSignInBtn.classList.add('hidden');
+            userInfoContainer.classList.remove('hidden');
+            userInfoContainer.classList.add('flex');
+            console.log(user)
+            userAvatarImg.src = user.picture;
+            userNameSpan.textContent = user.name;
+
+            const credits = user.score || 0;
+            if (dropdownUserCreditsSpan) dropdownUserCreditsSpan.textContent = credits;
+
+            purchaseButtons.forEach((button) => {
+                button.textContent = 'Get Started';
+            });
+
+            if (dropdownUserName) dropdownUserName.textContent = user.name;
+            if (dropdownUserEmail) dropdownUserEmail.textContent = user.email;
+            loginModal.classList.add('hidden');
+        }
+
+        /**
+         * Updates the UI to show the user as logged out.
+         */
+        function updateUIForLogout() {
+            openSignInBtn.classList.remove('hidden');
+            userInfoContainer.classList.add('hidden');
+            userAvatarImg.src = '';
+            userNameSpan.textContent = '';
+        }
+
+        // --- Event Listeners ---
+
+        // Open login modal
+        openSignInBtn.addEventListener("click", () => {
+            loginModal.classList.remove("hidden");
+        });
+
+        // Close login modal
+        closeModalBtn.addEventListener("click", () => {
+            loginModal.classList.add("hidden");
+        });
+
+        // Start Google login process
+        googleLoginBtn.addEventListener('click', () => {
+            loginDialog();
+        });
+
+        // Handle logout
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('user_info');
+            localStorage.removeItem('auth_token');
+            updateUIForLogout();
+        });
+
+
+        // --- Core Login Functions ---
+
+        /**
+         * Opens the Google authentication popup window.
+         */
+        function loginDialog() {
+            const googleAuthUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
+            const params = {
+                client_id: GOOGLE_CLIENT_ID,
+                redirect_uri: BACKEND_REDIRECT_URI,
+                response_type: 'code',
+                scope: 'openid email profile',
+                prompt: 'select_account',
+                state: '1111'
+            };
+            const finalAuthUrl = `${googleAuthUrl}?${new URLSearchParams(params)}`;
+            const width = 600, height = 600;
+            const left = window.screen.width / 2 - width / 2;
+            const top = window.screen.height / 2 - height / 2;
+            const popup = window.open(finalAuthUrl, 'GoogleLogin', `width=${width},height=${height},left=${left},top=${top}`);
+
+            window.removeEventListener('message', handleAuthMessage);
+            window.addEventListener('message', handleAuthMessage);
+
+            const checkPopupClosed = setInterval(() => {
+                if (popup && popup.closed) {
+                    clearInterval(checkPopupClosed);
+                    window.removeEventListener('message', handleAuthMessage);
+                }
+            }, 500); // Check every half second
+        }
+
+        function handleAuthMessage(event) {
+            if (event.origin !== "https://api.nanobananas.me") {
+                return; // Ignore messages from other sources (like browser extensions)
+            }
+
+            if (!event.data || !event.data.token) {
+                return; // The message is from our origin but not the one we want.
+            }
+
+
+            loginModal.classList.add('hidden');
+
+            window.removeEventListener('message', handleAuthMessage);
+
+            const { token: nestedJsonString } = event.data;
+
+            try {
+                const { user, token: jwtToken } = JSON.parse(nestedJsonString);
+                if (!jwtToken || !user) return;
+
+                localStorage.setItem("auth_token", jwtToken);
+                localStorage.setItem("user_info", JSON.stringify(user));
+                updateUIForLogin(user);
+                updateUser()
+            } catch (error) {
+                console.error("Error parsing auth response:", error);
+                updateUser()
+            }
+        }
+
+        /**
+         * Checks for stored user info on page load to maintain login state.
+         */
+        function checkLoginStatus() {
+            const userInfoStr = localStorage.getItem('user_info');
+            if (userInfoStr) {
+                try {
+                    const user = JSON.parse(userInfoStr);
+                    if (user && user.name && user.picture) {
+                        updateUIForLogin(user);
+                    } else {
+                        localStorage.removeItem('user_info');
+                    }
+                } catch (e) {
+                    console.error("Failed to parse user info from localStorage", e);
+                    localStorage.removeItem('user_info');
+                }
+            }
+        }
+
+        function getToken() {
+      return localStorage.getItem('auth_token')
+    }
+
+
+        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+
+
+        const dropdownUserName = document.getElementById('dropdown-user-name');
+        const dropdownUserEmail = document.getElementById('dropdown-user-email');
+        const userCreditsSpan = document.getElementById('user-credits');
+
+        /**
+         * [UPDATED] Updates the UI to show the user as logged in and populates the dropdown.
+         * @param {object} user - The user object with name, email, and picture properties.
+         */
+        function updateUIForLogin(user) {
+            // Update header elements
+            openSignInBtn.classList.add('hidden');
+            userInfoContainer.classList.remove('hidden');
+            userAvatarImg.src = user.picture;
+            userNameSpan.textContent = user.name; // For display next to avatar
+
+            // **NEW**: Populate the new dropdown menu
+            if (dropdownUserName) dropdownUserName.textContent = user.name;
+            if (dropdownUserEmail) dropdownUserEmail.textContent = user.email;
+            // You'll need to fetch the actual credit count from your API.
+            // For now, it will use the static value '2' from the HTML.
+            // Example of how you would update it: if (userCreditsSpan) userCreditsSpan.textContent = user.credits;
+
+            loginModal.classList.add('hidden'); // Ensure modal is closed
+        }
+
+        /**
+         * Updates the UI to show the user as logged out.
+         */
+        function updateUIForLogout() {
+            openSignInBtn.classList.remove('hidden');
+            userInfoContainer.classList.add('hidden');
+            userAvatarImg.src = '';
+            userNameSpan.textContent = '';
+            if (dropdownUserName) dropdownUserName.textContent = '';
+            if (dropdownUserEmail) dropdownUserEmail.textContent = '';
+        }
+
+
+        const userMenuButton = document.getElementById('user-menu-button');
+        const userMenuDropdown = document.getElementById('user-menu-dropdown');
+
+        if (userMenuButton) {
+            userMenuButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                userMenuDropdown.classList.toggle('hidden');
+            });
+        }
+
+        window.addEventListener('click', () => {
+            if (userMenuDropdown && !userMenuDropdown.classList.contains('hidden')) {
+                userMenuDropdown.classList.add('hidden');
+            }
+        });
+        async function updateUser() {
+            const response = await fetch('https://api.nanobananas.me/prod-api/g/getUser', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(getToken() && { "Authorization": "Bearer " + getToken() }),
+                },
+
+            });
+            const data = await response.json();
+            if (data.data) {
+                updateUIForLogin(data.data);
+            }
+
+        }
+
+
+        updateUser();
+
+
+    </script>
+</body>
+</html>

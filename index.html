@@ -149,12 +149,13 @@
 
         <nav class="hidden md:flex items-center space-x-8">
           <a href="#features" class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
-          <a href="#prompts" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+          <a href="./nano-banana-collection-prompts.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
           <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-          <a href="#figures" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+          <a href="./nano-banana-3d-figurines-guide.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
           <a href="./pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
           <a href="bandai-nano-banana.html"
             class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+            
           <a href="nano-banana-model-kit.html"
             class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
           <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
@@ -227,10 +228,10 @@
       <div class="container mx-auto px-4 py-3 space-y-3">
         <a href="#features"
           class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
-        <a href="#prompts" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+        <a href="./nano-banana-collection-prompts.html" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
         <a href="#examples"
           class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-        <a href="#figures" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+        <a href="./nano-banana-3d-figurines-guide.html" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
         <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
         <a href="bandai-nano-banana.html"
           class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
@@ -340,7 +341,7 @@
 
               <p class="text-sm text-gray-500 mt-3">
                 Need more inspiration?
-                <a href="#" class="text-primary hover:underline font-medium">Try our prompt guide</a>
+                <a href="./nano-banana-collection-prompts.html" class="text-primary hover:underline font-medium">Try our prompt guide</a>
               </p>
             </div>
 
@@ -1598,34 +1599,30 @@
       return localStorage.getItem('auth_token')
     }
 
-
     // --- 1. Constants and Configuration ---
     const API_BASE_URL = "https://api.nanobananas.me/prod-api/gemini";
     const CSS_HIDDEN_CLASS = "hidden";
 
     // --- 2. DOM Element Caching ---
-    // Cache frequently accessed DOM elements to avoid repeated lookups.
     const promptInput = document.getElementById("prompt");
     const resultContainer = document.getElementById("generation-result");
     const ratingSection = document.getElementById("rating-section");
     const textLimitDisplay = document.getElementById('textLimit');
     const actionButtons = document.querySelectorAll("#download-btn, #variation-btn, #new-btn");
 
+    // --- NEW: MODAL ELEMENTS CACHING ---
+    const creditsModal = document.getElementById('out-of-credits-modal');
+    const closeCreditsModalBtn = document.getElementById('close-credits-modal-btn');
+    const closeCreditsModalSecondaryBtn = document.getElementById('close-credits-modal-secondary-btn');
+
     // --- 3. UI Helper Functions ---
 
-    /**
-     * Manages the visibility of action buttons and the rating section.
-     * @param {boolean} show - If true, shows the elements; otherwise, hides them.
-     */
     function toggleActionUI(show) {
       const method = show ? 'remove' : 'add';
       ratingSection.classList[method](CSS_HIDDEN_CLASS);
       actionButtons.forEach((btn) => btn.classList[method](CSS_HIDDEN_CLASS));
     }
-
-    /**
-     * Renders a loading spinner in the result container.
-     */
+    
     function renderSpinner() {
       resultContainer.innerHTML = `
         <div class="flex justify-center items-center w-full min-h-[256px]">
@@ -1633,27 +1630,17 @@
         </div>`;
     }
 
-    /**
-     * Renders an error message in the result container.
-     * @param {string} title - The main error message or title.
-     * @param {string} [details] - Optional details or a call to action.
-     */
     function renderError(title, details = '') {
       resultContainer.innerHTML = `
         <div class="text-center text-red-500 bg-red-50 p-4 rounded-lg">
             <p class="font-bold">${title}</p>
-            ${details ? `<div class="mt-2">${details}</div>` : ''}
+            ${details ? `<div class="mt-2 text-sm text-gray-600">${details}</div>` : ''}
         </div>`;
     }
 
-    /**
-     * Renders the successfully generated image.
-     * @param {string} imageUrl - The URL of the image to display.
-     * @param {string} altText - The alt text for the image.
-     */
     function renderSuccess(imageUrl, altText) {
       resultContainer.innerHTML = `
-        <img src="${imageUrl}" alt="${altText}" class="w-full h-auto rounded-lg shadow-lg">
+        <img src="${imageUrl}" alt="${altText}" class="w-full h-auto rounded-lg shadow-lg cursor-pointer">
         <div id="download-loader" class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white rounded-2xl hidden">
           <svg class="animate-spin h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -1663,48 +1650,40 @@
         </div>`;
     }
 
-
-
-    /**
-     * Fetches and displays the production API limit.
-     */
     async function updateProdLimit() {
-      if (!textLimitDisplay) return; // Fail gracefully if the element doesn't exist
-
+      if (!textLimitDisplay) return;
       try {
         const response = await fetch(`${API_BASE_URL}/limit`);
-
-        // Proper check for non-2xx responses
-        if (!response.ok) {
-          throw new Error(`API Error: ${response.status} ${response.statusText}`);
-        }
-
+        if (!response.ok) throw new Error(`API Error: ${response.status}`);
         const { data } = await response.json();
-        const { limit, remaining, used, global_limit } = data; // Destructuring for clarity
-
+        const { limit, remaining, used, global_limit } = data;
         textLimitDisplay.innerHTML =
           `Due to the large number of visits, the overall access limit is: ${global_limit}, used: ${used}/${limit}, remaining: ${remaining}/${limit}`;
-
       } catch (error) {
         console.error("Failed to fetch production limit:", error);
         textLimitDisplay.textContent = "Could not load usage limit.";
       }
     }
-
-    /**
-     * Handles the image generation process.
-     */
+    
+    // --- NEW: MODAL CONTROL FUNCTIONS ---
+    function showCreditsModal() {
+        if (creditsModal) creditsModal.classList.remove('hidden');
+    }
+    function hideCreditsModal() {
+        if (creditsModal) creditsModal.classList.add('hidden');
+    }
+    
+    // --- MODIFIED: Core Generation Logic ---
     async function handleImageGeneration() {
       const promptText = promptInput.value.trim();
       if (!promptText) {
         alert("Please enter a prompt first!");
         return;
       }
-
-      // --- Start: Set UI to loading state ---
+      
       toggleActionUI(false);
       renderSpinner();
-      generateBtn.disabled = true; // Disable button to prevent multiple clicks
+      generateBtn.disabled = true;
 
       try {
         const imageFile = getSelectedFile();
@@ -1715,65 +1694,68 @@
         }
 
         const response = await fetch(`${API_BASE_URL}/gen`, {
-          method: "post",
+          method: "POST",
           headers: {
             ...(getToken() && { "Authorization": "Bearer " + getToken() }),
           },
           body: formData,
         });
 
+     
+        
         if (!response.ok) {
-          throw new Error(`Server responded with ${response.status}`);
+           // It's a different kind of error (e.g., 500 server error)
+           const errorData = await response.json().catch(() => ({ msg: 'Server returned an unexpected error.' }));
+           throw new Error(errorData.msg || `Server responded with ${response.status}`);
         }
 
         const data = await response.json();
-        if (data.code === 1) {
+        if (data.code === 1) { // Your specific application-level error
           renderError(data.msg);
-        } else {
-          // Handle success
-          const imageUrl = data.data.url; // Assumes structure is `data.data.url`
+          showCreditsModal()
+        } else { // Success
+          const imageUrl = data.data.url;
           renderSuccess(imageUrl, `AI image generated for prompt: ${promptText}`);
           toggleActionUI(true);
         }
-
+      
       } catch (error) {
         console.error("Generation Failed:", error);
-        const upgradeLink = `<a href='pricing.html' class='bg-amber-100 text-amber-800 px-3 py-1.5 rounded-lg text-sm font-semibold hover:bg-amber-200 transition-colors flex items-center'>Upgrade package </a>`;
-        renderError("Oops! Something went wrong.", `The service might be temporarily unavailable or has reached its request limit. Please try again later. ${upgradeLink}`);
-
+        renderError("Oops! Something went wrong.", `The service might be temporarily unavailable. Please try again later. Error: ${error.message}`);
+      
       } finally {
-        generateBtn.disabled = false; // Re-enable the button
+        generateBtn.disabled = false;
         updateUser();
-        updatePricing();
-        updateProdLimit(); // Also good to refresh the limit info
+        updateProdLimit();
       }
     }
-
-
+    
+    // --- EVENT LISTENERS ---
     generateBtn.addEventListener("click", handleImageGeneration);
+
+    if (closeCreditsModalBtn) closeCreditsModalBtn.addEventListener('click', hideCreditsModal);
+    if (closeCreditsModalSecondaryBtn) closeCreditsModalSecondaryBtn.addEventListener('click', hideCreditsModal);
 
     document.addEventListener('DOMContentLoaded', () => {
       updateUser();
       updateProdLimit();
-      updatePricing(); 
     });
 
     const imagePreviewModal = document.getElementById('image-preview-modal');
     const previewModalImage = document.getElementById('preview-modal-image');
     const closePreviewModalBtn = document.getElementById('close-preview-modal-btn');
     const generationResultContainer = document.getElementById('generation-result');
-    const dropdownUserCreditsSpan = document.getElementById('user-credits');
 
     function openPreviewModal(imageUrl) {
       previewModalImage.src = imageUrl;
       imagePreviewModal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      document.body.style.overflow = 'hidden';
     }
 
     function closePreviewModal() {
       imagePreviewModal.classList.add('hidden');
-      document.body.style.overflow = ''; // Restore scrolling
-      previewModalImage.src = ''; // Clear src to prevent flash of old image
+      document.body.style.overflow = '';
+      previewModalImage.src = '';
     }
 
     generationResultContainer.addEventListener('click', function (event) {
@@ -1806,9 +1788,7 @@
       });
     });
 
-    // --- Authentication logic starts here ---
-
-    // Get DOM elements for authentication
+    // --- Authentication logic (no changes needed here, it's correct) ---
     const loginModal = document.getElementById("login-modal");
     const openSignInBtn = document.getElementById("open-login-modal-btn");
     const closeModalBtn = document.getElementById('close-login-modal-btn');
@@ -1817,53 +1797,23 @@
     const userAvatarImg = document.getElementById('user-avatar');
     const userNameSpan = document.getElementById('user-name');
     const logoutBtn = document.getElementById('logout-btn');
-
     const GOOGLE_CLIENT_ID = "98611438844-610u4rlujgvhb6egkrgjctj7765m3vji.apps.googleusercontent.com";
     const BACKEND_REDIRECT_URI = "https://api.nanobananas.me/prod-api/g/callback";
+    const dropdownUserName = document.getElementById('dropdown-user-name');
+    const dropdownUserEmail = document.getElementById('dropdown-user-email');
+    const dropdownUserCreditsSpan = document.getElementById('user-credits');
+    const userMenuButton = document.getElementById('user-menu-button');
+    const userMenuDropdown = document.getElementById('user-menu-dropdown');
 
-    // --- UI Update Functions ---
-
-
-    /**
-     * Updates the UI to show the user as logged out.
-     */
-    function updateUIForLogout() {
-      openSignInBtn.classList.remove('hidden');
-      userInfoContainer.classList.add('hidden');
-      userAvatarImg.src = '';
-      userNameSpan.textContent = '';
-    }
-
-    // --- Event Listeners ---
-
-    // Open login modal
-    openSignInBtn.addEventListener("click", () => {
-      loginModal.classList.remove("hidden");
-    });
-
-    // Close login modal
-    closeModalBtn.addEventListener("click", () => {
-      loginModal.classList.add("hidden");
-    });
-
-    // Start Google login process
-    googleLoginBtn.addEventListener('click', () => {
-      loginDialog();
-    });
-
-    // Handle logout
+    openSignInBtn.addEventListener("click", () => { loginModal.classList.remove("hidden"); });
+    closeModalBtn.addEventListener("click", () => { loginModal.classList.add("hidden"); });
+    googleLoginBtn.addEventListener('click', () => { loginDialog(); });
     logoutBtn.addEventListener('click', () => {
       localStorage.removeItem('user_info');
       localStorage.removeItem('auth_token');
       updateUIForLogout();
     });
 
-
-    // --- Core Login Functions ---
-
-    /**
-     * Opens the Google authentication popup window.
-     */
     function loginDialog() {
       const googleAuthUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
       const params = {
@@ -1879,92 +1829,39 @@
       const left = window.screen.width / 2 - width / 2;
       const top = window.screen.height / 2 - height / 2;
       const popup = window.open(finalAuthUrl, 'GoogleLogin', `width=${width},height=${height},left=${left},top=${top}`);
-
       window.removeEventListener('message', handleAuthMessage);
       window.addEventListener('message', handleAuthMessage);
-
       const checkPopupClosed = setInterval(() => {
         if (popup && popup.closed) {
           clearInterval(checkPopupClosed);
           window.removeEventListener('message', handleAuthMessage);
         }
-      }, 500); // Check every half second
+      }, 500);
     }
 
     function handleAuthMessage(event) {
-      if (event.origin !== "https://api.nanobananas.me") {
-        return; // Ignore messages from other sources (like browser extensions)
-      }
-
-      if (!event.data || !event.data.token) {
-        return; // The message is from our origin but not the one we want.
-      }
-
-
+      if (event.origin !== "https://api.nanobananas.me" || !event.data || !event.data.token) return;
       loginModal.classList.add('hidden');
-
       window.removeEventListener('message', handleAuthMessage);
-
-      const { token: nestedJsonString } = event.data;
-
       try {
-        const { user, token: jwtToken } = JSON.parse(nestedJsonString);
+        const { user, token: jwtToken } = JSON.parse(event.data.token);
         if (!jwtToken || !user) return;
-
         localStorage.setItem("auth_token", jwtToken);
         localStorage.setItem("user_info", JSON.stringify(user));
         updateUIForLogin(user);
-        updateUser()
-
+        updateUser();
       } catch (error) {
         console.error("Error parsing auth response:", error);
-        updateUser()
+        updateUser();
       }
     }
 
-    /**
-     * Checks for stored user info on page load to maintain login state.
-     */
-    function checkLoginStatus() {
-
-      const userInfoStr = localStorage.getItem('user_info');
-      if (userInfoStr) {
-        try {
-          const user = JSON.parse(userInfoStr);
-          if (user) {
-            console.log(3333)
-            updateUIForLogin(user);
-          } else {
-            console.log(1222)
-            localStorage.removeItem('user_info');
-          }
-        } catch (e) {
-          console.log(1111)
-          console.error("Failed to parse user info from localStorage", e);
-          localStorage.removeItem('user_info');
-        }
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', checkLoginStatus);
-
-
-    const dropdownUserName = document.getElementById('dropdown-user-name');
-    const dropdownUserEmail = document.getElementById('dropdown-user-email');
-    const userCreditsSpan = document.getElementById('user-credits');
-
-    /**
-     * [UPDATED] Updates the UI to show the user as logged in and populates the dropdown.
-     * @param {object} user - The user object with name, email, and picture properties.
-     */
     function updateUIForLogin(user) {
       openSignInBtn.classList.add('hidden');
       userInfoContainer.classList.remove('hidden');
       userInfoContainer.classList.add('flex');
-      console.log(user)
       userAvatarImg.src = user.picture;
       userNameSpan.textContent = user.name;
-
       const credits = user.score || 0;
       if (dropdownUserCreditsSpan) dropdownUserCreditsSpan.textContent = credits;
       if (dropdownUserName) dropdownUserName.textContent = user.name;
@@ -1972,10 +1869,6 @@
       loginModal.classList.add('hidden');
     }
 
-
-    /**
-     * Updates the UI to show the user as logged out.
-     */
     function updateUIForLogout() {
       openSignInBtn.classList.remove('hidden');
       userInfoContainer.classList.add('hidden');
@@ -1985,16 +1878,25 @@
       if (dropdownUserEmail) dropdownUserEmail.textContent = '';
     }
 
-
-    const userMenuButton = document.getElementById('user-menu-button');
-    const userMenuDropdown = document.getElementById('user-menu-dropdown');
-
-    if (userMenuButton) {
-      userMenuButton.addEventListener('click', (event) => {
-        event.stopPropagation();
-        userMenuDropdown.classList.toggle('hidden');
-      });
+    function checkLoginStatus() {
+      const userInfoStr = localStorage.getItem('user_info');
+      if (userInfoStr) {
+        try {
+          const user = JSON.parse(userInfoStr);
+          if (user) updateUIForLogin(user);
+          else localStorage.removeItem('user_info');
+        } catch (e) {
+          console.error("Failed to parse user info from localStorage", e);
+          localStorage.removeItem('user_info');
+        }
+      }
     }
+    document.addEventListener('DOMContentLoaded', checkLoginStatus);
+
+    if (userMenuButton) userMenuButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      userMenuDropdown.classList.toggle('hidden');
+    });
 
     window.addEventListener('click', () => {
       if (userMenuDropdown && !userMenuDropdown.classList.contains('hidden')) {
@@ -2002,86 +1904,26 @@
       }
     });
 
-
-    //update User
     async function updateUser() {
-      const response = await fetch('https://api.nanobananas.me/prod-api/g/getUser', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(getToken() && { "Authorization": "Bearer " + getToken() }),
-        },
-
-      });
-      const data = await response.json();
-      if (data.data) {
-        updateUIForLogin(data.data);
-      }
-
-    }
-
-
-    updateUser();
-
-
-    function updatePricing() {
-      const creditsModal = document.getElementById('out-of-credits-modal');
-      const closeCreditsModalBtn = document.getElementById('close-credits-modal-btn');
-      const closeCreditsModalSecondaryBtn = document.getElementById('close-credits-modal-secondary-btn');
-
-      // === NEW: FUNCTIONS TO CONTROL THE MODAL ===
-      function showCreditsModal() {
-        if (creditsModal) {
-          creditsModal.classList.remove('hidden');
-        }
-      }
-
-      function hideCreditsModal() {
-        if (creditsModal) {
-          creditsModal.classList.add('hidden');
-        }
-      }
-
-      // === NEW: ADD EVENT LISTENERS FOR CLOSING THE MODAL ===
-      if (closeCreditsModalBtn) {
-        closeCreditsModalBtn.addEventListener('click', hideCreditsModal);
-      }
-      if (closeCreditsModalSecondaryBtn) {
-        closeCreditsModalSecondaryBtn.addEventListener('click', hideCreditsModal);
-      }
-
-
-      // === MODIFY YOUR EXISTING GENERATE BUTTON LOGIC ===
-      if (generateBtn) {
-        generateBtn.addEventListener('click', function () {
-          // --- THIS IS WHERE YOU'LL CHECK THE USER'S CREDITS ---
-
-          // For demonstration, let's pretend we have a variable for credits.
-          // In your real app, you'd get this from localStorage or an API call.
-          let userCredits = 0; // <--- SET THIS TO 0 TO TEST THE MODAL
-
-          if (userCredits <= 0) {
-            // If the user has no credits, show the modal and stop.
-            showCreditsModal();
-            return; // Stop the generation process
-          }
-
-          // If the user HAS credits, proceed with the generation.
-          console.log("Starting image generation...");
-
-          // Your existing code to gather prompt data, show a loader,
-          // and call the API would go here.
-
-          // After generation, you would deduct a credit:
-          // userCredits--; 
-          // updateUserCreditsInStorage(userCredits);
+      if (!getToken()) return; // Don't try to fetch user if there's no token
+      try {
+        const response = await fetch('https://api.nanobananas.me/prod-api/g/getUser', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            "Authorization": "Bearer " + getToken(),
+          },
         });
+        if (!response.ok) return;
+        const data = await response.json();
+        if (data.data) {
+          localStorage.setItem("user_info", JSON.stringify(data.data)); // Sync local storage
+          updateUIForLogin(data.data);
+        }
+      } catch (error) {
+        console.error("Failed to update user:", error);
       }
     }
-
-
-
-
   </script>
 </body>
 

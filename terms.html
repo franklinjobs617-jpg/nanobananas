@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | NanoBananas.me</title>
-    <meta name="description" content="Terms of service for NanoBananas.me, the free nano banana AI generator for creating figures and models.">
+    <meta name="description"
+        content="Terms of service for NanoBananas.me, the free nano banana AI generator for creating figures and models.">
     <meta name="keywords" content="nano banana terms, nano banana ai terms of service, nano banana usage policy">
     <link rel="canonical" href="https://www.nanobananas.me/terms.html" />
     <!-- External Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -34,7 +36,7 @@
             }
         }
     </script>
-    
+
     <style type="text/tailwindcss">
         @layer utilities {
             .gradient-text {
@@ -44,84 +46,171 @@
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0BS5F771SF"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-0BS5F771SF');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0BS5F771SF');
     </script>
 </head>
+
 <body class="font-inter bg-light text-dark">
     <!-- 导航栏 -->
     <header class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center h-16 md:h-20">
-            <a href="/" class="flex items-center gap-2">
-              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span class="text-white font-bold text-xl">N</span>
-              </div>
-              <span class="text-xl md:text-2xl font-bold gradient-text">
-                NanoBananas
-              </span>
-            </a>
-    
-            <nav class="hidden md:flex items-center space-x-8">
-              <a href="#features" class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
-              <a href="#prompts" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
-              <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-              <a href="#figures" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
-              <a href="bandai-nano-banana.html"
-                class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
-              <a href="nano-banana-model-kit.html"
-                class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
-                <a href="nano-banana-model.html"
-                class="text-gray-600 hover:text-primary transition-colors font-medium">3d Model</a>
-              <a href="#ratings" class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
-              <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
-            </nav>
-            <div class="flex items-center gap-3">
-              <!-- Custom Sign In Button to open modal -->
-              <button id="open-login-modal-btn"
-                class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
-                Sign In
-              </button>
-    
-              <!-- User Info Display (hidden by default) - THIS STAYS THE SAME -->
-              <div id="user-info-container" class="hidden relative group">
-                <!-- ... (the user avatar and dropdown menu code is unchanged) ... -->
-              </div>
-    
-              <!-- Mobile Menu Toggle -->
-              <button id="menu-toggle" class="md:hidden text-2xl text-gray-600 hover:text-primary">
-                <i class="fa fa-bars"></i>
-              </button>
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <a href="/" class="flex items-center gap-2">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">N</span>
+                    </div>
+                    <span class="text-xl md:text-2xl font-bold gradient-text">
+                        NanoBananas
+                    </span>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#features"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+                    <a href="#prompts"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+                    <a href="#examples"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+                    <a href="#figures"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+                    <!-- <a href="./pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a> -->
+                    <a href="bandai-nano-banana.html"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+                    <a href="nano-banana-model-kit.html"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+                    <a href="nano-banana-model.html"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+                        Model</a>
+                    <a href="#ratings"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+                    <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <!-- Sign In Button (Visible when logged out) -->
+                    <button id="open-login-modal-btn"
+                        class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
+                        Sign In
+                    </button>
+
+                    <!-- AFTER -->
+                    <!-- User Info Display (Visible when logged in) -->
+                    <div id="user-info-container" class="hidden relative">
+                        <!-- This button is the trigger for the dropdown -->
+                        <button id="user-menu-button" class="flex items-center gap-2 focus:outline-none rounded-full">
+                            <img id="user-avatar" src="" alt="User Avatar"
+                                class="w-9 h-9 rounded-full object-cover border-2 border-primary/50">
+                            <span id="user-name"
+                                class="hidden sm:inline text-sm font-medium text-gray-700 pointer-events-none"></span>
+                        </button>
+
+                        <!-- New Dropdown Menu Styled to Match Your Image -->
+                        <div id="user-menu-dropdown"
+                            class="absolute right-0 mt-3 w-64 origin-top-right bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            <div class="p-4" role="none">
+                                <!-- User Name and Email -->
+                                <div class="mb-4">
+                                    <p id="dropdown-user-name" class="text-sm font-semibold text-gray-800 truncate"
+                                        role="none"></p>
+                                    <p id="dropdown-user-email" class="text-xs text-gray-500 truncate" role="none"></p>
+                                </div>
+
+                                <!-- Credits -->
+                                <div class="flex justify-between items-center text-sm text-gray-700 py-2">
+                                    <div class="flex items-center">
+                                        <i class="fa fa-database w-5 text-center text-orange-500 mr-2"></i>
+                                        <span>Credits</span>
+                                    </div>
+                                    <span id="user-credits" class="font-bold text-orange-500">2</span>
+                                </div>
+                                <div class="border-t border-gray-100 my-2"></div>
+
+                                <!-- Sign Out Button -->
+                                <button id="logout-btn"
+                                    class="w-full text-left flex items-center px-2 py-2 text-sm text-red-600 rounded-md hover:bg-red-50"
+                                    role="menuitem">
+                                    <i class="fa fa-sign-out w-5 text-center mr-2"></i>
+                                    Sign Out
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Mobile Menu Toggle -->
+                    <button id="menu-toggle" class="md:hidden text-2xl text-gray-600 hover:text-primary">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
             </div>
-          </div>
         </div>
-    
+
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-          <div class="container mx-auto px-4 py-3 space-y-3">
-            <a href="#features"
-              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
-            <a href="#prompts" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
-            <a href="#examples"
-              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-            <a href="#figures" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
-            <a href="bandai-nano-banana.html"
-              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
-              <a href="nano-banana-model-kit.html"
-              class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
-              <a href="nano-banana-model.html"
-              class="text-gray-600 hover:text-primary transition-colors font-medium">3d Model</a>
-            <a href="#ratings" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
-            <a href="#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
-    
-            <div class="">
-    
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#features"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+                <a href="#prompts"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+                <a href="#examples"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+                <a href="#figures"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+                <!-- <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a> -->
+                <a href="bandai-nano-banana.html"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+                <a href="nano-banana-model-kit.html"
+                    class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+                <a href="nano-banana-model.html"
+                    class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+                    Model</a>
+                <a href="#ratings"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+                <a href="#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+
+                <div class="">
+
+                </div>
             </div>
-          </div>
         </div>
-      </header>
+    </header>
+
+    <div id="login-modal" class="hidden fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-4">
+        <div class="bg-dark text-light p-8 rounded-2xl shadow-2xl w-full max-w-md relative" id="login-modal-content">
+            <button id="close-login-modal-btn"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="text-center mb-6">
+                <p class="text-sm text-gray-400">Nano Banana AI</p>
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-white">Welcome to <span
+                        class="text-gray-400">Nano Banana</span></h1>
+            </div>
+            <div class="w-full bg-white/5 p-2 rounded-xl backdrop-blur-sm border border-white/10">
+                <p
+                    class="flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg font-medium text-white">
+                    <span class="text-lg mr-2">🎁</span> Free Usage credits daily after sign-in
+                </p>
+            </div>
+            <button id="loginBtn"
+                class="mt-4 w-full h-10 px-4 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-black text-sm sm:text-base font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                    stroke="none" class="h-4 w-4">
+                    <path
+                        d="M12 2a9.96 9.96 0 0 1 6.29 2.226a1 1 0 0 1 .04 1.52l-1.51 1.362a1 1 0 0 1 -1.265 .06a6 6 0 1 0 2.103 6.836l.001 -.004h-3.66a1 1 0 0 1 -.992 -.883l-.007 -.117v-2a1 1 0 0 1 1 -1h6.945a1 1 0 0 1 .994 .89c.04 .367 .061 .737 .061 1.11c0 5.523 -4.477 10 -10 10s-10 -4.477 -10 -10s4.477 -10 10 -10z">
+                    </path>
+                </svg>
+                Sign in with Google
+            </button>
+        </div>
+    </div>
 
     <!-- 主要内容 -->
     <section class="py-16 md:py-24">
@@ -131,76 +220,109 @@
                 <p class="text-gray-600 mb-6">
                     Last updated: July 15, 2023
                 </p>
-                
+
                 <p class="text-gray-700 mb-6">
-                    Welcome to NanoBananas.me ("we", "us", or "our"). These Terms of Service ("Terms") govern your use of our website and services (collectively, the "Service"), including our free nano banana AI generator for creating figures, models, and other content. By accessing or using our Service, you agree to be bound by these Terms.
+                    Welcome to NanoBananas.me ("we", "us", or "our"). These Terms of Service ("Terms") govern your use
+                    of our website and services (collectively, the "Service"), including our free nano banana AI
+                    generator for creating figures, models, and other content. By accessing or using our Service, you
+                    agree to be bound by these Terms.
                 </p>
-                
+
                 <h2 class="text-2xl font-bold mt-10 mb-4">1. Eligibility</h2>
                 <p class="text-gray-700 mb-6">
-                    You must be at least 13 years old to use our Service. By using our Service, you represent and warrant that you are at least 13 years old and have the legal capacity to enter into these Terms. If you are using our Service on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms.
+                    You must be at least 13 years old to use our Service. By using our Service, you represent and
+                    warrant that you are at least 13 years old and have the legal capacity to enter into these Terms. If
+                    you are using our Service on behalf of an organization, you represent and warrant that you have the
+                    authority to bind that organization to these Terms.
                 </p>
-                
+
                 <h2 class="text-2xl font-bold mt-10 mb-4">2. Use of the Service</h2>
                 <p class="text-gray-700 mb-4">
-                    We grant you a limited, non-exclusive, non-transferable, revocable license to use our Service for your personal or commercial purposes, subject to these Terms. Our Service allows you to generate nano banana figures, models, and related content using text prompts ("nano banana prompts").
+                    We grant you a limited, non-exclusive, non-transferable, revocable license to use our Service for
+                    your personal or commercial purposes, subject to these Terms. Our Service allows you to generate
+                    nano banana figures, models, and related content using text prompts ("nano banana prompts").
                 </p>
-                
+
                 <h3 class="text-xl font-semibold mt-6 mb-3">2.1 Acceptable Use</h3>
                 <p class="text-gray-700 mb-4">
                     You agree not to use our Service to:
                 </p>
                 <ul class="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                    <li>Generate content that is illegal, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, or otherwise objectionable</li>
-                    <li>Generate content that infringes on any third-party rights, including copyrights, trademarks, privacy rights, or publicity rights</li>
-                    <li>Impersonate any person or entity or falsely state or otherwise misrepresent your affiliation with a person or entity</li>
+                    <li>Generate content that is illegal, harmful, threatening, abusive, harassing, defamatory, vulgar,
+                        obscene, or otherwise objectionable</li>
+                    <li>Generate content that infringes on any third-party rights, including copyrights, trademarks,
+                        privacy rights, or publicity rights</li>
+                    <li>Impersonate any person or entity or falsely state or otherwise misrepresent your affiliation
+                        with a person or entity</li>
                     <li>Interfere with or disrupt the Service or servers or networks connected to the Service</li>
-                    <li>Attempt to gain unauthorized access to the Service or to any account, computer, or network connected to the Service</li>
+                    <li>Attempt to gain unauthorized access to the Service or to any account, computer, or network
+                        connected to the Service</li>
                     <li>Use automated tools to generate excessive numbers of nano banana figures or models</li>
                 </ul>
-                
+
                 <h2 class="text-2xl font-bold mt-10 mb-4">3. Intellectual Property</h2>
-                
+
                 <h3 class="text-xl font-semibold mt-6 mb-3">3.1 Your Prompts</h3>
                 <p class="text-gray-700 mb-6">
-                    You retain ownership of any nano banana prompts you provide. By submitting prompts, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, and modify such prompts solely for the purpose of providing the Service.
+                    You retain ownership of any nano banana prompts you provide. By submitting prompts, you grant us a
+                    worldwide, non-exclusive, royalty-free license to use, reproduce, and modify such prompts solely for
+                    the purpose of providing the Service.
                 </p>
-                
+
                 <h3 class="text-xl font-semibold mt-6 mb-3">3.2 Generated Content</h3>
                 <p class="text-gray-700 mb-6">
-                    You are granted a non-exclusive license to use images generated through the Service (including nano banana figures, models, and related content) for both personal and commercial purposes, subject to these Terms and our Acceptable Use Policy. We reserve the right to use generated images to improve our Service, provided that such use does not identify you personally.
+                    You are granted a non-exclusive license to use images generated through the Service (including nano
+                    banana figures, models, and related content) for both personal and commercial purposes, subject to
+                    these Terms and our Acceptable Use Policy. We reserve the right to use generated images to improve
+                    our Service, provided that such use does not identify you personally.
                 </p>
-                
+
                 <h3 class="text-xl font-semibold mt-6 mb-3">3.3 Our Intellectual Property</h3>
                 <p class="text-gray-700 mb-6">
-                    The Service and its entire contents, features, and functionality (including but not limited to all information, software, text, displays, images, video, and audio, and the design, selection, and arrangement thereof) are owned by us or our licensors and are protected by copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws. "NanoBananas" and related trademarks are our property.
+                    The Service and its entire contents, features, and functionality (including but not limited to all
+                    information, software, text, displays, images, video, and audio, and the design, selection, and
+                    arrangement thereof) are owned by us or our licensors and are protected by copyright, trademark,
+                    patent, trade secret, and other intellectual property or proprietary rights laws. "NanoBananas" and
+                    related trademarks are our property.
                 </p>
-                
+
                 <h2 class="text-2xl font-bold mt-10 mb-4">4. Free Service</h2>
                 <p class="text-gray-700 mb-6">
-                    Our nano banana AI is currently provided free of charge. We reserve the right to modify or discontinue the free service at any time, but will provide reasonable notice of any material changes. We may offer premium features in the future, but the core functionality will remain free.
+                    Our nano banana AI is currently provided free of charge. We reserve the right to modify or
+                    discontinue the free service at any time, but will provide reasonable notice of any material
+                    changes. We may offer premium features in the future, but the core functionality will remain free.
                 </p>
-                
+
                 <h2 class="text-2xl font-bold mt-10 mb-4">5. Disclaimer of Warranties</h2>
                 <p class="text-gray-700 mb-6">
-                    THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. We do not guarantee the quality, accuracy, or suitability of any nano banana figures or models generated through the Service.
+                    THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+                    IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+                    PARTICULAR PURPOSE, AND NON-INFRINGEMENT. We do not guarantee the quality, accuracy, or suitability
+                    of any nano banana figures or models generated through the Service.
                 </p>
-                
+
                 <h2 class="text-2xl font-bold mt-10 mb-4">6. Limitation of Liability</h2>
                 <p class="text-gray-700 mb-6">
-                    IN NO EVENT SHALL WE OR OUR LICENSORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR USE, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OR INABILITY TO USE THE SERVICE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING OUT OF OR IN CONNECTION WITH THESE TERMS OR THE SERVICE SHALL NOT EXCEED $100.
+                    IN NO EVENT SHALL WE OR OUR LICENSORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+                    CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR USE,
+                    ARISING OUT OF OR IN CONNECTION WITH YOUR USE OR INABILITY TO USE THE SERVICE, EVEN IF WE HAVE BEEN
+                    ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING OUT OF
+                    OR IN CONNECTION WITH THESE TERMS OR THE SERVICE SHALL NOT EXCEED $100.
                 </p>
-                
+
                 <h2 class="text-2xl font-bold mt-10 mb-4">7. Changes to These Terms</h2>
                 <p class="text-gray-700 mb-6">
-                    We may update these Terms from time to time. We will notify you of any material changes by posting the new Terms on this page and updating the "Last updated" date. Your continued use of the Service after such changes constitutes your acceptance of the new Terms.
+                    We may update these Terms from time to time. We will notify you of any material changes by posting
+                    the new Terms on this page and updating the "Last updated" date. Your continued use of the Service
+                    after such changes constitutes your acceptance of the new Terms.
                 </p>
-                
+
                 <h2 class="text-2xl font-bold mt-10 mb-4">8. Governing Law</h2>
                 <p class="text-gray-700 mb-6">
-                    These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law principles.
+                    These Terms shall be governed by and construed in accordance with the laws of the State of
+                    California, without regard to its conflict of law principles.
                 </p>
-                
+
                 <h2 class="text-2xl font-bold mt-10 mb-4">9. Contact Us</h2>
                 <p class="text-gray-700 mb-6">
                     If you have any questions about these Terms, please contact us at:
@@ -218,7 +340,8 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <a href="/" class="flex items-center gap-2 mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                             <span class="text-white font-bold text-xl">N</span>
                         </div>
                         <span class="text-2xl font-bold">NanoBananas</span>
@@ -241,18 +364,23 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h3 class="text-lg font-bold mb-4">Product</h3>
                     <ul class="space-y-2">
-                        <li><a href="/#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                        <li><a href="/#generator" class="text-gray-400 hover:text-white transition-colors">Generator</a></li>
-                        <li><a href="/#prompts" class="text-gray-400 hover:text-white transition-colors">Prompts</a></li>
-                        <li><a href="/#examples" class="text-gray-400 hover:text-white transition-colors">Examples</a></li>
-                        <li><a href="/#figures" class="text-gray-400 hover:text-white transition-colors">Figures</a></li>
+                        <li><a href="/#features" class="text-gray-400 hover:text-white transition-colors">Features</a>
+                        </li>
+                        <li><a href="/#generator" class="text-gray-400 hover:text-white transition-colors">Generator</a>
+                        </li>
+                        <li><a href="/#prompts" class="text-gray-400 hover:text-white transition-colors">Prompts</a>
+                        </li>
+                        <li><a href="/#examples" class="text-gray-400 hover:text-white transition-colors">Examples</a>
+                        </li>
+                        <li><a href="/#figures" class="text-gray-400 hover:text-white transition-colors">Figures</a>
+                        </li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h3 class="text-lg font-bold mb-4">Resources</h3>
                     <ul class="space-y-2">
@@ -263,18 +391,20 @@
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h3 class="text-lg font-bold mb-4">Legal</h3>
                     <ul class="space-y-2">
-                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy
+                                Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of
+                                Service</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Copyright</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Usage Rights</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
                 <p>&copy; 2023 NanoBananas.me. All rights reserved. Free nano banana AI generator.</p>
             </div>
@@ -285,11 +415,11 @@
         // 移动端菜单切换
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
+
         // 导航栏滚动效果
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
@@ -301,20 +431,20 @@
                 header.classList.add('shadow-sm');
             }
         });
-        
+
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 // 关闭移动菜单（如果打开）
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
                 }
-                
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -324,7 +454,207 @@
                 }
             });
         });
+
+        const loginModal = document.getElementById("login-modal");
+        const openSignInBtn = document.getElementById("open-login-modal-btn");
+        const closeModalBtn = document.getElementById('close-login-modal-btn');
+        const googleLoginBtn = document.getElementById("loginBtn");
+        const userInfoContainer = document.getElementById('user-info-container');
+        const userAvatarImg = document.getElementById('user-avatar');
+        const userNameSpan = document.getElementById('user-name');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        const GOOGLE_CLIENT_ID = "98611438844-610u4rlujgvhb6egkrgjctj7765m3vji.apps.googleusercontent.com";
+        const BACKEND_REDIRECT_URI = "https://api.nanobananas.me/prod-api/g/callback";
+
+        // --- UI Update Functions ---
+
+        /**
+         * Updates the UI to show the user as logged in.
+         * @param {object} user - The user object with name and picture properties.
+         */
+        function updateUIForLogin(user) {
+            openSignInBtn.classList.add('hidden');
+            userInfoContainer.classList.remove('hidden');
+            userAvatarImg.src = user.picture;
+            userNameSpan.textContent = user.name;
+            loginModal.classList.add('hidden'); // Ensure modal is closed
+        }
+
+        /**
+         * Updates the UI to show the user as logged out.
+         */
+        function updateUIForLogout() {
+            openSignInBtn.classList.remove('hidden');
+            userInfoContainer.classList.add('hidden');
+            userAvatarImg.src = '';
+            userNameSpan.textContent = '';
+        }
+
+        // --- Event Listeners ---
+
+        // Open login modal
+        openSignInBtn.addEventListener("click", () => {
+            loginModal.classList.remove("hidden");
+        });
+
+        // Close login modal
+        closeModalBtn.addEventListener("click", () => {
+            loginModal.classList.add("hidden");
+        });
+
+        // Start Google login process
+        googleLoginBtn.addEventListener('click', () => {
+            loginDialog();
+        });
+
+        // Handle logout
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('user_info');
+            localStorage.removeItem('auth_token');
+            updateUIForLogout();
+        });
+
+
+        // --- Core Login Functions ---
+
+        /**
+         * Opens the Google authentication popup window.
+         */
+        function loginDialog() {
+            const googleAuthUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
+            const params = {
+                client_id: GOOGLE_CLIENT_ID,
+                redirect_uri: BACKEND_REDIRECT_URI,
+                response_type: 'code',
+                scope: 'openid email profile',
+                prompt: 'select_account',
+                state: '1111'
+            };
+            const finalAuthUrl = `${googleAuthUrl}?${new URLSearchParams(params)}`;
+            const width = 600, height = 600;
+            const left = window.screen.width / 2 - width / 2;
+            const top = window.screen.height / 2 - height / 2;
+            const popup = window.open(finalAuthUrl, 'GoogleLogin', `width=${width},height=${height},left=${left},top=${top}`);
+
+            window.removeEventListener('message', handleAuthMessage);
+            window.addEventListener('message', handleAuthMessage);
+
+            const checkPopupClosed = setInterval(() => {
+                if (popup && popup.closed) {
+                    clearInterval(checkPopupClosed);
+                    window.removeEventListener('message', handleAuthMessage);
+                }
+            }, 500); // Check every half second
+        }
+
+        function handleAuthMessage(event) {
+            if (event.origin !== "https://api.nanobananas.me") {
+                return; // Ignore messages from other sources (like browser extensions)
+            }
+
+            if (!event.data || !event.data.token) {
+                return; // The message is from our origin but not the one we want.
+            }
+
+
+            loginModal.classList.add('hidden');
+
+            window.removeEventListener('message', handleAuthMessage);
+
+            const { token: nestedJsonString } = event.data;
+
+            try {
+                const { user, token: jwtToken } = JSON.parse(nestedJsonString);
+                if (!jwtToken || !user) return;
+
+                localStorage.setItem("auth_token", jwtToken);
+                localStorage.setItem("user_info", JSON.stringify(user));
+                updateUIForLogin(user);
+
+            } catch (error) {
+                console.error("Error parsing auth response:", error);
+            }
+        }
+
+        /**
+         * Checks for stored user info on page load to maintain login state.
+         */
+        function checkLoginStatus() {
+            const userInfoStr = localStorage.getItem('user_info');
+            if (userInfoStr) {
+                try {
+                    const user = JSON.parse(userInfoStr);
+                    if (user && user.name && user.picture) {
+                        updateUIForLogin(user);
+                    } else {
+                        localStorage.removeItem('user_info');
+                    }
+                } catch (e) {
+                    console.error("Failed to parse user info from localStorage", e);
+                    localStorage.removeItem('user_info');
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+
+
+        const dropdownUserName = document.getElementById('dropdown-user-name');
+        const dropdownUserEmail = document.getElementById('dropdown-user-email');
+        const userCreditsSpan = document.getElementById('user-credits');
+
+        /**
+         * [UPDATED] Updates the UI to show the user as logged in and populates the dropdown.
+         * @param {object} user - The user object with name, email, and picture properties.
+         */
+        function updateUIForLogin(user) {
+            // Update header elements
+            openSignInBtn.classList.add('hidden');
+            userInfoContainer.classList.remove('hidden');
+            userAvatarImg.src = user.picture;
+            userNameSpan.textContent = user.name; // For display next to avatar
+
+            // **NEW**: Populate the new dropdown menu
+            if (dropdownUserName) dropdownUserName.textContent = user.name;
+            if (dropdownUserEmail) dropdownUserEmail.textContent = user.email;
+            // You'll need to fetch the actual credit count from your API.
+            // For now, it will use the static value '2' from the HTML.
+            // Example of how you would update it: if (userCreditsSpan) userCreditsSpan.textContent = user.credits;
+
+            loginModal.classList.add('hidden'); // Ensure modal is closed
+        }
+
+        /**
+         * Updates the UI to show the user as logged out.
+         */
+        function updateUIForLogout() {
+            openSignInBtn.classList.remove('hidden');
+            userInfoContainer.classList.add('hidden');
+            userAvatarImg.src = '';
+            userNameSpan.textContent = '';
+            if (dropdownUserName) dropdownUserName.textContent = '';
+            if (dropdownUserEmail) dropdownUserEmail.textContent = '';
+        }
+
+
+        const userMenuButton = document.getElementById('user-menu-button');
+        const userMenuDropdown = document.getElementById('user-menu-dropdown');
+
+        if (userMenuButton) {
+            userMenuButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                userMenuDropdown.classList.toggle('hidden');
+            });
+        }
+
+        window.addEventListener('click', () => {
+            if (userMenuDropdown && !userMenuDropdown.classList.contains('hidden')) {
+                userMenuDropdown.classList.add('hidden');
+            }
+        });
+
     </script>
 </body>
+
 </html>
-    

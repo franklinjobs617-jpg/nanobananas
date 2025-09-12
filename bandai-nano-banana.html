@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bandai Style Nano Banana - AI Generated Figures</title>
-    <meta name="description" content="Create authentic Bandai style nano banana figures with our specialized AI generator. Perfect replicas of Bandai's iconic design aesthetic.">
-    <meta name="keywords" content="nano banana bandai, bandai style nano banana, bandai figure generator, nano banana ai bandai">
+    <meta name="description"
+        content="Create authentic Bandai style nano banana figures with our specialized AI generator. Perfect replicas of Bandai's iconic design aesthetic.">
+    <meta name="keywords"
+        content="nano banana bandai, bandai style nano banana, bandai figure generator, nano banana ai bandai">
     <link rel="canonical" href="https://www.nanobananas.me/bandai-nano-banana.html" />
     <!-- External Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -34,7 +37,7 @@
             }
         }
     </script>
-    
+
     <style type="text/tailwindcss">
         @layer utilities {
             .text-shadow {
@@ -56,84 +59,139 @@
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0BS5F771SF"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-0BS5F771SF');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0BS5F771SF');
     </script>
 </head>
+
 <body class="font-inter bg-light text-dark">
     <!-- 导航栏 -->
-    <header class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center h-16 md:h-20">
-            <a href="/" class="flex items-center gap-2">
-              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span class="text-white font-bold text-xl">N</span>
+  <header class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16 md:h-20">
+        <a href="/" class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+            <span class="text-white font-bold text-xl">N</span>
+          </div>
+          <span class="text-xl md:text-2xl font-bold gradient-text">
+            NanoBananas
+          </span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="#features" class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+          <a href="#prompts" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+          <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+          <a href="#figures" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+          <a href="bandai-nano-banana.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+          <a href="nano-banana-model-kit.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+          <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+            Model</a>
+          <a href="#ratings" class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+          <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <!-- Sign In Button (Visible when logged out) -->
+          <button id="open-login-modal-btn"
+            class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
+            Sign In
+          </button>
+
+          <!-- AFTER -->
+          <!-- User Info Display (Visible when logged in) -->
+          <div id="user-info-container" class="hidden relative">
+            <!-- This button is the trigger for the dropdown -->
+            <button id="user-menu-button" class="flex items-center gap-2 focus:outline-none rounded-full">
+              <img id="user-avatar" src="" alt="User Avatar"
+                class="w-9 h-9 rounded-full object-cover border-2 border-primary/50">
+              <span id="user-name"
+                class="hidden sm:inline text-sm font-medium text-gray-700 pointer-events-none"></span>
+            </button>
+
+            <!-- New Dropdown Menu Styled to Match Your Image -->
+            <div id="user-menu-dropdown"
+              class="absolute right-0 mt-3 w-64 origin-top-right bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+              role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+              <div class="p-4" role="none">
+                <!-- User Name and Email -->
+                <div class="mb-4">
+                  <p id="dropdown-user-name" class="text-sm font-semibold text-gray-800 truncate" role="none"></p>
+                  <p id="dropdown-user-email" class="text-xs text-gray-500 truncate" role="none"></p>
+                </div>
+
+                <!-- Credits -->
+                <div class="flex justify-between items-center text-sm text-gray-700 py-2">
+                  <div class="flex items-center">
+                    <i class="fa fa-database w-5 text-center text-orange-500 mr-2"></i>
+                    <span>Credits</span>
+                  </div>
+                  <span id="user-credits" class="font-bold text-orange-500">2</span>
+                </div>
+
+                <div class="border-t border-gray-100 my-2"></div>
+
+                <!-- Menu Items -->
+                <a href="#" class="flex items-center px-2 py-2 text-sm text-gray-700 rounded-md hover:bg-gray-100"
+                  role="menuitem">
+                  <i class="fa fa-image w-5 text-center text-gray-500 mr-2"></i>
+                  My Gallery
+                </a>
+                <a href="#" class="flex items-center px-2 py-2 text-sm text-gray-700 rounded-md hover:bg-gray-100"
+                  role="menuitem">
+                  <i class="fa fa-credit-card w-5 text-center text-gray-500 mr-2"></i>
+                  Billing
+                </a>
+
+                <div class="border-t border-gray-100 my-2"></div>
+
+                <!-- Sign Out Button -->
+                <button id="logout-btn"
+                  class="w-full text-left flex items-center px-2 py-2 text-sm text-red-600 rounded-md hover:bg-red-50"
+                  role="menuitem">
+                  <i class="fa fa-sign-out w-5 text-center mr-2"></i>
+                  Sign Out
+                </button>
               </div>
-              <span class="text-xl md:text-2xl font-bold gradient-text">
-                NanoBananas
-              </span>
-            </a>
-    
-            <nav class="hidden md:flex items-center space-x-8">
-              <a href="#features" class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
-              <a href="#prompts" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
-              <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-              <a href="#figures" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
-              <a href="bandai-nano-banana.html"
-                class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
-              <a href="nano-banana-model-kit.html"
-                class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
-                <a href="nano-banana-model.html"
-                class="text-gray-600 hover:text-primary transition-colors font-medium">3d Model</a>
-              <a href="#ratings" class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
-              <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
-            </nav>
-            <div class="flex items-center gap-3">
-              <!-- Custom Sign In Button to open modal -->
-              <button id="open-login-modal-btn"
-                class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
-                Sign In
-              </button>
-    
-              <!-- User Info Display (hidden by default) - THIS STAYS THE SAME -->
-              <div id="user-info-container" class="hidden relative group">
-                <!-- ... (the user avatar and dropdown menu code is unchanged) ... -->
-              </div>
-    
-              <!-- Mobile Menu Toggle -->
-              <button id="menu-toggle" class="md:hidden text-2xl text-gray-600 hover:text-primary">
-                <i class="fa fa-bars"></i>
-              </button>
             </div>
           </div>
+
+
+          <!-- Mobile Menu Toggle -->
+          <button id="menu-toggle" class="md:hidden text-2xl text-gray-600 hover:text-primary">
+            <i class="fa fa-bars"></i>
+          </button>
         </div>
-    
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-          <div class="container mx-auto px-4 py-3 space-y-3">
-            <a href="#features"
-              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
-            <a href="#prompts" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
-            <a href="#examples"
-              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-            <a href="#figures" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
-            <a href="bandai-nano-banana.html"
-              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
-              <a href="nano-banana-model-kit.html"
-              class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
-              <a href="nano-banana-model.html"
-              class="text-gray-600 hover:text-primary transition-colors font-medium">3d Model</a>
-            <a href="#ratings" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
-            <a href="#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
-    
-            <div class="">
-    
-            </div>
-          </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="#features"
+          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+        <a href="#prompts" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+        <a href="#examples"
+          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+        <a href="#figures" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+        <a href="bandai-nano-banana.html"
+          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+        <a href="nano-banana-model-kit.html"
+          class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+        <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+          Model</a>
+        <a href="#ratings" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+        <a href="#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+
+        <div class="">
+
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 
     <!-- 页面标题区域 -->
     <section class="py-16 md:py-24 bg-gradient-to-b from-white to-secondary/5">
@@ -144,13 +202,16 @@
                         Bandai Style <span class="gradient-text">Nano Banana</span> Figures
                     </h1>
                     <p class="text-xl text-gray-600">
-                        Create authentic Bandai-inspired nano banana figures with our specialized AI generator. Capture the iconic style, proportions, and detailing that made Bandai figures famous.
+                        Create authentic Bandai-inspired nano banana figures with our specialized AI generator. Capture
+                        the iconic style, proportions, and detailing that made Bandai figures famous.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="#bandai-generator" class="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-center">
+                        <a href="#bandai-generator"
+                            class="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-center">
                             <i class="fa fa-magic mr-2"></i> Generate Bandai Style
                         </a>
-                        <a href="#examples" class="px-8 py-4 border-2 border-secondary text-secondary text-lg font-semibold rounded-xl hover:bg-secondary/5 transition-all text-center">
+                        <a href="#examples"
+                            class="px-8 py-4 border-2 border-secondary text-secondary text-lg font-semibold rounded-xl hover:bg-secondary/5 transition-all text-center">
                             <i class="fa fa-image mr-2"></i> View Examples
                         </a>
                     </div>
@@ -163,14 +224,19 @@
                     </div>
                 </div>
                 <div class="lg:w-1/2 relative">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                        <img src="./image/bandai-nano-banana.png" alt="Bandai style nano banana figure example" class="w-full h-auto">
+                    <div
+                        class="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <img src="./image/bandai-nano-banana.png" alt="Bandai style nano banana figure example"
+                            class="w-full h-auto">
                         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                            <p class="text-white font-medium">"bandai style nano banana, super sentai colors, high detail, action pose"</p>
+                            <p class="text-white font-medium">"bandai style nano banana, super sentai colors, high
+                                detail, action pose"</p>
                         </div>
                     </div>
-                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 hidden md:block">
-                        <p class="font-semibold text-secondary"><i class="fa fa-lightbulb-o text-primary mr-2"></i> Official look, AI generated</p>
+                    <div
+                        class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 hidden md:block">
+                        <p class="font-semibold text-secondary"><i class="fa fa-lightbulb-o text-primary mr-2"></i>
+                            Official look, AI generated</p>
                     </div>
                 </div>
             </div>
@@ -181,12 +247,14 @@
     <section class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Our <span class="gradient-text">Bandai Generator</span> Stands Out</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Our <span class="gradient-text">Bandai
+                        Generator</span> Stands Out</h2>
                 <p class="text-xl text-gray-600">
-                    Our specialized AI captures the unique characteristics that define Bandai's iconic figure design language.
+                    Our specialized AI captures the unique characteristics that define Bandai's iconic figure design
+                    language.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <!-- 特色 1 -->
                 <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
@@ -195,10 +263,11 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Signature Color Palettes</h3>
                     <p class="text-gray-600">
-                        Recreates Bandai's iconic color schemes with vibrant, saturated tones that pop while maintaining visual harmony.
+                        Recreates Bandai's iconic color schemes with vibrant, saturated tones that pop while maintaining
+                        visual harmony.
                     </p>
                 </div>
-                
+
                 <!-- 特色 2 -->
                 <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
                     <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
@@ -206,10 +275,11 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Mechanical Detailing</h3>
                     <p class="text-gray-600">
-                        Adds the distinctive mechanical joints, panel lines, and technical details that define Bandai's premium figures.
+                        Adds the distinctive mechanical joints, panel lines, and technical details that define Bandai's
+                        premium figures.
                     </p>
                 </div>
-                
+
                 <!-- 特色 3 -->
                 <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
                     <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
@@ -217,10 +287,11 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Perfect Proportions</h3>
                     <p class="text-gray-600">
-                        Maintains the characteristic proportions that give Bandai figures their distinctive, balanced appearance.
+                        Maintains the characteristic proportions that give Bandai figures their distinctive, balanced
+                        appearance.
                     </p>
                 </div>
-                
+
                 <!-- 特色 4 -->
                 <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
                     <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
@@ -228,10 +299,11 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Dynamic Poses</h3>
                     <p class="text-gray-600">
-                        Generates figures in action-oriented poses that capture the energetic style typical of Bandai's character designs.
+                        Generates figures in action-oriented poses that capture the energetic style typical of Bandai's
+                        character designs.
                     </p>
                 </div>
-                
+
                 <!-- 特色 5 -->
                 <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
                     <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
@@ -239,10 +311,11 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Emblematic Markings</h3>
                     <p class="text-gray-600">
-                        Includes the distinctive logos, decals, and insignias that are a hallmark of Bandai's most popular figure lines.
+                        Includes the distinctive logos, decals, and insignias that are a hallmark of Bandai's most
+                        popular figure lines.
                     </p>
                 </div>
-                
+
                 <!-- 特色 6 -->
                 <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
                     <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
@@ -250,7 +323,8 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Armor & Accessory Details</h3>
                     <p class="text-gray-600">
-                        Recreates the signature armor plating and accessory styles that make Bandai figures instantly recognizable.
+                        Recreates the signature armor plating and accessory styles that make Bandai figures instantly
+                        recognizable.
                     </p>
                 </div>
             </div>
@@ -261,80 +335,104 @@
     <section id="bandai-generator" class="py-16 md:py-24 bg-gradient-to-b from-secondary/5 to-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Bandai Style <span class="gradient-text">Generator</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Bandai Style <span
+                        class="gradient-text">Generator</span></h2>
                 <p class="text-xl text-gray-600">
                     Create your own Bandai-inspired nano banana figures with our specialized AI generator.
                 </p>
             </div>
-            
+
             <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
                 <div class="p-6 md:p-8">
                     <div class="mb-6">
-                        <label for="bandai-prompt" class="block text-lg font-medium text-gray-700 mb-2">Enter your Bandai style prompt</label>
+                        <label for="bandai-prompt" class="block text-lg font-medium text-gray-700 mb-2">Enter your
+                            Bandai style prompt</label>
                         <div class="flex flex-col sm:flex-row gap-3">
-                            <textarea id="bandai-prompt" rows="3" class="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all" placeholder="Describe your Bandai style nano banana... e.g., 'nano banana in Bandai's Gundam style, red and white color scheme, battle damaged, with beam saber'"></textarea>
-                            <button id="bandai-generate-btn" class="px-6 py-3 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-xl shadow hover:shadow-lg transition-all flex items-center justify-center">
+                            <textarea id="bandai-prompt" rows="3"
+                                class="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+                                placeholder="Describe your Bandai style nano banana... e.g., 'nano banana in Bandai's Gundam style, red and white color scheme, battle damaged, with beam saber'"></textarea>
+                            <button id="bandai-generate-btn"
+                                class="px-6 py-3 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-xl shadow hover:shadow-lg transition-all flex items-center justify-center">
                                 <i class="fa fa-magic mr-2"></i> Generate
                             </button>
                         </div>
-                        <p class="text-sm text-gray-500 mt-2">Need help? Try our <a href="#prompt-guide" class="text-primary hover:underline">Bandai prompt guide</a></p>
+                        <p class="text-sm text-gray-500 mt-2">Need help? Try our <a href="#prompt-guide"
+                                class="text-primary hover:underline">Bandai prompt guide</a></p>
                     </div>
-                    
+
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                        <button class="bandai-prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                        <button
+                            class="bandai-prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
                             Gundam style nano banana
                         </button>
-                        <button class="bandai-prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                        <button
+                            class="bandai-prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
                             Super Sentai colors
                         </button>
-                        <button class="bandai-prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                        <button
+                            class="bandai-prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
                             vintage Bandai design
                         </button>
-                        <button class="bandai-prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                        <button
+                            class="bandai-prompt-suggestion px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
                             armored battle pose
                         </button>
                     </div>
-                    
+
                     <div class="mb-6">
                         <label class="block text-lg font-medium text-gray-700 mb-2">Bandai Series Inspiration</label>
                         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
-                            <button class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                            <button
+                                class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
                                 Gundam
                             </button>
-                            <button class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                            <button
+                                class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
                                 Super Sentai
                             </button>
-                            <button class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                            <button
+                                class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
                                 Kamen Rider
                             </button>
-                            <button class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                            <button
+                                class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
                                 Saint Seiya
                             </button>
-                            <button class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                            <button
+                                class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
                                 Dragon Ball
                             </button>
-                            <button class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
+                            <button
+                                class="bandai-series-option px-3 py-2 border border-gray-200 rounded-lg text-sm hover:border-primary hover:bg-primary/5 transition-colors">
                                 One Piece
                             </button>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="bg-gray-50 p-6 md:p-8 border-t border-gray-100">
                     <h3 class="text-lg font-medium text-gray-700 mb-4">Your Bandai Style Creation</h3>
-                    <div id="bandai-generation-result" class="flex flex-col items-center justify-center py-12 border-2 border-dashed border-gray-300 rounded-xl bg-white">
+                    <div id="bandai-generation-result"
+                        class="flex flex-col items-center justify-center py-12 border-2 border-dashed border-gray-300 rounded-xl bg-white">
                         <i class="fa fa-image text-4xl text-gray-300 mb-4"></i>
-                        <p class="text-gray-500 text-center max-w-md">Your Bandai style nano banana will appear here. Click "Generate" to create your first image.</p>
+                        <p class="text-gray-500 text-center max-w-md">Your Bandai style nano banana will appear here.
+                            Click "Generate" to create your first image.</p>
                     </div>
-                    
+
                     <div class="flex flex-wrap gap-3 mt-4 justify-center">
-                        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden" id="bandai-download-btn">
+                        <button
+                            class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden"
+                            id="bandai-download-btn">
                             <i class="fa fa-download mr-1"></i> Download
                         </button>
-                        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden" id="bandai-variation-btn">
+                        <button
+                            class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden"
+                            id="bandai-variation-btn">
                             <i class="fa fa-random mr-1"></i> Create Variation
                         </button>
-                        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden" id="bandai-new-btn">
+                        <button
+                            class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors hidden"
+                            id="bandai-new-btn">
                             <i class="fa fa-refresh mr-1"></i> New Generation
                         </button>
                     </div>
@@ -347,100 +445,119 @@
     <section id="examples" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Bandai Style <span class="gradient-text">Examples</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Bandai Style <span class="gradient-text">Examples</span>
+                </h2>
                 <p class="text-xl text-gray-600">
                     Browse these AI-generated examples of Bandai style nano banana figures for inspiration.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 <!-- 示例 1 -->
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100">
                     <div class="relative">
-                        <img src="https://picsum.photos/seed/bandai2/600/400" alt="Bandai style example 1" class="w-full h-64 object-cover">
+                        <img src="https://picsum.photos/seed/bandai2/600/400" alt="Bandai style example 1"
+                            class="w-full h-64 object-cover">
                         <div class="absolute top-3 right-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
                             Gundam Style
                         </div>
                     </div>
                     <div class="p-5">
                         <h3 class="font-bold text-lg mb-2">Mobile Suit Nano Banana</h3>
-                        <p class="text-gray-600 text-sm mb-3">"nano banana in Gundam style, white and blue color scheme, with beam rifle, detailed armor"</p>
-                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this prompt <i class="fa fa-arrow-right ml-1"></i></a>
+                        <p class="text-gray-600 text-sm mb-3">"nano banana in Gundam style, white and blue color scheme,
+                            with beam rifle, detailed armor"</p>
+                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this
+                            prompt <i class="fa fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
-                
+
                 <!-- 示例 2 -->
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100">
                     <div class="relative">
-                        <img src="https://picsum.photos/seed/bandai3/600/400" alt="Bandai style example 2" class="w-full h-64 object-cover">
+                        <img src="https://picsum.photos/seed/bandai3/600/400" alt="Bandai style example 2"
+                            class="w-full h-64 object-cover">
                         <div class="absolute top-3 right-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
                             Super Sentai
                         </div>
                     </div>
                     <div class="p-5">
                         <h3 class="font-bold text-lg mb-2">Sentai Nano Banana</h3>
-                        <p class="text-gray-600 text-sm mb-3">"nano banana as Super Sentai hero, red and yellow suit, helmet with visor, action pose"</p>
-                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this prompt <i class="fa fa-arrow-right ml-1"></i></a>
+                        <p class="text-gray-600 text-sm mb-3">"nano banana as Super Sentai hero, red and yellow suit,
+                            helmet with visor, action pose"</p>
+                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this
+                            prompt <i class="fa fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
-                
+
                 <!-- 示例 3 -->
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100">
                     <div class="relative">
-                        <img src="https://picsum.photos/seed/bandai4/600/400" alt="Bandai style example 3" class="w-full h-64 object-cover">
+                        <img src="https://picsum.photos/seed/bandai4/600/400" alt="Bandai style example 3"
+                            class="w-full h-64 object-cover">
                         <div class="absolute top-3 right-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
                             Kamen Rider
                         </div>
                     </div>
                     <div class="p-5">
                         <h3 class="font-bold text-lg mb-2">Rider Nano Banana</h3>
-                        <p class="text-gray-600 text-sm mb-3">"nano banana as Kamen Rider, black and green armor, motorcycle helmet design, detailed"</p>
-                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this prompt <i class="fa fa-arrow-right ml-1"></i></a>
+                        <p class="text-gray-600 text-sm mb-3">"nano banana as Kamen Rider, black and green armor,
+                            motorcycle helmet design, detailed"</p>
+                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this
+                            prompt <i class="fa fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
-                
+
                 <!-- 示例 4 -->
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100">
                     <div class="relative">
-                        <img src="https://picsum.photos/seed/bandai5/600/400" alt="Bandai style example 4" class="w-full h-64 object-cover">
+                        <img src="https://picsum.photos/seed/bandai5/600/400" alt="Bandai style example 4"
+                            class="w-full h-64 object-cover">
                         <div class="absolute top-3 right-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
                             Vintage
                         </div>
                     </div>
                     <div class="p-5">
                         <h3 class="font-bold text-lg mb-2">Vintage Bandai Nano</h3>
-                        <p class="text-gray-600 text-sm mb-3">"retro 80s Bandai nano banana, die-cast look, chibi proportions, box art style"</p>
-                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this prompt <i class="fa fa-arrow-right ml-1"></i></a>
+                        <p class="text-gray-600 text-sm mb-3">"retro 80s Bandai nano banana, die-cast look, chibi
+                            proportions, box art style"</p>
+                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this
+                            prompt <i class="fa fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
-                
+
                 <!-- 示例 5 -->
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100">
                     <div class="relative">
-                        <img src="https://picsum.photos/seed/bandai6/600/400" alt="Bandai style example 5" class="w-full h-64 object-cover">
+                        <img src="https://picsum.photos/seed/bandai6/600/400" alt="Bandai style example 5"
+                            class="w-full h-64 object-cover">
                         <div class="absolute top-3 right-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
                             Saint Seiya
                         </div>
                     </div>
                     <div class="p-5">
                         <h3 class="font-bold text-lg mb-2">Saint Nano Banana</h3>
-                        <p class="text-gray-600 text-sm mb-3">"nano banana in Saint Seiya armor, gold and blue, constellation details, god cloth"</p>
-                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this prompt <i class="fa fa-arrow-right ml-1"></i></a>
+                        <p class="text-gray-600 text-sm mb-3">"nano banana in Saint Seiya armor, gold and blue,
+                            constellation details, god cloth"</p>
+                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this
+                            prompt <i class="fa fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
-                
+
                 <!-- 示例 6 -->
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover border border-gray-100">
                     <div class="relative">
-                        <img src="https://picsum.photos/seed/bandai7/600/400" alt="Bandai style example 6" class="w-full h-64 object-cover">
+                        <img src="https://picsum.photos/seed/bandai7/600/400" alt="Bandai style example 6"
+                            class="w-full h-64 object-cover">
                         <div class="absolute top-3 right-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
                             Mecha
                         </div>
                     </div>
                     <div class="p-5">
                         <h3 class="font-bold text-lg mb-2">Mecha Nano Banana</h3>
-                        <p class="text-gray-600 text-sm mb-3">"mecha nano banana, Bandai mechanical design, exposed gears, missile launchers, battle damage"</p>
-                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this prompt <i class="fa fa-arrow-right ml-1"></i></a>
+                        <p class="text-gray-600 text-sm mb-3">"mecha nano banana, Bandai mechanical design, exposed
+                            gears, missile launchers, battle damage"</p>
+                        <a href="#bandai-generator" class="text-primary text-sm font-medium hover:underline">Use this
+                            prompt <i class="fa fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -451,12 +568,13 @@
     <section id="prompt-guide" class="py-16 md:py-24 bg-gradient-to-b from-secondary/5 to-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Bandai Style <span class="gradient-text">Prompt Guide</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Bandai Style <span class="gradient-text">Prompt
+                        Guide</span></h2>
                 <p class="text-xl text-gray-600">
                     Learn how to craft the perfect prompts for authentic Bandai style nano banana figures.
                 </p>
             </div>
-            
+
             <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
                 <div class="p-6 md:p-8">
                     <div class="space-y-8">
@@ -465,7 +583,8 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="bg-secondary/5 p-5 rounded-xl">
                                     <h4 class="font-bold text-primary mb-2">1. Specify the Series</h4>
-                                    <p class="text-gray-600 mb-2">Mention specific Bandai series for accurate styling:</p>
+                                    <p class="text-gray-600 mb-2">Mention specific Bandai series for accurate styling:
+                                    </p>
                                     <ul class="list-disc pl-5 text-gray-600 space-y-1">
                                         <li>"Gundam style"</li>
                                         <li>"Super Sentai inspired"</li>
@@ -474,7 +593,8 @@
                                 </div>
                                 <div class="bg-secondary/5 p-5 rounded-xl">
                                     <h4 class="font-bold text-primary mb-2">2. Color Scheme</h4>
-                                    <p class="text-gray-600 mb-2">Bandai figures are known for distinctive color combinations:</p>
+                                    <p class="text-gray-600 mb-2">Bandai figures are known for distinctive color
+                                        combinations:</p>
                                     <ul class="list-disc pl-5 text-gray-600 space-y-1">
                                         <li>"red, white and blue color scheme"</li>
                                         <li>"metallic gold accents"</li>
@@ -501,18 +621,22 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div>
                             <h3 class="text-2xl font-bold mb-4">Example Prompts</h3>
                             <div class="space-y-4">
                                 <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
-                                    <p class="font-medium mb-1">"nano banana in Gundam style, white and red color scheme, with beam saber, detailed mechanical joints, action pose, high detail"</p>
+                                    <p class="font-medium mb-1">"nano banana in Gundam style, white and red color
+                                        scheme, with beam saber, detailed mechanical joints, action pose, high detail"
+                                    </p>
                                 </div>
                                 <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
-                                    <p class="font-medium mb-1">"Super Sentai nano banana, blue and yellow suit, helmet with visor, holding weapon, dynamic stance, Bandai quality"</p>
+                                    <p class="font-medium mb-1">"Super Sentai nano banana, blue and yellow suit, helmet
+                                        with visor, holding weapon, dynamic stance, Bandai quality"</p>
                                 </div>
                                 <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
-                                    <p class="font-medium mb-1">"vintage Bandai nano banana, 80s style, die-cast appearance, chibi proportions, box art presentation, retro colors"</p>
+                                    <p class="font-medium mb-1">"vintage Bandai nano banana, 80s style, die-cast
+                                        appearance, chibi proportions, box art presentation, retro colors"</p>
                                 </div>
                             </div>
                         </div>
@@ -528,122 +652,178 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <a href="index.html" class="flex items-center gap-2 mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                             <span class="text-white font-bold text-xl">N</span>
                         </div>
                         <span class="text-xl font-bold">NanoBananas</span>
                     </a>
-                    <p class="text-gray-300 mb-4">Create amazing nano banana figures and models with our free AI generator.</p>
+                    <p class="text-gray-300 mb-4">Create amazing nano banana figures and models with our free AI
+                        generator.</p>
                     <div class="flex gap-4">
-                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-youtube"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i
+                                class="fa fa-facebook"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i
+                                class="fa fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i
+                                class="fa fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i
+                                class="fa fa-youtube"></i></a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-bold mb-4">Generators</h4>
                     <ul class="space-y-2">
-                        <li><a href="index.html#generator" class="text-gray-300 hover:text-primary transition-colors">Basic Generator</a></li>
+                        <li><a href="index.html#generator"
+                                class="text-gray-300 hover:text-primary transition-colors">Basic Generator</a></li>
                         <li><a href="bandai-nano-banana.html" class="text-primary">Bandai Style</a></li>
-                        <li><a href="nano-banana-model.html" class="text-gray-300 hover:text-primary transition-colors">3D Models</a></li>
-                        <li><a href="index.html#figures" class="text-gray-300 hover:text-primary transition-colors">Custom Figures</a></li>
+                        <li><a href="nano-banana-model.html"
+                                class="text-gray-300 hover:text-primary transition-colors">3D Models</a></li>
+                        <li><a href="index.html#figures"
+                                class="text-gray-300 hover:text-primary transition-colors">Custom Figures</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-bold mb-4">Resources</h4>
                     <ul class="space-y-2">
-                        <li><a href="index.html#prompts" class="text-gray-300 hover:text-primary transition-colors">Prompt Guide</a></li>
-                        <li><a href="index.html#examples" class="text-gray-300 hover:text-primary transition-colors">Examples Gallery</a></li>
-                        <li><a href="index.html#ratings" class="text-gray-300 hover:text-primary transition-colors">Community Reviews</a></li>
-                        <li><a href="index.html#faq" class="text-gray-300 hover:text-primary transition-colors">FAQ</a></li>
+                        <li><a href="index.html#prompts"
+                                class="text-gray-300 hover:text-primary transition-colors">Prompt Guide</a></li>
+                        <li><a href="index.html#examples"
+                                class="text-gray-300 hover:text-primary transition-colors">Examples Gallery</a></li>
+                        <li><a href="index.html#ratings"
+                                class="text-gray-300 hover:text-primary transition-colors">Community Reviews</a></li>
+                        <li><a href="index.html#faq" class="text-gray-300 hover:text-primary transition-colors">FAQ</a>
+                        </li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-bold mb-4">Legal</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Terms of Service</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Privacy Policy</a>
+                        </li>
                         <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Copyright</a></li>
                         <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
                 <p>&copy; 2023 NanoBananas AI. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+
+      <div id="login-modal"
+    class="hidden fixed left-[50%] top-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg flex flex-col max-h-[640px] p-0 sm:max-w-lg">
+    <!-- Modal Content -->
+    <div class="bg-dark text-light p-8 rounded-2xl shadow-2xl  w-full relative transform transition-all"
+      id="login-modal-content">
+      <!-- Close Button -->
+      <button id="close-login-modal-btn"
+        class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="text-center mb-6">
+        <p class="text-sm text-gray-400">Nano Banana AI</p>
+        <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-white">Welocome to <span
+            class="text-gray-400">Nano Banana</span></h1>
+      </div>
+
+      <!-- Feature Highlight -->
+      <div class="w-full bg-white/5 p-2 rounded-xl backdrop-blur-sm border border-white/10">
+        <p class="flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg font-medium text-white"><span
+            class="text-lg mr-2">🎁</span> Free Usage credits daily after sign-in</p>
+      </div>
+      <button id="loginBtn"
+        class="mt-4 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow-lg hover:shadow-xl h-10 px-4 w-full py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-black text-sm sm:text-base font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+          stroke="none" class="tabler-icon tabler-icon-brand-google-filled h-4 w-4">
+          <path
+            d="M12 2a9.96 9.96 0 0 1 6.29 2.226a1 1 0 0 1 .04 1.52l-1.51 1.362a1 1 0 0 1 -1.265 .06a6 6 0 1 0 2.103 6.836l.001 -.004h-3.66a1 1 0 0 1 -.992 -.883l-.007 -.117v-2a1 1 0 0 1 1 -1h6.945a1 1 0 0 1 .994 .89c.04 .367 .061 .737 .061 1.11c0 5.523 -4.477 10 -10 10s-10 -4.477 -10 -10s4.477 -10 10 -10z">
+          </path>
+        </svg>
+
+        Sign in with Google
+      </button>
+
+    </div>
+  </div>
+
     <script>
         // 移动端菜单切换
-        document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('menu-toggle').addEventListener('click', function () {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
-        
+
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
+
                     // 关闭移动菜单（如果打开）
                     document.getElementById('mobile-menu').classList.add('hidden');
                 }
             });
         });
-        
+
         // Bandai 生成按钮功能
-        document.getElementById('bandai-generate-btn').addEventListener('click', function() {
+        document.getElementById('bandai-generate-btn').addEventListener('click', function () {
             const promptText = document.getElementById('bandai-prompt').value.trim();
             const resultContainer = document.getElementById('bandai-generation-result');
             const actionButtons = document.querySelectorAll('#bandai-download-btn, #bandai-variation-btn, #bandai-new-btn');
-            
+
             // 显示加载状态
             resultContainer.innerHTML = `
                 <i class="fa fa-circle-o-notch fa-spin text-4xl text-primary mb-4"></i>
                 <p class="text-gray-600">Generating your Bandai style creation...</p>
             `;
-            
+
             // 模拟生成延迟
             setTimeout(() => {
                 // 生成结果
                 resultContainer.innerHTML = `
                     <img src="https://picsum.photos/seed/bandairesult${Math.floor(Math.random() * 100)}/600/400" alt="Generated Bandai style nano banana" class="w-full h-auto rounded-lg">
                 `;
-                
+
                 // 显示操作按钮
                 actionButtons.forEach(btn => btn.classList.remove('hidden'));
             }, 2000);
         });
-        
+
         // 提示词建议点击
         document.querySelectorAll('.bandai-prompt-suggestion').forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 document.getElementById('bandai-prompt').value = this.textContent;
             });
         });
-        
+
         // 系列选项点击
         document.querySelectorAll('.bandai-series-option').forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 const currentText = document.getElementById('bandai-prompt').value;
                 const seriesText = this.textContent;
-                
+
                 if (currentText) {
                     document.getElementById('bandai-prompt').value = currentText + ', ' + seriesText + ' style';
                 } else {
@@ -651,9 +831,9 @@
                 }
             });
         });
-        
+
         // 新生成按钮
-        document.getElementById('bandai-new-btn').addEventListener('click', function() {
+        document.getElementById('bandai-new-btn').addEventListener('click', function () {
             document.getElementById('bandai-prompt').value = '';
             document.getElementById('bandai-generation-result').innerHTML = `
                 <i class="fa fa-image text-4xl text-gray-300 mb-4"></i>
@@ -661,9 +841,9 @@
             `;
             document.querySelectorAll('#bandai-download-btn, #bandai-variation-btn, #bandai-new-btn').forEach(btn => btn.classList.add('hidden'));
         });
-        
+
         // 导航栏滚动效果
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
                 header.classList.add('shadow-md');
@@ -673,6 +853,203 @@
                 header.classList.add('shadow-sm');
             }
         });
+
+
+     const loginModal = document.getElementById("login-modal");
+    const openSignInBtn = document.getElementById("open-login-modal-btn");
+    const closeModalBtn = document.getElementById('close-login-modal-btn');
+    const googleLoginBtn = document.getElementById("loginBtn");
+    const userInfoContainer = document.getElementById('user-info-container');
+    const userAvatarImg = document.getElementById('user-avatar');
+    const userNameSpan = document.getElementById('user-name');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    const GOOGLE_CLIENT_ID = "98611438844-610u4rlujgvhb6egkrgjctj7765m3vji.apps.googleusercontent.com";
+    const BACKEND_REDIRECT_URI = "https://api.nanobananas.me/prod-api/g/callback";
+
+    // --- UI Update Functions ---
+
+    /**
+     * Updates the UI to show the user as logged in.
+     * @param {object} user - The user object with name and picture properties.
+     */
+
+
+    /**
+     * Updates the UI to show the user as logged out.
+     */
+    function updateUIForLogout() {
+      openSignInBtn.classList.remove('hidden');
+      userInfoContainer.classList.add('hidden');
+      userAvatarImg.src = '';
+      userNameSpan.textContent = '';
+    }
+
+    // --- Event Listeners ---
+
+    // Open login modal
+    openSignInBtn.addEventListener("click", () => {
+      loginModal.classList.remove("hidden");
+    });
+
+    // Close login modal
+    closeModalBtn.addEventListener("click", () => {
+      loginModal.classList.add("hidden");
+    });
+
+    // Start Google login process
+    googleLoginBtn.addEventListener('click', () => {
+      loginDialog();
+    });
+
+    // Handle logout
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('user_info');
+      localStorage.removeItem('auth_token');
+      updateUIForLogout();
+    });
+
+
+    // --- Core Login Functions ---
+
+    /**
+     * Opens the Google authentication popup window.
+     */
+        function loginDialog() {
+      const googleAuthUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
+      const params = {
+        client_id: GOOGLE_CLIENT_ID,
+        redirect_uri: BACKEND_REDIRECT_URI,
+        response_type: 'code',
+        scope: 'openid email profile',
+        prompt: 'select_account',
+        state: '1111' 
+      };
+      const finalAuthUrl = `${googleAuthUrl}?${new URLSearchParams(params)}`;
+      const width = 600, height = 600;
+      const left = window.screen.width / 2 - width / 2;
+      const top = window.screen.height / 2 - height / 2;
+      const popup = window.open(finalAuthUrl, 'GoogleLogin', `width=${width},height=${height},left=${left},top=${top}`);
+
+      window.removeEventListener('message', handleAuthMessage);
+      window.addEventListener('message', handleAuthMessage);
+
+      const checkPopupClosed = setInterval(() => {
+        if (popup && popup.closed) {
+          clearInterval(checkPopupClosed);
+          window.removeEventListener('message', handleAuthMessage);
+        }
+      }, 500); // Check every half second
+    }
+
+    function handleAuthMessage(event) {
+      if (event.origin !== "https://api.nanobananas.me") {
+        return; // Ignore messages from other sources (like browser extensions)
+      }
+
+      if (!event.data || !event.data.token) {
+        return; // The message is from our origin but not the one we want.
+      }
+
+
+      loginModal.classList.add('hidden');
+
+      window.removeEventListener('message', handleAuthMessage);
+
+      const { token: nestedJsonString } = event.data;
+
+      try {
+        const { user, token: jwtToken } = JSON.parse(nestedJsonString);
+        if (!jwtToken || !user) return;
+
+        localStorage.setItem("auth_token", jwtToken);
+        localStorage.setItem("user_info", JSON.stringify(user));
+        updateUIForLogin(user);
+
+      } catch (error) {
+        console.error("Error parsing auth response:", error);
+      }
+    }
+    /**
+     * Checks for stored user info on page load to maintain login state.
+     */
+    function checkLoginStatus() {
+      const userInfoStr = localStorage.getItem('user_info');
+      if (userInfoStr) {
+        try {
+          const user = JSON.parse(userInfoStr);
+          if (user ) {
+            updateUIForLogin(user);
+          } else {
+            localStorage.removeItem('user_info');
+          }
+        } catch (e) {
+          console.error("Failed to parse user info from localStorage", e);
+          localStorage.removeItem('user_info');
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', checkLoginStatus);
+
+
+ 
+    const dropdownUserName = document.getElementById('dropdown-user-name');
+    const dropdownUserEmail = document.getElementById('dropdown-user-email');
+    const userCreditsSpan = document.getElementById('user-credits');
+     const dropdownUserCreditsSpan = document.getElementById('user-credits');
+
+    /**
+     * [UPDATED] Updates the UI to show the user as logged in and populates the dropdown.
+     * @param {object} user - The user object with name, email, and picture properties.
+     */
+    function updateUIForLogin(user) {
+      openSignInBtn.classList.add('hidden');
+      userInfoContainer.classList.remove('hidden');
+      userInfoContainer.classList.add('flex');
+      console.log(user)
+      userAvatarImg.src = user.picture;
+      userNameSpan.textContent = user.name;
+
+      const credits = user.score || 0;
+      if (dropdownUserCreditsSpan) dropdownUserCreditsSpan.textContent = credits;
+
+
+
+      if (dropdownUserName) dropdownUserName.textContent = user.name;
+      if (dropdownUserEmail) dropdownUserEmail.textContent = user.email;
+      loginModal.classList.add('hidden');
+    }
+
+    /**
+     * Updates the UI to show the user as logged out.
+     */
+    function updateUIForLogout() {
+        openSignInBtn.classList.remove('hidden');
+        userInfoContainer.classList.add('hidden');
+        userAvatarImg.src = '';
+        userNameSpan.textContent = '';
+        if (dropdownUserName) dropdownUserName.textContent = '';
+        if (dropdownUserEmail) dropdownUserEmail.textContent = '';
+    }
+
+
+    const userMenuButton = document.getElementById('user-menu-button');
+    const userMenuDropdown = document.getElementById('user-menu-dropdown');
+
+    if (userMenuButton) {
+        userMenuButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            userMenuDropdown.classList.toggle('hidden');
+        });
+    }
+
+    window.addEventListener('click', () => {
+        if (userMenuDropdown && !userMenuDropdown.classList.contains('hidden')) {
+            userMenuDropdown.classList.add('hidden');
+        }
+    });
     </script>
 </body>
+
 </html>

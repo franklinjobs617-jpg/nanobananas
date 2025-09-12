@@ -511,7 +511,7 @@
                             <p class="mt-1 font-semibold">150 Credits(50 images)</p>
                             <button
                                 class="purchase-button mt-8 w-full rounded-lg border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-800 transition-colors hover:bg-gray-50"
-                                data-product-id="prod_4X2LrluIcRf4g5VbZ8cTpt">Sign In to Purchase</button>
+                                data-product-id="7">Sign In to Purchase</button>
                         </div>
                         <!-- Creativity Boost Pack -->
                         <div class="flex flex-col rounded-2xl border border-gray-200 bg-white p-8 text-center">
@@ -521,7 +521,7 @@
                             <p class="mt-1 font-semibold">450 Credits(150 images)</p>
                             <button
                                 class="purchase-button mt-8 w-full rounded-lg border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-800 transition-colors hover:bg-gray-50"
-                                data-product-id="prod_2fDW4Y1LLzhJuX3sOc4AcW">Sign In to Purchase</button>
+                                data-product-id="8">Sign In to Purchase</button>\r
                         </div>
                         <!-- Productivity Leap Pack -->
                         <div
@@ -532,7 +532,7 @@
                             <p class="mt-1 font-semibold">1,500 Credits(500 images)</p>
                             <button
                                 class="purchase-button mt-8 w-full rounded-lg bg-gradient-to-r from-red-500 to-orange-500 px-6 py-3 font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
-                                data-product-id="prod_678wiQgA3ZIyVkgg9So1FX">Sign In to Purchase</button>
+                                data-product-id="9">Sign In to Purchase</button>
                         </div>
                         <!-- Project Sprint Pack -->
                         <div class="flex flex-col rounded-2xl border border-gray-200 bg-white p-8 text-center">
@@ -542,7 +542,7 @@
                             <p class="mt-1 font-semibold">4,500 Credits(1500 images)</p>
                             <button
                                 class="purchase-button mt-8 w-full rounded-lg border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-800 transition-colors hover:bg-gray-50"
-                                data-product-id="prod_7OEXpntqTrJqmvRl73ug8o">Sign In to Purchase</button>
+                                data-product-id="10">Sign In to Purchase</button>
                         </div>
                     </div>
                 </div>
@@ -797,10 +797,13 @@
                         loginModal.classList.remove('hidden');
                         return;
                     }
+                    console.log(button.dataset)
+                    //获取data-product-id
+                    const productId = button.dataset.productId;
 
 
                     const userInfoStr = localStorage.getItem('user_info');
-                    const userInfo = userInfoStr ? JSON.parse(userInfoStr) : '113744390683279437553';
+                    const userInfo = userInfoStr ? JSON.parse(userInfoStr) : '';
                     if (!userInfo || !userInfo.googleUserId) {
                         alert("Your session seems to be invalid. Please sign out and in again.");
                         return;
@@ -810,34 +813,35 @@
                     button.disabled = true;
                     button.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> Processing...`;
 
-                    try {
-                        const response = await fetch('https://api.nanobananas.me/prod-api/creem/pay', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                googleUserId: userInfo.googleUserId,
-                            })
-                        });
+                    // try {
+                    //     const response = await fetch('https://api.nanobananas.me/prod-api/creem/pay', {
+                    //         method: 'POST',
+                    //         headers: {
+                    //             'Content-Type': 'application/json',
+                    //         },
+                    //         body: JSON.stringify({
+                    //             googleUserId: userInfo.googleUserId,
+                    //             type: productId
+                    //         })
+                    //     });
 
-                        if (!response.ok) {
-                            throw new Error(`API Error: ${response.statusText}`);
-                        }
+                    //     if (!response.ok) {
+                    //         throw new Error(`API Error: ${response.statusText}`);
+                    //     }
 
-                        const data = await response.json();
-                        if (data && data.data && data.data.checkoutUrl) {
-                            window.open(data.data.checkoutUrl, '_blank');
-                        } else {
-                            throw new Error("Checkout URL not found in API response.");
-                        }
+                    //     const data = await response.json();
+                    //     if (data && data.data && data.data.checkoutUrl) {
+                    //         window.open(data.data.checkoutUrl, '_blank');
+                    //     } else {
+                    //         throw new Error("Checkout URL not found in API response.");
+                    //     }
 
-                    } catch (error) {
-                        console.error("Purchase failed:", error);
-                        alert("An error occurred while processing your request. Please try again.");
-                        button.disabled = false;
-                        button.innerHTML = originalButtonText;
-                    }
+                    // } catch (error) {
+                    //     console.error("Purchase failed:", error);
+                    //     alert("An error occurred while processing your request. Please try again.");
+                    //     button.disabled = false;
+                    //     button.innerHTML = originalButtonText;
+                    // }
                 }
 
                 // Attach purchase listeners ONCE on page load
@@ -955,6 +959,29 @@
                 // --- Initial Page Load ---
                 checkLoginStatus();
             });
+
+
+            function getToken() {
+                return localStorage.getItem('token');
+            }
+
+
+            //updateUser
+            async function updateUser() {
+                const response = await fetch('https://api.nanobananas.me/prod-api/g/getUser', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...(getToken() && { "Authorization": "Bearer " + getToken() }),
+                    },
+                });
+                const data = await response.json();
+                if (data.data) {
+                    updateUIForLogin(data.data);
+                }
+            }
+            updateUser();
+
         </script>
     </body>
 

@@ -152,7 +152,7 @@
           <a href="#prompts" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
           <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
           <a href="#figures" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
-          <!-- <a href="./pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a> -->
+          <a href="./pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
           <a href="bandai-nano-banana.html"
             class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
           <a href="nano-banana-model-kit.html"
@@ -231,7 +231,7 @@
         <a href="#examples"
           class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
         <a href="#figures" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
-        <!-- <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a> -->
+        <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
         <a href="bandai-nano-banana.html"
           class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
         <a href="nano-banana-model-kit.html"
@@ -1594,65 +1594,65 @@
     });
 
 
-    function getToken(){
+    function getToken() {
       return localStorage.getItem('auth_token')
     }
-  
 
-// --- 1. Constants and Configuration ---
-const API_BASE_URL = "https://api.nanobananas.me/prod-api/gemini";
-const CSS_HIDDEN_CLASS = "hidden";
 
-// --- 2. DOM Element Caching ---
-// Cache frequently accessed DOM elements to avoid repeated lookups.
-const promptInput = document.getElementById("prompt");
-const resultContainer = document.getElementById("generation-result");
-const ratingSection = document.getElementById("rating-section");
-const textLimitDisplay = document.getElementById('textLimit');
-const actionButtons = document.querySelectorAll("#download-btn, #variation-btn, #new-btn");
+    // --- 1. Constants and Configuration ---
+    const API_BASE_URL = "https://api.nanobananas.me/prod-api/gemini";
+    const CSS_HIDDEN_CLASS = "hidden";
 
-// --- 3. UI Helper Functions ---
+    // --- 2. DOM Element Caching ---
+    // Cache frequently accessed DOM elements to avoid repeated lookups.
+    const promptInput = document.getElementById("prompt");
+    const resultContainer = document.getElementById("generation-result");
+    const ratingSection = document.getElementById("rating-section");
+    const textLimitDisplay = document.getElementById('textLimit');
+    const actionButtons = document.querySelectorAll("#download-btn, #variation-btn, #new-btn");
 
-/**
- * Manages the visibility of action buttons and the rating section.
- * @param {boolean} show - If true, shows the elements; otherwise, hides them.
- */
-function toggleActionUI(show) {
-    const method = show ? 'remove' : 'add';
-    ratingSection.classList[method](CSS_HIDDEN_CLASS);
-    actionButtons.forEach((btn) => btn.classList[method](CSS_HIDDEN_CLASS));
-}
+    // --- 3. UI Helper Functions ---
 
-/**
- * Renders a loading spinner in the result container.
- */
-function renderSpinner() {
-    resultContainer.innerHTML = `
+    /**
+     * Manages the visibility of action buttons and the rating section.
+     * @param {boolean} show - If true, shows the elements; otherwise, hides them.
+     */
+    function toggleActionUI(show) {
+      const method = show ? 'remove' : 'add';
+      ratingSection.classList[method](CSS_HIDDEN_CLASS);
+      actionButtons.forEach((btn) => btn.classList[method](CSS_HIDDEN_CLASS));
+    }
+
+    /**
+     * Renders a loading spinner in the result container.
+     */
+    function renderSpinner() {
+      resultContainer.innerHTML = `
         <div class="flex justify-center items-center w-full min-h-[256px]">
             <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary"></div>
         </div>`;
-}
+    }
 
-/**
- * Renders an error message in the result container.
- * @param {string} title - The main error message or title.
- * @param {string} [details] - Optional details or a call to action.
- */
-function renderError(title, details = '') {
-    resultContainer.innerHTML = `
+    /**
+     * Renders an error message in the result container.
+     * @param {string} title - The main error message or title.
+     * @param {string} [details] - Optional details or a call to action.
+     */
+    function renderError(title, details = '') {
+      resultContainer.innerHTML = `
         <div class="text-center text-red-500 bg-red-50 p-4 rounded-lg">
             <p class="font-bold">${title}</p>
             ${details ? `<div class="mt-2">${details}</div>` : ''}
         </div>`;
-}
+    }
 
-/**
- * Renders the successfully generated image.
- * @param {string} imageUrl - The URL of the image to display.
- * @param {string} altText - The alt text for the image.
- */
-function renderSuccess(imageUrl, altText) {
-    resultContainer.innerHTML = `
+    /**
+     * Renders the successfully generated image.
+     * @param {string} imageUrl - The URL of the image to display.
+     * @param {string} altText - The alt text for the image.
+     */
+    function renderSuccess(imageUrl, altText) {
+      resultContainer.innerHTML = `
         <img src="${imageUrl}" alt="${altText}" class="w-full h-auto rounded-lg shadow-lg">
         <div id="download-loader" class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white rounded-2xl hidden">
           <svg class="animate-spin h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -1661,102 +1661,102 @@ function renderSuccess(imageUrl, altText) {
           </svg>
           <p class="mt-2 text-lg">Downloading...</p>
         </div>`;
-}
+    }
 
 
 
-/**
- * Fetches and displays the production API limit.
- */
-async function updateProdLimit() {
-    if (!textLimitDisplay) return; // Fail gracefully if the element doesn't exist
-    
-    try {
+    /**
+     * Fetches and displays the production API limit.
+     */
+    async function updateProdLimit() {
+      if (!textLimitDisplay) return; // Fail gracefully if the element doesn't exist
+
+      try {
         const response = await fetch(`${API_BASE_URL}/limit`);
-        
+
         // Proper check for non-2xx responses
         if (!response.ok) {
-            throw new Error(`API Error: ${response.status} ${response.statusText}`);
+          throw new Error(`API Error: ${response.status} ${response.statusText}`);
         }
 
         const { data } = await response.json();
         const { limit, remaining, used, global_limit } = data; // Destructuring for clarity
 
         textLimitDisplay.innerHTML =
-            `Due to the large number of visits, the overall access limit is: ${global_limit}, used: ${used}/${limit}, remaining: ${remaining}/${limit}`;
+          `Due to the large number of visits, the overall access limit is: ${global_limit}, used: ${used}/${limit}, remaining: ${remaining}/${limit}`;
 
-    } catch (error) {
+      } catch (error) {
         console.error("Failed to fetch production limit:", error);
         textLimitDisplay.textContent = "Could not load usage limit.";
+      }
     }
-}
 
-/**
- * Handles the image generation process.
- */
-async function handleImageGeneration() {
-    const promptText = promptInput.value.trim();
-    if (!promptText) {
+    /**
+     * Handles the image generation process.
+     */
+    async function handleImageGeneration() {
+      const promptText = promptInput.value.trim();
+      if (!promptText) {
         alert("Please enter a prompt first!");
         return;
-    }
+      }
 
-    // --- Start: Set UI to loading state ---
-    toggleActionUI(false);
-    renderSpinner();
-    generateBtn.disabled = true; // Disable button to prevent multiple clicks
+      // --- Start: Set UI to loading state ---
+      toggleActionUI(false);
+      renderSpinner();
+      generateBtn.disabled = true; // Disable button to prevent multiple clicks
 
-    try {
+      try {
         const imageFile = getSelectedFile();
         const formData = new FormData();
         formData.append("prompt", promptText);
         if (imageFile) {
-            formData.append("file", imageFile);
+          formData.append("file", imageFile);
         }
 
         const response = await fetch(`${API_BASE_URL}/gen`, {
-            method: "post",
-            headers: {
-                 ...(getToken() && { "Authorization": "Bearer " + getToken() }),
-            },
-            body: formData,
+          method: "post",
+          headers: {
+            ...(getToken() && { "Authorization": "Bearer " + getToken() }),
+          },
+          body: formData,
         });
 
         if (!response.ok) {
-            throw new Error(`Server responded with ${response.status}`);
-        }
-        
-        const data = await response.json();
-        if (data.code === 1) {
-            renderError(data.msg);
-        } else {
-            // Handle success
-            const imageUrl = data.data.url; // Assumes structure is `data.data.url`
-            renderSuccess(imageUrl, `AI image generated for prompt: ${promptText}`);
-            toggleActionUI(true);
+          throw new Error(`Server responded with ${response.status}`);
         }
 
-    } catch (error) {
+        const data = await response.json();
+        if (data.code === 1) {
+          renderError(data.msg);
+        } else {
+          // Handle success
+          const imageUrl = data.data.url; // Assumes structure is `data.data.url`
+          renderSuccess(imageUrl, `AI image generated for prompt: ${promptText}`);
+          toggleActionUI(true);
+        }
+
+      } catch (error) {
         console.error("Generation Failed:", error);
         const upgradeLink = `<a href='pricing.html' class='bg-amber-100 text-amber-800 px-3 py-1.5 rounded-lg text-sm font-semibold hover:bg-amber-200 transition-colors flex items-center'>Upgrade package </a>`;
         renderError("Oops! Something went wrong.", `The service might be temporarily unavailable or has reached its request limit. Please try again later. ${upgradeLink}`);
-    
-    } finally {
+
+      } finally {
         generateBtn.disabled = false; // Re-enable the button
         updateUser();
         updatePricing();
         updateProdLimit(); // Also good to refresh the limit info
+      }
     }
-}
 
 
-generateBtn.addEventListener("click", handleImageGeneration);
+    generateBtn.addEventListener("click", handleImageGeneration);
 
-document.addEventListener('DOMContentLoaded', () => {
-    // updateUser();
-    updateProdLimit();
-    // updatePricing(); 
-});
+    document.addEventListener('DOMContentLoaded', () => {
+      updateUser();
+      updateProdLimit();
+      updatePricing(); 
+    });
 
     const imagePreviewModal = document.getElementById('image-preview-modal');
     const previewModalImage = document.getElementById('preview-modal-image');
@@ -1914,9 +1914,11 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem("auth_token", jwtToken);
         localStorage.setItem("user_info", JSON.stringify(user));
         updateUIForLogin(user);
+        updateUser()
 
       } catch (error) {
         console.error("Error parsing auth response:", error);
+        updateUser()
       }
     }
 
@@ -2007,20 +2009,22 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-               ...(getToken() && { "Authorization": "Bearer " + getToken() }),
+          ...(getToken() && { "Authorization": "Bearer " + getToken() }),
         },
 
       });
       const data = await response.json();
-      updateUIForLogin(data.data);
+      if (data.data) {
+        updateUIForLogin(data.data);
+      }
+
     }
 
 
-    // updateUser();
+    updateUser();
 
 
     function updatePricing() {
-      // === NEW: SELECT THE MODAL ELEMENTS ===
       const creditsModal = document.getElementById('out-of-credits-modal');
       const closeCreditsModalBtn = document.getElementById('close-credits-modal-btn');
       const closeCreditsModalSecondaryBtn = document.getElementById('close-credits-modal-secondary-btn');

@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Your Plan - NanoBananas</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.png" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-gray-100">
+    <!-- Font Awesome for Icons (Keeping the v6 library you use elsewhere) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FFD166",
+                        secondary: "#073B4C",
+                        accent: "#EF476F",
+                        light: "#F8F9FA",
+                        dark: "#111827",
+                    },
+                    fontFamily: {
+                        inter: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .gradient-text {
+            background-image: linear-gradient(to right, #ef4444, #f97316);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* --- Animation Styles --- */
+        .plans-wrapper {
+            position: relative;
+            transition: height 300ms ease-in-out;
+        }
+
+        .plan-panel {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+            will-change: opacity, transform;
+        }
+
+        .panel-active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            z-index: 10;
+        }
+
+        .panel-inactive {
+            opacity: 0;
+            transform: translateY(15px);
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+    <header class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <a href="/" class="flex items-center gap-2">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">N</span>
+                    </div>
+                    <span class="text-xl md:text-2xl font-bold gradient-text">
+                        NanoBananas
+                    </span>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#features"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+                    <a href="#prompts"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+                    <a href="#examples"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+                    <a href="#figures"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+                    <a href="./pricing.html"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
+                    <a href="bandai-nano-banana.html"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+                    <a href="nano-banana-model-kit.html"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+                    <a href="nano-banana-model.html"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+                        Model</a>
+                    <a href="#ratings"
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <!-- Sign In Button (Visible when logged out) -->
+                    <button id="open-login-modal-btn"
+                        class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
+                        Sign In
+                    </button>
+
+                    <!-- User Info Display (Visible when logged in) -->
+                    <div id="user-info-container" class="hidden relative flex items-center gap-3">
+                        
+                        <!-- <a href="#billing" id="credits-display-button" class="hidden sm:flex items-center gap-x-1.5 px-3 py-1.5 rounded-full bg-amber-100 border border-amber-300 text-sm font-semibold text-amber-800 hover:bg-amber-200 transition-colors">
+                           <i class="fa-solid fa-database text-amber-600"></i>
+                           <span id="header-user-credits">0</span>
+                           <span>credits</span>
+                        </a> -->
+
+                        <!-- This button is the trigger for the dropdown -->
+                        <button id="user-menu-button" class="flex items-center gap-2 focus:outline-none rounded-full">
+                            <img id="user-avatar" src="" alt="User Avatar"
+                                class="w-9 h-9 rounded-full object-cover border-2 border-primary/50">
+                            <span id="user-name"
+                                class="hidden sm:inline text-sm font-medium text-gray-700 pointer-events-none"></span>
+                        </button>
+
+                        <!-- New Dropdown Menu Styled to Match Your Image -->
+                        <div id="user-menu-dropdown"
+                            class="absolute right-0 mt-3 top-full w-64 origin-top-right bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            <div class="p-4" role="none">
+                                <!-- User Name and Email -->
+                                <div class="mb-4">
+                                    <p id="dropdown-user-name" class="text-sm font-semibold text-gray-800 truncate"
+                                        role="none"></p>
+                                    <p id="dropdown-user-email" class="text-xs text-gray-500 truncate" role="none"></p>
+                                </div>
+
+                                <!-- Credits -->
+                                <div class="flex justify-between items-center text-sm text-gray-700 py-2">
+                                    <div class="flex items-center">
+                                        <i class="fa fa-database w-5 text-center text-orange-500 mr-2"></i>
+                                        <span>Credits</span>
+                                    </div>
+                                    <span id="user-credits" class="font-bold text-orange-500">0</span>
+                                </div>
+
+                                <div class="border-t border-gray-100 my-2"></div>
+
+                                <!-- Menu Items -->
+                                <a href="#"
+                                    class="flex items-center px-2 py-2 text-sm text-gray-700 rounded-md hover:bg-gray-100"
+                                    role="menuitem">
+                                    <i class="fa fa-image w-5 text-center text-gray-500 mr-2"></i>
+                                    My Gallery
+                                </a>
+                                <a href="#" id="billing-link"
+                                    class="flex items-center px-2 py-2 text-sm text-gray-700 rounded-md hover:bg-gray-100"
+                                    role="menuitem">
+                                    <i class="fa fa-credit-card w-5 text-center text-gray-500 mr-2"></i>
+                                    Billing
+                                </a>
+
+                                <div class="border-t border-gray-100 my-2"></div>
+
+                                <!-- Sign Out Button -->
+                                <button id="logout-btn"
+                                    class="w-full text-left flex items-center px-2 py-2 text-sm text-red-600 rounded-md hover:bg-red-50"
+                                    role="menuitem">
+                                    <i class="fa fa-sign-out w-5 text-center mr-2"></i>
+                                    Sign Out
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Mobile Menu Toggle -->
+                    <button id="menu-toggle" class="md:hidden text-2xl text-gray-600 hover:text-primary">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#features"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
+                <a href="#prompts"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+                <a href="#examples"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+                <a href="#figures"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+                <a href="pricing.html"
+                    class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
+                <a href="bandai-nano-banana.html"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+                <a href="nano-banana-model-kit.html"
+                    class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+                <a href="nano-banana-model.html"
+                    class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+                    Model</a>
+                <a href="#ratings"
+                    class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold gradient-text">Choose Your Plan</h1>
+            <p class="mt-4 text-lg text-gray-500">
+                Select the perfect plan for your needs. Upgrade or downgrade anytime.
+            </p>
+        </div>
+
+        <div class="mt-12 flex justify-center">
+            <div class="inline-flex items-center space-x-1 rounded-full bg-gray-100 p-1">
+                <button data-target="monthly-plans"
+                    class="tab-button bg-white shadow-sm text-gray-800 px-5 py-2 rounded-full text-sm font-semibold transition-all">
+                    Monthly
+                </button>
+                <button data-target="yearly-plans"
+                    class="tab-button text-gray-500 px-5 py-2 rounded-full text-sm font-semibold transition-all hover:text-gray-700 relative">
+                    Yearly
+                    <span
+                        class="absolute -top-2 -right-2 text-xs font-semibold text-white bg-green-500 rounded-full px-2 py-0.5">SAVE
+                        50%</span>
+                </button>
+                <button data-target="pay-as-you-go-plans"
+                    class="tab-button text-gray-500 px-5 py-2 rounded-full text-sm font-semibold transition-all hover:text-gray-700">
+                    Pay As You Go
+                </button>
+            </div>
+        </div>
+
+        <div id="plans-wrapper" class="mt-12 plans-wrapper">
+             <!-- Monthly Plans -->
+             <div id="monthly-plans" class="plan-panel panel-active">
+                <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                    <!-- Spark Plan (Monthly) -->
+                    <div class="flex flex-col rounded-2xl border border-gray-200 bg-white p-8">
+                        <h3 class="text-xl font-bold">Spark</h3>
+                        <p class="mt-2 text-sm text-gray-500">Perfect for exploring ideas and personal projects.</p>
+                        <div class="mt-4 flex items-baseline gap-x-1">
+                            <span class="text-5xl font-extrabold tracking-tight">$12.99</span>
+                            <span class="text-gray-500">/month</span>
+                        </div>
+                        <p class="mt-1 text-sm text-gray-500">100 images / month</p>
+                        <ul class="mt-8 space-y-4 text-sm text-gray-600">
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>300 Monthly Credits (Good for 100 images)</li>
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">Infinite Idea Sandbox:</span> Generate unlimited watermarked previews.</li>
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">Access the 'Banana Grove' Library:</span> Get inspired by community prompts.</li>
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Access to all core style templates</li>
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Standard generation speed</li>
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>JPG/PNG format downloads</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Personal Use License</li>
+                        </ul>
+                        <button class="purchase-button mt-auto w-full rounded-lg border border-gray-300 bg-white px-6 py-3 text-center font-semibold text-gray-800 transition-colors hover:bg-gray-50 mt-10" data-product-id="">Sign In to Purchase</button>
+                    </div>
+
+                    <!-- Creator Plan (Monthly) -->
+                    <div class="relative flex flex-col rounded-2xl border-2 border-red-500 bg-white p-8 shadow-xl">
+                        <h3 class="text-xl font-bold">Creator</h3>
+                        <p class="mt-2 text-sm text-gray-500">The essential arsenal for freelancers and content creators.</p>
+                        <div class="mt-4 flex items-baseline gap-x-1">
+                            <span class="text-5xl font-extrabold tracking-tight">$29.99</span><span class="text-gray-500">/month</span>
+                        </div>
+                        <p class="mt-1 text-sm text-gray-500">400 images / mouth</p>
+                        <ul class="mt-8 space-y-4 text-sm text-gray-600">
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>1200 Monthly Credits (Good for 400 images)</li>
+                            <li class="flex items-start gap-x-3 text-gray-500 italic">Everything in Spark, plus:</li>
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">NanoBanana Creative Suite:</span> Inpainting, Outpainting & more.</li>
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">Stealth Mode Generations:</span> 100% private creations.</li>
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Full Commercial Use License</li>
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Priority generation queue</li>
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Batch generation capability</li>
+                            <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>JPG/PNG/WebP format downloads</li>
+                        </ul>
+                        <button class="purchase-button mt-auto w-full rounded-lg bg-gradient-to-r from-red-500 to-orange-500 px-6 py-3 text-center font-semibold text-white shadow-sm transition-opacity hover:opacity-90 mt-10" data-product-id="prod_4XUMHzpiCECRB80AkmnWo8">Sign In to Purchase</button>
+                    </div>
+                    
+                    <!-- Titan Plan (Monthly) -->
+                    <div class="flex flex-col rounded-2xl border border-gray-200 bg-white p-8">
+                        <h3 class="text-xl font-bold">Titan</h3>
+                        <p class="mt-2 text-sm text-gray-500">For startups and agencies ready to scale their visual content.</p>
+                        <div class="mt-4 flex items-baseline gap-x-1">
+                            <span class="text-5xl font-extrabold tracking-tight">$59.99</span><span class="text-gray-500">/month</span>
+                        </div>
+                        <p class="mt-1 text-sm text-gray-500">1000 images / mouth</p>
+                        <ul class="mt-8 space-y-4 text-sm text-gray-600">
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>3,000 Monthly Credits (Good for 1000 images)</li>
+                             <li class="flex items-start gap-x-3 text-gray-500 italic">Everything in Creator, plus:</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">Your Personal AI Stylist:</span> Train a custom model on your brand.</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">Automate Your Magic:</span> Full API access for integration.</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">Collaborate with Your Squad:</span> Up to 3 team seats.</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Fastest generation speed</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Dedicated priority support</li>
+                        </ul>
+                        <button class="purchase-button mt-auto w-full rounded-lg border border-gray-300 bg-white px-6 py-3 text-center font-semibold text-gray-800 transition-colors hover:bg-gray-50 mt-10" data-product-id="prod_7UU43ioqApo6Y8VG8PwY8V">Sign In to Purchase</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yearly Plans -->
+            <div id="yearly-plans" class="plan-panel panel-inactive">
+                <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                    <!-- Spark Plan (Yearly) -->
+                    <div class="flex flex-col rounded-2xl border border-gray-200 bg-white p-8">
+                        <h3 class="text-xl font-bold">Spark</h3>
+                        <p class="mt-2 text-sm text-gray-500">Perfect for exploring ideas and personal projects.</p>
+                        <div class="mt-4 flex items-baseline gap-x-1">
+                            <span class="text-5xl font-extrabold tracking-tight">$108</span>
+                            <span class="text-gray-500">/year</span>
+                        </div>
+                        <ul class="mt-8 space-y-4 text-sm text-gray-600">
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>1200 images year </li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">Infinite Idea Sandbox</span></li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">'Banana Grove' Library Access</span></li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Access to all core style templates</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Standard generation speed</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>JPG/PNG format downloads</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Personal Use License</li>
+                        </ul>
+                        <button class="purchase-button mt-auto w-full rounded-lg border border-gray-300 bg-white px-6 py-3 text-center font-semibold text-gray-800 transition-colors hover:bg-gray-50 mt-10" data-product-id="prod_3iSyGkIySL2Vams2cWZWbo">Sign In to Purchase</button>
+                    </div>
+                    <!-- Creator Plan (Yearly) -->
+                    <div class="relative flex flex-col rounded-2xl border-2 border-red-500 bg-white p-8 shadow-xl">
+                        <h3 class="text-xl font-bold">Creator</h3>
+                         <p class="mt-2 text-sm text-gray-500">The essential arsenal for freelancers and content creators.</p>
+                        <div class="mt-4 flex items-baseline gap-x-1">
+                            <span class="text-5xl font-extrabold tracking-tight">$228</span>
+                            <span class="text-gray-500">/year</span>
+                        </div>
+                        <ul class="mt-8 space-y-4 text-sm text-gray-600">
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>4800 images year </li>
+                             <li class="flex items-start gap-x-3 text-gray-500 italic">Everything in Spark, plus:</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">NanoBanana Creative Suite</span></li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">Stealth Mode Generations</span></li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Full Commercial Use License</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Priority generation queue</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Batch generation capability</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>JPG/PNG/WebP format downloads</li>
+                        </ul>
+                        <button class="purchase-button mt-auto w-full rounded-lg bg-gradient-to-r from-red-500 to-orange-500 px-6 py-3 text-center font-semibold text-white shadow-sm transition-opacity hover:opacity-90 mt-10" data-product-id="prod_118k28O3JIqQCpVCoX41o9">Sign In to Purchase</button>
+                    </div>
+                    <!-- Titan Plan (Yearly) -->
+                    <div class="flex flex-col rounded-2xl border border-gray-200 bg-white p-8">
+                        <h3 class="text-xl font-bold">Titan</h3>
+                        <p class="mt-2 text-sm text-gray-500">For startups and agencies ready to scale their visual content.</p>
+                        <div class="mt-4 flex items-baseline gap-x-1">
+                            <span class="text-5xl font-extrabold tracking-tight">$588</span>
+                            <span class="text-gray-500">/year</span>
+                        </div>
+                        <ul class="mt-8 space-y-4 text-sm text-gray-600">
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>12000 images year </li>
+                             <li class="flex items-start gap-x-3 text-gray-500 italic">Everything in Creator, plus:</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">Your Personal AI Stylist</span></li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">Automate Your Magic (API)</span></li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-star h-5 w-5 mt-1 flex-none text-yellow-400"></i><span class="font-semibold">Collaborate (3 Team Seats)</span></li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Fastest generation speed</li>
+                             <li class="flex items-start gap-x-3"><i class="fa-solid fa-check h-5 w-5 mt-1 flex-none text-green-500"></i>Dedicated priority support</li>
+                        </ul>
+                        <button class="purchase-button mt-auto w-full rounded-lg border border-gray-300 bg-white px-6 py-3 text-center font-semibold text-gray-800 transition-colors hover:bg-gray-50 mt-10" data-product-id="prod_ipawVSN1k2FeCaQ61BvW8">Sign In to Purchase</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pay As You Go Plans (One-Time Purchase) -->
+            <div id="pay-as-you-go-plans" class="plan-panel panel-inactive">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold">One-Time Credit Packs</h2>
+                    <p class="mt-2 text-gray-500">Purchase credits as you need them. They never expire.</p>
+                </div>
+                <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                    <!-- Idea Starter Pack -->
+                    <div class="flex flex-col rounded-2xl border border-gray-200 bg-white p-8 text-center">
+                        <h3 class="text-xl font-bold">Idea Starter Pack</h3>
+                        <p class="mt-1 text-sm text-gray-500">For testing and initial concepts</p>
+                        <p class="mt-6 text-4xl font-extrabold">$6.99</p>
+                        <p class="mt-1 font-semibold">150 Credits(50 images)</p>
+                        <button class="purchase-button mt-8 w-full rounded-lg border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-800 transition-colors hover:bg-gray-50" data-product-id="prod_4X2LrluIcRf4g5VbZ8cTpt">Sign In to Purchase</button>
+                    </div>
+                    <!-- Creativity Boost Pack -->
+                    <div class="flex flex-col rounded-2xl border border-gray-200 bg-white p-8 text-center">
+                        <h3 class="text-xl font-bold">Creativity Boost Pack</h3>
+                        <p class="mt-1 text-sm text-gray-500">For social media and personal projects</p>
+                        <p class="mt-6 text-4xl font-extrabold">$19.99</p>
+                        <p class="mt-1 font-semibold">450 Credits(150 images)</p>
+                        <button class="purchase-button mt-8 w-full rounded-lg border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-800 transition-colors hover:bg-gray-50" data-product-id="prod_2fDW4Y1LLzhJuX3sOc4AcW">Sign In to Purchase</button>
+                    </div>
+                    <!-- Productivity Leap Pack -->
+                    <div class="relative flex flex-col rounded-2xl border-2 border-red-500 bg-white p-8 text-center shadow-xl">
+                        <h3 class="text-xl font-bold">Productivity Leap Pack</h3>
+                        <p class="mt-1 text-sm text-gray-500">For small business marketing</p>
+                        <p class="mt-6 text-4xl font-extrabold">$49.99</p>
+                        <p class="mt-1 font-semibold">1,500 Credits(500 images)</p>
+                        <button class="purchase-button mt-8 w-full rounded-lg bg-gradient-to-r from-red-500 to-orange-500 px-6 py-3 font-semibold text-white shadow-sm transition-opacity hover:opacity-90" data-product-id="prod_678wiQgA3ZIyVkgg9So1FX">Sign In to Purchase</button>
+                    </div>
+                    <!-- Project Sprint Pack -->
+                    <div class="flex flex-col rounded-2xl border border-gray-200 bg-white p-8 text-center">
+                        <h3 class="text-xl font-bold">Project Sprint Pack</h3>
+                        <p class="mt-1 text-sm text-gray-500">For large campaigns and projects</p>
+                        <p class="mt-6 text-4xl font-extrabold">$129.99</p>
+                        <p class="mt-1 font-semibold">4,500 Credits(1500 images)</p>
+                        <button class="purchase-button mt-8 w-full rounded-lg border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-800 transition-colors hover:bg-gray-50" data-product-id="prod_7OEXpntqTrJqmvRl73ug8o">Sign In to Purchase</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="hidden fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-4">
+        <div class="bg-dark text-light p-8 rounded-2xl shadow-2xl w-full max-w-md relative" id="login-modal-content">
+            <button id="close-login-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="text-center mb-6">
+                <p class="text-sm text-gray-400">Nano Banana AI</p>
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-white">Welcome to <span class="text-gray-400">Nano Banana</span></h1>
+            </div>
+            <div class="w-full bg-white/5 p-2 rounded-xl backdrop-blur-sm border border-white/10">
+                <p class="flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg font-medium text-white">
+                    <span class="text-lg mr-2">🎁</span> Free Usage credits daily after sign-in
+                </p>
+            </div>
+            <button id="loginBtn" class="mt-4 w-full h-10 px-4 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-black text-sm sm:text-base font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="h-4 w-4">
+                    <path d="M12 2a9.96 9.96 0 0 1 6.29 2.226a1 1 0 0 1 .04 1.52l-1.51 1.362a1 1 0 0 1 -1.265 .06a6 6 0 1 0 2.103 6.836l.001 -.004h-3.66a1 1 0 0 1 -.992 -.883l-.007 -.117v-2a1 1 0 0 1 1 -1h6.945a1 1 0 0 1 .994 .89c.04 .367 .061 .737 .061 1.11c0 5.523 -4.477 10 -10 10s-10 -4.477 -10 -10s4.477 -10 10 -10z"></path>
+                </svg>
+                Sign in with Google
+            </button>
+        </div>
+    </div>
+      <footer class="bg-secondary text-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+              <span class="text-white font-bold text-xl">N</span>
+            </div>
+            <span class="text-xl font-bold">NanoBananas</span>
+          </a>
+          <p class="text-gray-300 mb-4">
+            Create amazing nano banana figures and models with our free AI
+            generator.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="text-gray-300 hover:text-primary transition-colors"><i class="fa fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-bold mb-4">Generators</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html#generator" class="text-gray-300 hover:text-primary transition-colors">Basic
+                Generator</a>
+            </li>
+            <li>
+              <a href="bandai-nano-banana.html" class="text-primary">Bandai Style</a>
+            </li>
+            <li>
+              <a href="nano-banana-model-kit.html" class="text-gray-300 hover:text-primary transition-colors">3D
+                Models</a>
+            </li>
+            <li>
+              <a href="index.html#figures" class="text-gray-300 hover:text-primary transition-colors">Custom Figures</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-bold mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html#prompts" class="text-gray-300 hover:text-primary transition-colors">Prompt Guide</a>
+            </li>
+            <li>
+              <a href="index.html#examples" class="text-gray-300 hover:text-primary transition-colors">Examples
+                Gallery</a>
+            </li>
+            <li>
+              <a href="index.html#ratings" class="text-gray-300 hover:text-primary transition-colors">Community
+                Reviews</a>
+            </li>
+            <li>
+              <a href="index.html#faq" class="text-gray-300 hover:text-primary transition-colors">FAQ</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-bold mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="text-gray-300 hover:text-primary transition-colors">Terms of Service</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-300 hover:text-primary transition-colors">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-300 hover:text-primary transition-colors">Copyright</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-300 hover:text-primary transition-colors">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+        <p>&copy; 2023 NanoBananas AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- TAB SWITCHING LOGIC ---
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const plansWrapper = document.getElementById('plans-wrapper');
+
+            const setWrapperHeight = () => {
+                const activePanel = document.querySelector('.plan-panel.panel-active');
+                if (activePanel) {
+                    plansWrapper.style.height = `${activePanel.offsetHeight}px`;
+                }
+            };
+
+            setTimeout(setWrapperHeight, 100); 
+            window.addEventListener('resize', setWrapperHeight);
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetPanelId = button.dataset.target;
+                    const activePanel = document.querySelector('.plan-panel.panel-active');
+                    const targetPanel = document.getElementById(targetPanelId);
+
+                    if (activePanel && activePanel.id === targetPanelId) return;
+
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('bg-white', 'shadow-sm', 'text-gray-800');
+                        btn.classList.add('text-gray-500', 'hover:text-gray-700');
+                    });
+                    button.classList.add('bg-white', 'shadow-sm', 'text-gray-800');
+                    button.classList.remove('text-gray-500', 'hover:text-gray-700');
+
+                    if (activePanel) {
+                        activePanel.classList.remove('panel-active');
+                        activePanel.classList.add('panel-inactive');
+                    }
+                    targetPanel.classList.remove('panel-inactive');
+                    targetPanel.classList.add('panel-active');
+                    
+                    setTimeout(setWrapperHeight, 50);
+                });
+            });
+
+            // --- AUTHENTICATION AND PURCHASE LOGIC (REFACTORED) ---
+            
+            // --- Element Selection ---
+            const loginModal = document.getElementById("login-modal");
+            const openSignInBtn = document.getElementById("open-login-modal-btn");
+            const closeModalBtn = document.getElementById('close-login-modal-btn');
+            const googleLoginBtn = document.getElementById("loginBtn");
+            const userInfoContainer = document.getElementById('user-info-container');
+            const userAvatarImg = document.getElementById('user-avatar');
+            const userNameSpan = document.getElementById('user-name');
+            const logoutBtn = document.getElementById('logout-btn');
+            const dropdownUserName = document.getElementById('dropdown-user-name');
+            const dropdownUserEmail = document.getElementById('dropdown-user-email');
+            const purchaseButtons = document.querySelectorAll('.purchase-button');
+            const dropdownUserCreditsSpan = document.getElementById('user-credits');
+            const userMenuButton = document.getElementById('user-menu-button');
+            const userMenuDropdown = document.getElementById('user-menu-dropdown');
+            
+            // --- Constants ---
+            const GOOGLE_CLIENT_ID = "98611438844-610u4rlujgvhb6egkrgjctj7765m3vji.apps.googleusercontent.com";
+            const BACKEND_REDIRECT_URI = "https://api.nanobananas.me/prod-api/g/callback";
+
+            // --- UI Update Functions ---
+            function updateUIForLogin(user) {
+                openSignInBtn.classList.add('hidden');
+                userInfoContainer.classList.remove('hidden');
+                userInfoContainer.classList.add('flex');
+                console.log(user)
+                userAvatarImg.src = user.picture;
+                userNameSpan.textContent = user.name;
+                
+                const credits = user.score || 0;
+                if(dropdownUserCreditsSpan) dropdownUserCreditsSpan.textContent = credits;
+                
+                purchaseButtons.forEach((button) => {
+                        button.textContent = 'Get Started';
+                });
+
+                if (dropdownUserName) dropdownUserName.textContent = user.name;
+                if (dropdownUserEmail) dropdownUserEmail.textContent = user.email;
+                loginModal.classList.add('hidden');
+            }
+
+            function updateUIForLogout() {
+                openSignInBtn.classList.remove('hidden');
+                userInfoContainer.classList.add('hidden');
+                userInfoContainer.classList.remove('flex');
+                
+                userAvatarImg.src = '';
+                userNameSpan.textContent = '';
+
+                if(dropdownUserCreditsSpan) dropdownUserCreditsSpan.textContent = '0';
+
+                purchaseButtons.forEach(button => {
+                     if (button.dataset.productId) {
+                        button.textContent = 'Sign In to Purchase';
+                    }
+                });
+                if (dropdownUserName) dropdownUserName.textContent = '';
+                if (dropdownUserEmail) dropdownUserEmail.textContent = '';
+            }
+
+            // --- Purchase Handler ---
+            async function handlePurchase(event) {
+                console.log(event.dataset)
+                const button = event.currentTarget;
+                const isLoggedIn = !!localStorage.getItem('auth_token');
+
+                if (!isLoggedIn) {
+                    loginModal.classList.remove('hidden');
+                    return;
+                }
+
+                
+                const userInfoStr = localStorage.getItem('user_info');
+                const userInfo = userInfoStr ? JSON.parse(userInfoStr) : '113744390683279437553';
+                if (!userInfo || !userInfo.googleUserId) {
+                    alert("Your session seems to be invalid. Please sign out and in again.");
+                    return;
+                }
+
+                const originalButtonText = button.innerHTML;
+                button.disabled = true;
+                button.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> Processing...`;
+
+                try {
+                    const response = await fetch('https://api.nanobananas.me/prod-api/creem/pay', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            googleUserId: userInfo.googleUserId,
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API Error: ${response.statusText}`);
+                    }
+
+                    const data = await response.json();
+                    if (data && data.data && data.data.checkoutUrl) {
+                        window.open(data.data.checkoutUrl, '_blank');
+                    } else {
+                        throw new Error("Checkout URL not found in API response.");
+                    }
+
+                } catch (error) {
+                    console.error("Purchase failed:", error);
+                    alert("An error occurred while processing your request. Please try again.");
+                    button.disabled = false;
+                    button.innerHTML = originalButtonText;
+                }
+            }
+            
+            // Attach purchase listeners ONCE on page load
+            purchaseButtons.forEach(button => {
+                button.addEventListener('click', handlePurchase);
+            });
+
+            function loginDialog() {
+                const googleAuthUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
+                const params = {
+                    client_id: GOOGLE_CLIENT_ID,
+                    redirect_uri: BACKEND_REDIRECT_URI,
+                    response_type: 'code',
+                    scope: 'openid email profile',
+                    prompt: 'select_account',
+                    state: '1111' // Can be a random string for CSRF protection
+                };
+                const finalAuthUrl = `${googleAuthUrl}?${new URLSearchParams(params)}`;
+                console.log(finalAuthUrl);
+                const width = 600, height = 600;
+                const left = window.screen.width / 2 - width / 2;
+                const top = window.screen.height / 2 - height / 2;
+                window.open(finalAuthUrl, 'GoogleLogin', `width=${width},height=${height},left=${left},top=${top}`);
+                window.addEventListener('message', handleAuthMessage, { once: true });
+            }
+
+            function handleAuthMessage(event) {
+                console.log(event)
+                if(event.origin !==''){
+                      loginModal.classList.add('hidden');
+                }
+                // Basic security check for origin if needed: if (event.origin !== 'your-backend-domain') return;
+                const { token: nestedJsonString } = event.data || {};
+                if (!nestedJsonString || typeof nestedJsonString !== 'string') return;
+               
+                try {
+                    const { user, token: jwtToken } = JSON.parse(nestedJsonString);
+                    if (!jwtToken || !user) return;
+                    localStorage.setItem("auth_token", jwtToken);
+                    localStorage.setItem("user_info", JSON.stringify(user));
+                    updateUIForLogin(user);
+                } catch (error) {
+                    console.error("Error parsing auth response:", error);
+                }
+            }
+
+            function checkLoginStatus() {
+                const userInfoStr = localStorage.getItem('user_info');
+                if (userInfoStr) {
+                    try {
+                        const user = JSON.parse(userInfoStr);
+                        if (user && user.name) updateUIForLogin(user);
+                    } catch (e) {
+                        localStorage.removeItem('user_info');
+                        localStorage.removeItem('auth_token');
+                        updateUIForLogout();
+                    }
+                } else {
+                    updateUIForLogout();
+                }
+            }
+            
+            // --- General Event Listeners ---
+            openSignInBtn.addEventListener("click", () => loginModal.classList.remove("hidden"));
+            closeModalBtn.addEventListener("click", () => loginModal.classList.add("hidden"));
+            googleLoginBtn.addEventListener('click', () => loginDialog());
+            
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', () => {
+                    localStorage.removeItem('user_info');
+                    localStorage.removeItem('auth_token');
+                    updateUIForLogout();
+                    userMenuDropdown.classList.add('hidden'); // Close dropdown on logout
+                });
+            }
+
+            if (userMenuButton) {
+                userMenuButton.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    userMenuDropdown.classList.toggle('hidden');
+                });
+            }
+
+            window.addEventListener('click', (event) => {
+                if (userMenuDropdown && !userMenuDropdown.classList.contains('hidden')) {
+                     if (!userMenuDropdown.contains(event.target) && !userMenuButton.contains(event.target)) {
+                        userMenuDropdown.classList.add('hidden');
+                    }
+                }
+            });
+
+            // --- Initial Page Load ---
+            checkLoginStatus();
+        });
+    </script>
+</body>
+
+</html>

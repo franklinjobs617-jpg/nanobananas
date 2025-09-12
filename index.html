@@ -1633,7 +1633,6 @@
         const response = await fetch(apiUrl, {
           method: "post",
           headers: {
-            "Content-Type": "multipart/form-data",
             "Authorization": "Bearer " +getToken()
           },
           body: formData,

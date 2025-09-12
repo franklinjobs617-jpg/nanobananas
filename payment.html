@@ -213,12 +213,13 @@
             };
 
             const checkPaymentStatus = async () => {
+                
                 if(window.location.search){
                      params =window.location.search;
                 }
                 try {
                
-                  const response = await fetch(`https://api.nanobananas.me/prod-api/creem/callback?${params}`);
+                  const response = await fetch(`https://api.nanobananas.me/prod-api/creem/callback${params}`);
                   const data = await response.json();
                   if(data.code ==0){
                     return 'SUCCESS';

@@ -65,120 +65,118 @@
 </head>
 <body class="font-inter bg-light text-dark antialiased">
     <!-- Navigation -->
-    <header class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center h-16 md:h-20">
-            <a href="/" class="flex items-center gap-2">
-              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span class="text-white font-bold text-xl">N</span>
-              </div>
-              <span class="text-xl md:text-2xl font-bold gradient-text">
-                NanoBananas
-              </span>
-            </a>
-    
-            <nav class="hidden md:flex items-center space-x-8">
-              <a href="#features" class="text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
-              <a href="./nano-banana-collection-prompts.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
-              <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-              <a href="./nano-banana-3d-figurines-guide.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
-              <a href="./pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
-              <a href="bandai-nano-banana.html"
-                class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
-                
-              <a href="nano-banana-model-kit.html"
-                class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
-              <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
-                Model</a>
-              <a href="#ratings" class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
-              <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
-            </nav>
-            <div class="flex items-center gap-3">
-              <!-- Sign In Button (Visible when logged out) -->
-              <button id="open-login-modal-btn"
-                class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
-                Sign In
-              </button>
-    
-              <!-- AFTER -->
-              <!-- User Info Display (Visible when logged in) -->
-              <div id="user-info-container" class="hidden relative">
-                <!-- This button is the trigger for the dropdown -->
-                <button id="user-menu-button" class="flex items-center gap-2 focus:outline-none rounded-full">
-                  <img id="user-avatar" src="" alt="User Avatar"
-                    class="w-9 h-9 rounded-full object-cover border-2 border-primary/50">
-                  <span id="user-name"
-                    class="hidden sm:inline text-sm font-medium text-gray-700 pointer-events-none"></span>
-                </button>
-    
-                <!-- New Dropdown Menu Styled to Match Your Image -->
-                <div id="user-menu-dropdown"
-                  class="absolute right-0 mt-3 w-64 origin-top-right bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
-                  role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                  <div class="p-4" role="none">
-                    <!-- User Name and Email -->
-                    <div class="mb-4">
-                      <p id="dropdown-user-name" class="text-sm font-semibold text-gray-800 truncate" role="none"></p>
-                      <p id="dropdown-user-email" class="text-xs text-gray-500 truncate" role="none"></p>
-                    </div>
-    
-                    <!-- Credits -->
-                    <div class="flex justify-between items-center text-sm text-gray-700 py-2">
-                      <div class="flex items-center">
-                        <i class="fa fa-database w-5 text-center text-orange-500 mr-2"></i>
-                        <span>Credits</span>
-                      </div>
-                      <span id="user-credits" class="font-bold text-orange-500">2</span>
-                    </div>
-    
-    
-                    <div class="border-t border-gray-100 my-2"></div>
-    
-                    <!-- Sign Out Button -->
-                    <button id="logout-btn"
-                      class="w-full text-left flex items-center px-2 py-2 text-sm text-red-600 rounded-md hover:bg-red-50"
-                      role="menuitem">
-                      <i class="fa fa-sign-out w-5 text-center mr-2"></i>
-                      Sign Out
-                    </button>
-                  </div>
-                </div>
-              </div>
-    
-    
-              <!-- Mobile Menu Toggle -->
-              <button id="menu-toggle" class="md:hidden text-2xl text-gray-600 hover:text-primary">
-                <i class="fa fa-bars"></i>
-              </button>
-            </div>
+     <header class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16 md:h-20">
+        <a href="/" class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+            <span class="text-white font-bold text-xl">N</span>
           </div>
-        </div>
-    
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-          <div class="container mx-auto px-4 py-3 space-y-3">
-            <a href="#features"
-              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Features</a>
-            <a href="./nano-banana-collection-prompts.html" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
-            <a href="#examples"
-              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-            <a href="./nano-banana-3d-figurines-guide.html" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
-            <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
-            <a href="bandai-nano-banana.html"
-              class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
-            <a href="nano-banana-model-kit.html"
-              class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
-            <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
-              Model</a>
-            <a href="#ratings" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
-            <a href="#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
-    
-            <div class="">
-    
-            </div>
-          </div>
-        </div>
-      </header>
+          <span class="text-xl md:text-2xl font-bold gradient-text">
+            NanoBananas
+          </span>
+        </a>
 
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="./nano_banana_ai_saree.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Ai Saree</a>
+          <a href="./nano-banana-collection-prompts.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+          <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+          <a href="./nano-banana-3d-figurines-guide.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+          <a href="./pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
+          <a href="bandai-nano-banana.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+            
+          <a href="nano-banana-model-kit.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+          <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+            Model</a>
+          <a href="#ratings" class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+          <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <!-- Sign In Button (Visible when logged out) -->
+          <button id="open-login-modal-btn"
+            class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
+            Sign In
+          </button>
+
+          <!-- AFTER -->
+          <!-- User Info Display (Visible when logged in) -->
+          <div id="user-info-container" class="hidden relative">
+            <!-- This button is the trigger for the dropdown -->
+            <button id="user-menu-button" class="flex items-center gap-2 focus:outline-none rounded-full">
+              <img id="user-avatar" src="" alt="User Avatar"
+                class="w-9 h-9 rounded-full object-cover border-2 border-primary/50">
+              <span id="user-name"
+                class="hidden sm:inline text-sm font-medium text-gray-700 pointer-events-none"></span>
+            </button>
+
+            <!-- New Dropdown Menu Styled to Match Your Image -->
+            <div id="user-menu-dropdown"
+              class="absolute right-0 mt-3 w-64 origin-top-right bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+              role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+              <div class="p-4" role="none">
+                <!-- User Name and Email -->
+                <div class="mb-4">
+                  <p id="dropdown-user-name" class="text-sm font-semibold text-gray-800 truncate" role="none"></p>
+                  <p id="dropdown-user-email" class="text-xs text-gray-500 truncate" role="none"></p>
+                </div>
+
+                <!-- Credits -->
+                <div class="flex justify-between items-center text-sm text-gray-700 py-2">
+                  <div class="flex items-center">
+                    <i class="fa fa-database w-5 text-center text-orange-500 mr-2"></i>
+                    <span>Credits</span>
+                  </div>
+                  <span id="user-credits" class="font-bold text-orange-500">2</span>
+                </div>
+
+
+                <div class="border-t border-gray-100 my-2"></div>
+
+                <!-- Sign Out Button -->
+                <button id="logout-btn"
+                  class="w-full text-left flex items-center px-2 py-2 text-sm text-red-600 rounded-md hover:bg-red-50"
+                  role="menuitem">
+                  <i class="fa fa-sign-out w-5 text-center mr-2"></i>
+                  Sign Out
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Mobile Menu Toggle -->
+          <button id="menu-toggle" class="md:hidden text-2xl text-gray-600 hover:text-primary">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="./nano_banana_ai_saree.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Ai Saree</a>
+        <a href="./nano-banana-collection-prompts.html" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+        <a href="#examples"
+          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+        <a href="./nano-banana-3d-figurines-guide.html" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+        <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
+        <a href="bandai-nano-banana.html"
+          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+        <a href="nano-banana-model-kit.html"
+          class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+        <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+          Model</a>
+        <a href="#ratings" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+        <a href="#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+
+        <div class="">
+
+        </div>
+      </div>
+    </div>
+  </header>
     <!-- Hero Section -->
     <section class="py-20 md:py-28 bg-gradient-to-b from-white to-amber-50 relative overflow-hidden">
         <div class="absolute inset-0 hero-bg-pattern opacity-50"></div>

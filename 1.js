@@ -43,3 +43,9 @@ const parsed = link();
 const apiKey = "creem_7isFvxXmIa6R2iyo162WmA";
 const signature = generateSignature(parsed, apiKey);
 console.log("生成的签名:", signature);
+
+
+
+
+AIzaSyDGxH-HoHo0Zon7a9fGdfUrcqz5x9uj0_4
+

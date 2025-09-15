@@ -133,13 +133,13 @@
   </script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", "taxwjemyea");
-</script>
-  
+  </script>
+
 </head>
 
 <body class="font-inter bg-light text-dark">
@@ -156,14 +156,17 @@
         </a>
 
         <nav class="hidden md:flex items-center space-x-8">
-          <a href="./nano_banana_ai_saree.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Ai Saree</a>
-          <a href="./nano-banana-collection-prompts.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+          <a href="./nano_banana_ai_saree.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Ai Saree</a>
+          <a href="./nano-banana-collection-prompts.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
           <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-          <a href="./nano-banana-3d-figurines-guide.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+          <a href="./nano-banana-3d-figurines-guide.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
           <a href="./pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
           <a href="bandai-nano-banana.html"
             class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
-            
+
           <a href="nano-banana-model-kit.html"
             class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
           <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
@@ -234,11 +237,14 @@
 
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
       <div class="container mx-auto px-4 py-3 space-y-3">
-        <a href="./nano_banana_ai_saree.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Ai Saree</a>
-        <a href="./nano-banana-collection-prompts.html" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+        <a href="./nano_banana_ai_saree.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Ai
+          Saree</a>
+        <a href="./nano-banana-collection-prompts.html"
+          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
         <a href="#examples"
           class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
-        <a href="./nano-banana-3d-figurines-guide.html" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+        <a href="./nano-banana-3d-figurines-guide.html"
+          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
         <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
         <a href="bandai-nano-banana.html"
           class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
@@ -261,17 +267,18 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <h1 class="text-5xl font-bold text-red-500">New Trend : Nano Banana AI Saree</h1>
+        <h2 class="text-2xl font-semibold text-red-500">
+          <a href="/nano-banana-ai-saree" class="hover:underline">
+            🔥 New Trend : Nano Banana AI Saree
+          </a>
+        </h2>
+
         <h2 class="text-3xl md:text-4xl font-bold mb-6">
           Nano Banana <span class="gradient-text">AI Generator</span>
         </h2>
         <p class="text-xl text-gray-600">
           Create stunning nano banana figures from text, or upload an image to
           modify.
-        </p>
-
-        <p class="text-sm font-bold text-color[#333]">
-        <p id="textLimit">...</p>
         </p>
       </div>
 
@@ -349,7 +356,8 @@
 
               <p class="text-sm text-gray-500 mt-3">
                 Need more inspiration?
-                <a href="./nano-banana-collection-prompts.html" class="text-primary hover:underline font-medium">Try our prompt guide</a>
+                <a href="./nano-banana-collection-prompts.html" class="text-primary hover:underline font-medium">Try our
+                  prompt guide</a>
               </p>
             </div>
 
@@ -1630,7 +1638,7 @@
       ratingSection.classList[method](CSS_HIDDEN_CLASS);
       actionButtons.forEach((btn) => btn.classList[method](CSS_HIDDEN_CLASS));
     }
-    
+
     function renderSpinner() {
       resultContainer.innerHTML = `
         <div class="flex justify-center items-center w-full min-h-[256px]">
@@ -1672,15 +1680,15 @@
         textLimitDisplay.textContent = "Could not load usage limit.";
       }
     }
-    
+
     // --- NEW: MODAL CONTROL FUNCTIONS ---
     function showCreditsModal() {
-        if (creditsModal) creditsModal.classList.remove('hidden');
+      if (creditsModal) creditsModal.classList.remove('hidden');
     }
     function hideCreditsModal() {
-        if (creditsModal) creditsModal.classList.add('hidden');
+      if (creditsModal) creditsModal.classList.add('hidden');
     }
-    
+
     // --- MODIFIED: Core Generation Logic ---
     async function handleImageGeneration() {
       const promptText = promptInput.value.trim();
@@ -1688,7 +1696,7 @@
         alert("Please enter a prompt first!");
         return;
       }
-      
+
       toggleActionUI(false);
       renderSpinner();
       generateBtn.disabled = true;
@@ -1709,12 +1717,12 @@
           body: formData,
         });
 
-     
-        
+
+
         if (!response.ok) {
-           // It's a different kind of error (e.g., 500 server error)
-           const errorData = await response.json().catch(() => ({ msg: 'Server returned an unexpected error.' }));
-           throw new Error(errorData.msg || `Server responded with ${response.status}`);
+          // It's a different kind of error (e.g., 500 server error)
+          const errorData = await response.json().catch(() => ({ msg: 'Server returned an unexpected error.' }));
+          throw new Error(errorData.msg || `Server responded with ${response.status}`);
         }
 
         const data = await response.json();
@@ -1726,18 +1734,18 @@
           renderSuccess(imageUrl, `AI image generated for prompt: ${promptText}`);
           toggleActionUI(true);
         }
-      
+
       } catch (error) {
         console.error("Generation Failed:", error);
         renderError("Oops! Something went wrong.", `The service might be temporarily unavailable. Please try again later. Error: ${error.message}`);
-      
+
       } finally {
         generateBtn.disabled = false;
         updateUser();
         updateProdLimit();
       }
     }
-    
+
     // --- EVENT LISTENERS ---
     generateBtn.addEventListener("click", handleImageGeneration);
 
@@ -1933,7 +1941,7 @@
       }
     }
   </script>
-  
+
 </body>
 
 </html>

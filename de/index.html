@@ -1978,19 +1978,10 @@
     }
 
           function toggleFaq(buttonElement) {
-        // 1. 找到需要展开/折叠的内容区域
-        // .nextElementSibling 会找到紧跟在按钮后面的那个 <div>
         const content = buttonElement.nextElementSibling;
         
-        // 2. 找到按钮里面的箭头图标
         const icon = buttonElement.querySelector('i');
-
-        // 3. 切换内容区域的 'hidden' 类
-        // 如果有 'hidden' 就移除它 (展开)，如果没有就添加它 (折叠)
         content.classList.toggle('hidden');
-
-        // 4. 切换箭头图标的旋转样式
-        // Tailwind CSS 的 'rotate-180' 类可以让它旋转180度
         icon.classList.toggle('rotate-180');
       }
   </script>

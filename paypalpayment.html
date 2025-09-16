@@ -201,7 +201,7 @@
         </div>
     </main>
 
-    <script>
+   <script>
         document.addEventListener('DOMContentLoaded', () => {
             const loadingState = document.getElementById('loading-state');
             const successState = document.getElementById('success-state');
@@ -219,12 +219,7 @@
 
                 if (state === 'success') {
                     successState.classList.remove('hidden');
-                    // Trigger confetti animation on success
-                    confetti({
-                        particleCount: 150,
-                        spread: 90,
-                        origin: { y: 0.6 }
-                    });
+                    // 烟花效果已从此移除
                 } else if (state === 'failure') {
                     failureState.classList.remove('hidden');
                 } else {
@@ -271,7 +266,7 @@
                     // Optional: Redirect after a few seconds
                     setTimeout(() => {
                         window.location.href = '/';
-                    }, 5000); // Redirect to homepage after 5 seconds
+                    }, 2000); // Redirect to homepage after 5 seconds
                 } else if (status === 'FAILURE') {
                     clearInterval(pollingInterval);
                     showState('failure');

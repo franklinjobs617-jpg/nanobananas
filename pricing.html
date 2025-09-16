@@ -727,7 +727,7 @@
                 <div class="flex flex-col gap-4">
 
                     <!-- Option 1: PayPal -->
-                    <div id="paypal-pay-button"
+                    <!-- <div id="paypal-pay-button"
                         class="block p-4 rounded-xl border-2 border-yellow-400 bg-white hover:bg-yellow-50 transition-all duration-300 cursor-pointer">
                         <div class="flex justify-between items-center mb-3">
                             <div class="flex items-center gap-3">
@@ -739,7 +739,7 @@
                             </div>
                             <i class="fa-solid fa-chevron-right text-gray-400"></i>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Option 2: Creem -->
                     <div id="creem-pay-button"
@@ -809,7 +809,6 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // --- TAB SWITCHING LOGIC ---
                 const tabButtons = document.querySelectorAll('.tab-button');
                 const plansWrapper = document.getElementById('plans-wrapper');
 
@@ -918,19 +917,14 @@
                     if (dropdownUserEmail) dropdownUserEmail.textContent = '';
                 }
 
-                // --- Purchase Handler ---
+                // --- pricing ---
                 async function handlePurchase(event) {
-                    console.log(event)
-                   
-
                     const button = event.currentTarget;
                     const isLoggedIn = !!localStorage.getItem('auth_token');
                     if (!isLoggedIn) {
                         loginModal.classList.remove('hidden');
-                        
                         return;
                     }
-                     dialogMoedl.classList.remove('hidden');
                     const productId = button.dataset.productId;
                     const userInfoStr = localStorage.getItem('user_info');
                     const userInfo = userInfoStr ? JSON.parse(userInfoStr) : '';
@@ -938,7 +932,6 @@
                         alert("Your session seems to be invalid. Please sign out and in again.");
                         return;
                     }
-
                     const originalButtonText = button.innerHTML;
                     button.disabled = true;
                     button.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> Processing...`;
@@ -1010,6 +1003,8 @@
 
 
                 }
+
+
 
                 // Attach purchase listeners ONCE on page load
                 purchaseButtons.forEach(button => {

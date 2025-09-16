@@ -866,11 +866,17 @@
 
                 const creemPay = document.getElementById('creem-pay-button');
                 const payPel = document.getElementById('paypal-pay-button');
+                const closPay = document.getElementById('close-modal-button');
 
                 const dialogMoedl = document.getElementById('dialogMoedl');
                 // --- Constants ---
                 const GOOGLE_CLIENT_ID = "98611438844-610u4rlujgvhb6egkrgjctj7765m3vji.apps.googleusercontent.com";
                 const BACKEND_REDIRECT_URI = "https://api.nanobananas.me/prod-api/g/callback";
+
+
+                closPay.addEventListener('click', () => {
+                    dialogMoedl.classList.add('hidden');
+                })
 
                 // --- UI Update Functions ---
                 function updateUIForLogin(user) {
@@ -915,15 +921,16 @@
                 // --- Purchase Handler ---
                 async function handlePurchase(event) {
                     console.log(event)
-                    dialogMoedl.classList.remove('hidden');
+                   
 
                     const button = event.currentTarget;
                     const isLoggedIn = !!localStorage.getItem('auth_token');
                     if (!isLoggedIn) {
                         loginModal.classList.remove('hidden');
+                        
                         return;
                     }
-                    console.log(button.dataset)
+                     dialogMoedl.classList.remove('hidden');
                     const productId = button.dataset.productId;
                     const userInfoStr = localStorage.getItem('user_info');
                     const userInfo = userInfoStr ? JSON.parse(userInfoStr) : '';

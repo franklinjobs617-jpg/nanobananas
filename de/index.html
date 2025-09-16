@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nano Banana AI - Kostenloser KI-Bildgenerator für Modelle & Figuren</title>
+  <meta name="description"
+    content="Nano Banana AI: Kostenloser KI-Bildgenerator für beeindruckende Nano Banana Modelle, 3D-Figuren und Designs. Einfach per Text beschreiben und herunterladen." />
+  <meta name="keywords"
+    content="nano banana, nano banana ai, nano banana 3d modell, nano banana figur, ki-bildgenerierung kostenlos, nano banana download, bandai nano banana" />
+  <link rel="canonical" href="https://www.nanobananas.me/" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Nano Banana AI - Kostenloser KI-Bildgenerator für Modelle & Figuren">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.nanobananas.me/">
+  <meta property="og:image" content="../image/bandai-nano-banana.webp">
+  <meta property="og:image:alt" content="Bandai Stil Nano Banana Figur - KI-generiert">
+  <meta property="og:description" content="Erstelle kostenlos Nano Banana 3D-Modelle und Figuren mit KI. Einfach per Text beschreiben und sofort downloaden.">
+  <meta property="og:site_name" content="NanoBananas">
+  <meta property="og:locale" content="de_DE">
+  
+  <!-- External Resources with Defer for Non-Critical Scripts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was ist in dem Nano Banana Modell-Set enthalten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unser Nano Banana Modell-Set umfasst 3D-druckbare STL/GLB-Dateien (optimiert für Heimdrucker), Montageanleitungen und benutzerdefinierte Farbvorlagen. Du kannst Sets für jede Design erstellen – von einfachen Figuren bis zu detaillierten mechanischen Modellen – alle kostenlos zum Download und Drucken."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Dateiformate sind für 3D-Modelle verfügbar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Alle Nano Banana 3D-Modelle sind in STL (Standard für 3D-Druck) und GLB (für digitale Ansicht/Animation) verfügbar. Diese Formate sind mit den meisten 3D-Druckern, Blender und anderer Design-Software kompatibel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich eine Sammlung von Nano Banana Modellen erstellen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja! Du kannst eine Reihe verwandter Modelle (z. B. \"weltraumthematische Nano Banana Sammlung\") mit konsistenten Eingaben generieren. Speichere deine Lieblingsdesigns und lade sie als Bundle herunter – ideal für das Erstellen von thematischen Sets oder das Teilen mit anderen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Brauche ich einen 3D-Drucker, um die Modell-Sets zu verwenden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein – du kannst die 3D-Modelle weiterhin digital verwenden (z. B. in Animationen oder virtuellen Displays), ohne sie zu drucken. Wenn du physische Figuren möchtest, kannst du die STL-Dateien an einen 3D-Druckdienst senden oder einen lokalen Makerspace verwenden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Gibt es Einschränkungen bei der Anzahl der generierbaren Modelle?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Keine Einschränkungen! Du kannst unbegrenzt Nano Banana Modelle, 3D-Sets und Sammlungen kostenlos generieren. Es gibt keine Beschränkungen bei Downloads oder dem Teilen deiner Kreationen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie schnell wird ein Nano Banana Bild generiert?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Generierungszeit beträgt in der Regel 10-30 Sekunden, abhängig von der Komplexität deiner Anfrage und der Serverlast. Einfache Designs werden schneller verarbeitet als hochdetaillierte 3D-Modelle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich die generierten 3D-Modelle kommerziell verwenden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, du kannst die generierten Modelle für kommerzielle Zwecke verwenden, solange du keine urheberrechtlich geschützten Elemente in deine Eingabe aufnimmst. Für Massenproduktion empfehlen wir eine Überprüfung der Designs auf Urheberrechtsverletzungen."
+          }
+        }
+      ]
+    }
+  </script>
+  
+  <!-- Deferred Non-Critical Scripts -->
+  <script async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3383070348689557"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-3383070348689557">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#FFD166",
+            secondary: "#073B4C",
+            accent: "#EF476F",
+            light: "#F8F9FA",
+            dark: "#111827",
+          },
+          fontFamily: {
+            inter: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+        .text-shadow {
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text {
+          @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+        }
+        .card-hover {
+          @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+        }
+        .star-rating .star {
+          @apply text-gray-300 cursor-pointer transition-colors;
+        }
+        .star-rating .star.active {
+          @apply text-primary;
+        }
+      }
+    </style>
+    
+  <!-- Analytics with Defer -->
+  <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-0BS5F771SF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-0BS5F771SF");
+  </script>
+  
+  <script defer src="https://accounts.google.com/gsi/client"></script>
+</head>
+
+<body class="font-inter bg-light text-dark">
+  <header class="sticky top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16 md:h-20">
+        <a href="/" class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+            <span class="text-white font-bold text-xl">N</span>
+          </div>
+          <span class="text-xl md:text-2xl font-bold gradient-text">
+            NanoBananas
+          </span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="./nano_banana_ai_saree.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Ai Saree</a>
+          <a href="./nano-banana-collection-prompts.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+          <a href="#examples" class="text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+          <a href="./nano-banana-3d-figurines-guide.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+          <a href="./pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
+          <a href="bandai-nano-banana.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+
+          <a href="nano-banana-model-kit.html"
+            class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+          <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+            Model</a>
+          <a href="#ratings" class="text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+          <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <!-- Sign In Button (Visible when logged out) -->
+          <button id="open-login-modal-btn"
+            class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
+            Sign In
+          </button>
+
+          <!-- AFTER -->
+          <!-- User Info Display (Visible when logged in) -->
+          <div id="user-info-container" class="hidden relative">
+            <!-- This button is the trigger for the dropdown -->
+            <button id="user-menu-button" class="flex items-center gap-2 focus:outline-none rounded-full">
+              <img id="user-avatar" src="" alt="User Avatar"
+                class="w-9 h-9 rounded-full object-cover border-2 border-primary/50">
+              <span id="user-name"
+                class="hidden sm:inline text-sm font-medium text-gray-700 pointer-events-none"></span>
+            </button>
+
+            <!-- New Dropdown Menu Styled to Match Your Image -->
+            <div id="user-menu-dropdown"
+              class="absolute right-0 mt-3 w-64 origin-top-right bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+              role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+              <div class="p-4" role="none">
+                <!-- User Name and Email -->
+                <div class="mb-4">
+                  <p id="dropdown-user-name" class="text-sm font-semibold text-gray-800 truncate" role="none"></p>
+                  <p id="dropdown-user-email" class="text-xs text-gray-500 truncate" role="none"></p>
+                </div>
+
+                <!-- Credits -->
+                <div class="flex justify-between items-center text-sm text-gray-700 py-2">
+                  <div class="flex items-center">
+                    <i class="fa fa-database w-5 text-center text-orange-500 mr-2"></i>
+                    <span>Credits</span>
+                  </div>
+                  <span id="user-credits" class="font-bold text-orange-500">2</span>
+                </div>
+
+
+                <div class="border-t border-gray-100 my-2"></div>
+
+                <!-- Sign Out Button -->
+                <button id="logout-btn"
+                  class="w-full text-left flex items-center px-2 py-2 text-sm text-red-600 rounded-md hover:bg-red-50"
+                  role="menuitem">
+                  <i class="fa fa-sign-out w-5 text-center mr-2"></i>
+                  Sign Out
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Mobile Menu Toggle -->
+          <button id="menu-toggle" class="md:hidden text-2xl text-gray-600 hover:text-primary">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="./nano_banana_ai_saree.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Ai
+          Saree</a>
+        <a href="./nano-banana-collection-prompts.html"
+          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
+        <a href="#examples"
+          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Examples</a>
+        <a href="./nano-banana-3d-figurines-guide.html"
+          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Figures</a>
+        <a href="pricing.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Pricing</a>
+        <a href="bandai-nano-banana.html"
+          class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Bandai Style</a>
+        <a href="nano-banana-model-kit.html"
+          class="text-gray-600 hover:text-primary transition-colors font-medium">Model kit</a>
+        <a href="nano-banana-model.html" class="text-gray-600 hover:text-primary transition-colors font-medium">3d
+          Model</a>
+        <a href="#ratings" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Ratings</a>
+        <a href="#faq" class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+
+   
+      </div>
+    </div>
+  </header>
+
+  <section id="generator" class="py-16 md:py-24 bg-gradient-to-b from-secondary/5 to-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Nano Banana <span class="gradient-text">KI-Generator</span>
+        </h2>
+        <p class="text-xl text-gray-600">
+          Erstelle beeindruckende Nano Banana Figuren aus Text oder lade ein Bild hoch zur Anpassung.
+        </p>
+
+        <p class="text-sm font-bold text-gray-700 mt-4">
+          <span id="textLimis">Keine Beschränkungen - Generiere so viel wie du möchtest</span>
+        </p>
+      </div>
+
+      <!-- Main Generator Card with Glassmorphism Effect -->
+      <div
+        class="max-w-7xl mx-auto bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-gray-200/50">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+          <!-- Left Column: Controls & Inputs -->
+          <div class="p-6 md:p-10 border-b lg:border-b-0 lg:border-r border-gray-200/50">
+            <!-- Image Upload Section -->
+            <div class="mb-8">
+              <label class="block text-lg font-medium text-gray-800 mb-3">1. Bild hochladen (Optional)</label>
+              <div id="image-preview-container" class="hidden mb-4 relative w-fit mx-auto">
+                <img id="image-preview" src="#" alt="Dein hochgeladenes Bild" class="max-h-60 rounded-xl shadow-lg" />
+                <button id="remove-image-btn"
+                  class="absolute -top-3 -right-3 bg-white rounded-full p-1.5 shadow-md hover:bg-red-500 hover:text-white transition-all duration-300"
+                  title="Bild entfernen">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+              <div id="image-upload-zone" class="flex justify-center items-center w-full">
+                <label for="image-upload-input"
+                  class="flex flex-col items-center justify-center w-full h-36 border-2 border-gray-300 border-dashed rounded-2xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
+                  <div id="upload-initial-state" class="flex flex-col items-center justify-center">
+                    <svg class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                      </path>
+                    </svg>
+                    <p class="mb-2 text-sm text-gray-500">
+                      <span class="font-semibold">Klicke zum Hochladen</span>
+                      oder ziehe und loslasse
+                    </p>
+                    <p class="text-xs text-gray-500">PNG, JPG oder WEBP</p>
+                  </div>
+                  <input id="image-upload-input" type="file" class="hidden"
+                    accept="image/png, image/jpeg, image/webp" />
+                </label>
+              </div>
+            </div>
+
+            <!-- Prompt Section -->
+            <div class="mb-8">
+              <label for="prompt" class="block text-lg font-medium text-gray-800 mb-3">2. Beschreibe deine Vision</label>
+              <textarea id="prompt" rows="4"
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all text-base"
+                placeholder="z. B. 'ein cyberpunk Nano Banana Soldat, leuchtende Neon-Details, kinematische Beleuchtung, 8k'"></textarea>
+
+              <!-- Prompt Suggestions -->
+              <div class="flex flex-wrap gap-2 mt-3">
+                <button
+                  class="prompt-suggestion px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors">
+                  Realistische Schreibtischszene
+                </button>
+                <button
+                  class="prompt-suggestion px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors">
+                  3x3 Porträt-Gitter
+                </button>
+                <button
+                  class="prompt-suggestion px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors">
+                  Bandai Stil
+                </button>
+                <button
+                  class="prompt-suggestion px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors">
+                  Zukunftsstilisches Design
+                </button>
+              </div>
+
+              <p class="text-sm text-gray-500 mt-3">
+                Brauchst du mehr Inspiration?
+                <a href="#" class="text-primary hover:underline font-medium">Versuche unseren Eingabe-Leitfaden</a>
+              </p>
+            </div>
+
+            <!-- Style Options -->
+            <div class="mb-8">
+              <label class="block text-lg font-medium text-gray-800 mb-3">3. Wähle einen Stil</label>
+              <div class="grid grid-cols-3 sm:grid-cols-3 gap-3">
+                <button
+                  class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                  Realistisch
+                </button>
+                <button
+                  class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                  Cartoon
+                </button>
+                <button
+                  class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                  Cyberpunk
+                </button>
+                <button
+                  class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                  Vintage
+                </button>
+                <button
+                  class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                  Minimalistisch
+                </button>
+                <button
+                  class="style-option px-3 py-2 border border-gray-200 bg-white rounded-lg text-sm hover:border-primary hover:text-primary transition-colors">
+                  Fantasy
+                </button>
+              </div>
+            </div>
+
+            <!-- Generate Button -->
+            <div>
+              <button id="generate-btn"
+                class="w-full px-8 py-4 bg-gradient-to-r from-primary to-accent text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform transition-all duration-300 flex items-center justify-center">
+                <i class="fa fa-magic mr-2"></i> Generieren
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Output & Actions -->
+          <div class="bg-gray-50/70 p-6 md:p-10 flex flex-col">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">
+              Deine generierte Nano Banana
+            </h3>
+            <!-- Result Display Area -->
+            <div id="generation-result"
+            class="relative w-full aspect-square flex flex-col items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-2xl bg-white shadow-inner transition-all duration-300">
+            
+            <div id="result-placeholder" class="text-center text-gray-400">
+                <svg class="mx-auto h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <p class="mt-4 text-gray-500">
+                    Deine Kreation wird hier erscheinen.
+                </p>
+            </div>
+            
+            <!-- Download Loading Overlay -->
+            <div id="download-loader" class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white rounded-2xl hidden">
+              <svg class="animate-spin h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              <p class="mt-2 text-lg">Wird heruntergeladen...</p>
+          </div>
+        </div>
+
+            <!-- Action Buttons -->
+            <div id="action-buttons" class="flex flex-wrap gap-3 mt-6 justify-center">
+              <button id="download-btn"
+                class="px-5 py-2.5 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors hidden font-medium text-sm flex items-center">
+                <i class="fa fa-download mr-2"></i>Herunterladen
+              </button>
+              <button id="variation-btn"
+                class="px-5 py-2.5 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors hidden font-medium text-sm flex items-center">
+                <i class="fa fa-random mr-2"></i>Variation erstellen
+              </button>
+              <button id="new-btn"
+                class="px-5 py-2.5 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors hidden font-medium text-sm flex items-center">
+                <i class="fa fa-refresh mr-2"></i>Neue Generierung
+              </button>
+            </div>
+
+            <!-- Rating System -->
+            <div id="rating-section" class="mt-auto pt-6 hidden">
+              <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                <h4 class="font-medium text-gray-800 mb-3 text-center">
+                  Bewerte deine Kreation
+                </h4>
+                <div class="star-rating flex justify-center gap-1.5 mb-3 text-gray-300">
+                  <i class="fa fa-star star text-2xl cursor-pointer transition-colors" data-rating="1"></i>
+                  <i class="fa fa-star star text-2xl cursor-pointer transition-colors" data-rating="2"></i>
+                  <i class="fa fa-star star text-2xl cursor-pointer transition-colors" data-rating="3"></i>
+                  <i class="fa fa-star star text-2xl cursor-pointer transition-colors" data-rating="4"></i>
+                  <i class="fa fa-star star text-2xl cursor-pointer transition-colors" data-rating="5"></i>
+                </div>
+                <button id="submit-rating"
+                  class="mt-3 w-full px-4 py-2 bg-secondary text-white rounded-lg text-sm font-medium hover:bg-secondary/90 transition-colors">
+                  Bewertung absenden
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-gradient-to-b from-white to-secondary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 space-y-6">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            Nano Banana AI
+            <span class="gradient-text">Kostenloser KI-</span> Generator für Modelle & Figuren
+          </h1>
+          <p class="text-xl text-gray-600">
+            Mit dem Nano Banana AI Generator kannst du in Minuten 3D-druckbare Modelle, Bandai-stile Figuren und einzigartige Designs erstellen – einfach per Textbeschreibung. Keine Vorkenntnisse erforderlich.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <a href="#generator"
+              class="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-center">
+              <i class="fa fa-rocket mr-2"></i> Jetzt generieren (Kostenlos)
+            </a>
+            <a href="#prompt-container"
+              class="px-8 py-4 border-2 border-secondary text-secondary text-lg font-semibold rounded-xl hover:bg-secondary/5 transition-all text-center">
+              <i class="fa fa-image mr-2"></i> Beispiele ansehen
+            </a>
+          </div>
+          <div class="flex items-center gap-2 text-gray-500 pt-2 flex-wrap">
+            <span><i class="fa fa-check-circle text-primary"></i> 100% Kostenlos nutzbar</span>
+            <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+            <span><i class="fa fa-check-circle text-primary"></i> Keine Anmeldung erforderlich</span>
+            <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+            <span><i class="fa fa-check-circle text-primary"></i> Unbegrenzte Generierungen</span>
+          </div>
+        </div>
+        <div class="lg:w-1/2 relative">
+          <div
+            class="relative rounded-2xl overflow-hidden shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
+            <img src="../image/Nano Banana AI generated.jpeg" alt="Eine detailreiche Szene auf einem Schreibtisch: Im Vordergrund steht eine farbenfrohe Figur des virtuellen Idols Hatsune Miku. Dahinter zeigt ein Computermonitor eine 3D-Modellierungssoftware mit dem grauen, digitalen Entwurf derselben Figur. Rechts davon steht die Produktverpackung. Der unscharfe Hintergrund mit einem Regal voller weiterer Figuren deutet auf den Arbeitsplatz eines Designers oder Sammlers hin."
+              class="w-full h-auto" />
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+              <p class="text-white font-medium">
+                "lebendige nano banana figur, detailliertes modell, hohe qualität"
+              </p>
+            </div>
+          </div>
+          <div
+            class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 hidden md:block">
+            <p class="font-semibold text-secondary">
+              <i class="fa fa-lightbulb-o text-primary mr-2"></i> Einfache Eingaben, beeindruckende Ergebnisse
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keyword Tag Cloud -->
+  <section class="py-8 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-6">
+        <h3 class="text-lg font-medium text-gray-500">
+          Beliebte Suchanfragen für Nano Banana
+        </h3>
+      </div>
+      <div class="flex flex-wrap justify-center gap-3">
+        <span
+          class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano
+          banana</span>
+        <span
+          class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano
+          banana ai</span>
+        <span
+          class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano
+          banana 3d modell</span>
+        <span
+          class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano
+          banana figur</span>
+        <span
+          class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#ki-bildgenerierung
+          kostenlos</span>
+        <span
+          class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#nano
+          banana download</span>
+        <span
+          class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors">#bandai
+          nano banana</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Content Cards -->
+  <section class="py-12 bg-gradient-to-b from-secondary/5 to-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl font-bold mb-4">Beliebte Nano Banana Stile</h2>
+        <p class="text-gray-600">
+          Entdecke unsere spezialisierten Generatoren für beliebte Nano Banana Kreationen
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Bandai Style Card -->
+        <a href="bandai-nano-banana.html" class="block group">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover h-full">
+            <div class="relative h-72 overflow-hidden">
+              <img src="../image/bandai-nano-banana.png" alt="Eine stilisierte Chibi-Figur von Joker aus dem Videospiel "Persona 5" steht auf einem hellen Holztisch. Die Figur trägt eine weiße Maske, einen schwarzen Mantel, rote Handschuhe und zielt mit einer kleinen Pistole nach vorne. Links neben der Figur steht die dazugehörige schwarze Verpackung mit der Aufschrift "Phantom Thief Joker". Im Hintergrund ist ein Computermonitor zu sehen, auf dem eine 3D-Modellierungssoftware läuft. Die Software zeigt ein unkoloriertes, graues digitales Modell genau derselben Joker-Figur. Die Szene vermittelt den Eindruck eines Designprozesses oder des Arbeitsplatzes eines Sammlers."
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-6">
+                <h3 class="text-2xl font-bold text-white mb-1">
+                  Bandai Stil
+                </h3>
+                <p class="text-white/90">
+                  Erstelle authentische Bandai-inspirierte Nano Banana Figuren
+                </p>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 mb-4">
+                Spezialisierter Generator zur Erstellung von 3D-druckbaren Nano Banana Figuren im ikonischen Bandai-Stil mit genauen Proportionen und Details.
+                </p>
+              <span class="inline-flex items-center text-primary font-medium group-hover:underline">
+                Bandai Stil erkunden
+                <i class="fa fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Model Card -->
+        <a href="nano-banana-model-kit.html" class="block group">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover h-full">
+            <div class="relative h-72 overflow-hidden">
+              <img src="../image/Nano banana model.jpeg" alt="Eine detailreich gestaltete Anime-Figur eines Mädchens steht auf einem Holzschreibtisch. Sie hat langes, blondes Haar mit pastellfarbenen Spitzen in Blau- und Violetttönen und trägt einen Kapuzenpullover in Pastellfarben sowie einen hellvioletten Rock. Die Figur steht auf einem durchsichtigen Sockel mit der Aufschrift "nano-banana". Direkt dahinter zeigt ein Computermonitor eine 3D-Modellierungssoftware, in der das graue, unkolorierte digitale Modell derselben Figur zu sehen ist. Rechts neben der Figur steht die Produktverpackung der Marke TAMIYA, auf der ebenfalls ein Bild der Figur und der Name "nano-banana" abgebildet sind. Die gesamte Szene illustriert den Prozess von der digitalen Gestaltung bis zum fertigen physischen Modell."
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-6">
+                <h3 class="text-2xl font-bold text-white mb-1">
+                  Nano Banana Modelle
+                </h3>
+                <p class="text-white/90">
+                  Detaillierte 3D-Modelle zum Drucken und Ausstellen
+                </p>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 mb-4">
+                Generiere hochwertige 3D-druckbare Nano Banana Modelle, optimiert für 3D-Druck und digitale Designprojekte.
+              </p>
+              <span class="inline-flex items-center text-primary font-medium group-hover:underline">
+                Modelle erkunden
+                <i class="fa fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Features Section -->
+  <section id="features" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Was kann <span class="gradient-text">Nano Banana AI</span> für dich tun?
+        </h2>
+        <p class="text-xl text-gray-600">
+          UUnser leistungsstarkes KI-Werkzeug generiert 3D-druckbare Nano Banana Modelle und Figuren mit einfachen, intuitiven Funktionen für jedermann.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature Card 1 -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+          <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa fa-paint-brush text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Eigene Figuren erstellen</h3>
+          <p class="text-gray-600 mb-4">
+            Generiere einzigartige Nano Banana Figuren mit jedem Stil, jeder Pose oder jedem Detail, das du dir vorstellen kannst – mithilfe einfacher Texteingaben.
+          </p>
+          <a href="#generator" class="text-primary font-medium inline-flex items-center hover:underline">
+            Figur-Generator ausprobieren <i class="fa fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+
+        <!-- Feature Card 2 -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+          <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa fa-cubes text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">3D-Modelle designen</h3>
+          <p class="text-gray-600 mb-4">
+            Verwandle Ideen in detaillierte Nano Banana 3D-Modelle, die perfekt für Druck, digitale Projekte oder Sammlungsausstellungen geeignet sind.
+          </p>
+          <a href="nano-banana-model-kit.html" class="text-primary font-medium inline-flex items-center hover:underline">
+            3D-Modelle erstellen <i class="fa fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+
+        <!-- Feature Card 3 -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+          <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa fa-magic text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Professionelle Eingaben</h3>
+          <p class="text-gray-600 mb-4">
+            Erhalte Expertenvorschläge für Eingaben, die optimiert sind, um jedes Mal die besten Nano Banana Figuren und Modelle zu erstellen.
+          </p>
+          <a href="#prompts" class="text-primary font-medium inline-flex items-center hover:underline">
+            Eingaben erkunden <i class="fa fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+
+        <!-- Feature Card 4 -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+          <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa fa-lightbulb-o text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Inspirationsgalerie</h3>
+          <p class="text-gray-600 mb-4">
+            Durchsuche Tausende von von der Community erstellten Nano Banana Designs, um Inspiration für dein nächstes Projekt zu erhalten.
+          </p>
+          <a href="#examples" class="text-primary font-medium inline-flex items-center hover:underline">
+            Galerie ansehen <i class="fa fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+
+        <!-- Feature Card 5 -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+          <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa fa-download text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">High-Res Downloads</h3>
+          <p class="text-gray-600 mb-4">
+            Lade deine Nano Banana Kreationen in Hochauflösungsformaten herunter, die perfekt für Druck oder digitale Nutzung geeignet sind.
+          </p>
+          <a href="#generator" class="text-primary font-medium inline-flex items-center hover:underline">
+            Generieren & herunterladen <i class="fa fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+
+        <!-- Feature Card 6 -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover border border-gray-100">
+          <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+            <i class="fa fa-gift text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">100% Kostenlos nutzbar</h3>
+          <p class="text-gray-600 mb-4">
+            Erstelle unbegrenzt Nano Banana Figuren und Modelle ohne任何成本。Keine versteckten Gebühren oder Premium-Abonnements.
+          </p>
+          <a href="#generator" class="text-primary font-medium inline-flex items-center hover:underline">
+            Kostenlos starten <i class="fa fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ratings and Reviews Section -->
+  <section id="ratings" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Community <span class="gradient-text">Bewertungen & Rezensionen</span>
+        </h2>
+        <p class="text-xl text-gray-600">
+          Sieh dir an, was Benutzer über ihre Nano Banana AI Kreationen sagen, und teile deine eigene Erfahrung.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto">
+        <!-- Overall Rating -->
+        <div class="bg-secondary/5 rounded-2xl p-6 md:p-8 mb-10">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-center md:text-left">
+              <h3 class="text-2xl font-bold mb-2">Durchschnittliche Bewertung</h3>
+              <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+                <div class="text-4xl font-bold text-primary">4.8</div>
+                <div class="star-rating flex">
+                  <i class="fa fa-star text-primary"></i>
+                  <i class="fa fa-star text-primary"></i>
+                  <i class="fa fa-star text-primary"></i>
+                  <i class="fa fa-star text-primary"></i>
+                  <i class="fa fa-star-half-o text-primary"></i>
+                </div>
+              </div>
+              <p class="text-gray-600">Basierend auf 1.247 Bewertungen</p>
+            </div>
+            
+            <div class="w-full md:w-auto">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-32 text-right">5 Sterne</div>
+                <div class="flex-1 bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 82%"></div>
+                </div>
+                <div class="w-10 text-center">82%</div>
+              </div>
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-32 text-right">4 Sterne</div>
+                <div class="flex-1 bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 14%"></div>
+                </div>
+                <div class="w-10 text-center">14%</div>
+              </div>
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-32 text-right">3 Sterne</div>
+                <div class="flex-1 bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 3%"></div>
+                </div>
+                <div class="w-10 text-center">3%</div>
+              </div>
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-32 text-right">2 Sterne</div>
+                <div class="flex-1 bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 1%"></div>
+                </div>
+                <div class="w-10 text-center">1%</div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-32 text-right">1 Stern</div>
+                <div class="flex-1 bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <div class="w-10 text-center">0%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews -->
+        <div class="space-y-6">
+          <!-- Review 1 -->
+          <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+            <div class="flex flex-col md:flex-row md:items-start gap-4">
+              <img src="https://picsum.photos/seed/user1/100/100" alt="Benutzerprofilbild" class="w-12 h-12 rounded-full object-cover">
+              <div class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                  <h4 class="font-semibold">Markus Schmidt</h4>
+                  <div class="star-rating flex mt-1 sm:mt-0">
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-3">
+                  "Absolut erstaunlich! Ich habe einen Nano Banana 3D-Model erstellt, der perfekt für meinen 3D-Drucker angepasst war. Die Details sind beeindruckend, und es war total kostenlos!"
+                </p>
+                <img src="../image/nano-banana-ai-idea-generation.webp" alt="Ein Porträt einer jungen Frau im klassischen Anime-Stil, der an Studio Ghibli erinnert. Sie hat voluminöses, hellbraunes, gewelltes Haar und blickt mit ruhigen, blauen Augen den Betrachter an. Sie trägt einen schwarzen Rollkragenpullover und fährt sich mit der rechten Hand nachdenklich durch die Haare. Der Hintergrund ist einfarbig in einem dunklen Petrolton gehalten." class="w-full h-auto max-h-100 object-cover">
+                <p class="text-sm text-gray-500">vor 3 Tagen</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+            <div class="flex flex-col md:flex-row md:items-start gap-4">
+              <img src="https://picsum.photos/seed/user2/100/100" alt="Benutzerprofilbild" class="w-12 h-12 rounded-full object-cover">
+              <div class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                  <h4 class="font-semibold">Sophie Müller</h4>
+                  <div class="star-rating flex mt-1 sm:mt-0">
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star-half-o text-primary"></i>
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-3">
+                  "Die Bandai-stilen Nano Banana Figuren, die ich generiert habe, sehen fast wie echte Produkte aus. Ich habe sie mit meinem 3D-Drucker hergestellt und sie meinem Sammlungsraum hinzugefügt. Einfach toll!"
+                </p>
+                <img src="../image/nano-banana-ai-bandai-style-figure.jpeg" alt="Ein stimmungsvolles Schwarz-Weiß-Porträt eines jungen Mannes, der dem Schauspieler Daniel Radcliffe ähnelt. Es ist eine Nahaufnahme seines Gesichts im Profil auf der rechten Seite des Bildes. Sein Blick ist in die Ferne gerichtet und sein Ausdruck ist ernst und nachdenklich. Das Foto hat eine deutliche Filmkörnung, und die Beleuchtung betont seine Gesichtszüge. Der große negative Raum auf der linken Seite verstärkt die introspektive und melancholische Atmosphäre des Bildes." class="w-full h-auto max-h-100 object-cover">
+                <p class="text-sm text-gray-500">vor 1 Woche</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+            <div class="flex flex-col md:flex-row md:items-start gap-4">
+              <img src="https://picsum.photos/seed/user3/100/100" alt="Benutzerprofilbild" class="w-12 h-12 rounded-full object-cover">
+              <div class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                  <h4 class="font-semibold">Jan Weiss</h4>
+                  <div class="star-rating flex mt-1 sm:mt-0">
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star text-primary"></i>
+                    <i class="fa fa-star-o text-primary"></i>
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-3">
+                  "Sehr einfache Bedienung und tolle Ergebnisse. Ich habe innerhalb von Minuten eine ganze Sammlung von Nano Banana Figuren erstellt. Der Download von 3D-Modelldateien war unkompliziert."
+                </p>
+                <img src="../image/nano-banana-custom-detailed-figure.avif" alt="Die Szene zeigt den Schreibtisch eines Sammlers oder Modellbauers. Im Vordergrund steht eine dynamische Figur von Zenitsu Agatsuma aus der Anime-Serie "Demon Slayer" (鬼滅の刃). Zenitsu ist in einer tiefen Kampfhaltung dargestellt, kurz davor, sein Katana zu ziehen. Er trägt seinen charakteristischen gelben Haori mit Dreiecksmuster über einer schwarzen Uniform. Links neben der Figur steht die Originalverpackung, die dasselbe Motiv zeigt. Im Hintergrund läuft auf einem Computermonitor eine 3D-Software, die ein Drahtgittermodell (Wireframe) genau derselben Figur in der exakt gleichen Pose anzeigt. Auf dem Schreibtisch liegen außerdem Pinsel und Farbtöpfe, was den kreativen Prozess vom digitalen Entwurf zum fertigen, physischen Produkt unterstreicht." class="w-full h-auto max-h-100 object-cover">
+                <p class="text-sm text-gray-500">vor 2 Wochen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10">
+          <button class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            Mehr Bewertungen anzeigen
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-16 md:py-24 bg-gradient-to-b from-white to-secondary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Häufig gestellte <span class="gradient-text">Fragen</span>
+        </h2>
+        <p class="text-xl text-gray-600">
+          Alle Antworten zu Nano Banana AI, 3D-Modelle, Downloads und mehr.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto divide-y divide-gray-200">
+        <!-- FAQ Item 1 -->
+        <div class="py-6">
+          <button class="flex justify-between items-center w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Was ist in dem Nano Banana Modell-Set enthalten?
+            </h3>
+            <i class="fa fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="mt-3 text-gray-600 hidden">
+            <p>
+              Unser Nano Banana Modell-Set umfasst 3D-druckbare STL/GLB-Dateien (optimiert für Heimdrucker), Montageanleitungen und benutzerdefinierte Farbvorlagen. Du kannst Sets für jede Design erstellen – von einfachen Figuren bis zu detaillierten mechanischen Modellen – alle kostenlos zum Download und Drucken.
+            </p>
+            <img src="../image/nano-banana-ai-idea-generation.webp" alt="An anime-style portrait of a pensive young woman gently running a hand through her hair." class="w-full h-auto max-h-100 object-cover">
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="py-6">
+          <button class="flex justify-between items-center w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Welche Dateiformate sind für 3D-Modelle verfügbar?
+            </h3>
+            <i class="fa fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="mt-3 text-gray-600 hidden">
+            <p>
+              Alle Nano Banana 3D-Modelle sind in STL (Standard für 3D-Druck) und GLB (für digitale Ansicht/Animation) verfügbar. Diese Formate sind mit den meisten 3D-Druckern, Blender und anderer Design-Software kompatibel.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="py-6">
+          <button class="flex justify-between items-center w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Kann ich eine Sammlung von Nano Banana Modellen erstellen?
+            </h3>
+            <i class="fa fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="mt-3 text-gray-600 hidden">
+            <p>
+              Ja! Du kannst eine Reihe verwandter Modelle (z. B. "weltraumthematische Nano Banana Sammlung") mit konsistenten Eingaben generieren. Speichere deine Lieblingsdesigns und lade sie als Bundle herunter – ideal für das Erstellen von thematischen Sets oder das Teilen mit anderen.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="py-6">
+          <button class="flex justify-between items-center w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Brauche ich einen 3D-Drucker, um die Modell-Sets zu verwenden?
+            </h3>
+            <i class="fa fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="mt-3 text-gray-600 hidden">
+            <p>
+              Nein – du kannst die 3D-Modelle weiterhin digital verwenden (z. B. in Animationen oder virtuellen Displays), ohne sie zu drucken. Wenn du physische Figuren möchtest, kannst du die STL-Dateien an einen 3D-Druckdienst senden oder einen lokalen Makerspace verwenden.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="py-6">
+          <button class="flex justify-between items-center w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Gibt es Einschränkungen bei der Anzahl der generierbaren Modelle?
+            </h3>
+            <i class="fa fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="mt-3 text-gray-600 hidden">
+            <p>
+              Keine Einschränkungen! Du kannst unbegrenzt Nano Banana Modelle, 3D-Sets und Sammlungen kostenlos generieren. Es gibt keine Beschränkungen bei Downloads oder dem Teilen deiner Kreationen.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="py-6">
+          <button class="flex justify-between items-center w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Wie schnell wird ein Nano Banana Bild generiert?
+            </h3>
+            <i class="fa fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="mt-3 text-gray-600 hidden">
+            <p>
+              Die Generierungszeit beträgt in der Regel 10-30 Sekunden, abhängig von der Komplexität deiner Anfrage und der Serverlast. Einfache Designs werden schneller verarbeitet als hochdetaillierte 3D-Modelle.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 7 -->
+        <div class="py-6">
+          <button class="flex justify-between items-center w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Kann ich die generierten 3D-Modelle kommerziell verwenden?
+            </h3>
+            <i class="fa fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="mt-3 text-gray-600 hidden">
+            <p>
+              Ja, du kannst die generierten Modelle für kommerzielle Zwecke verwenden, solange du keine urheberrechtlich geschützten Elemente in deine Eingabe aufnimmst. Für Massenproduktion empfehlen wir eine Überprüfung der Designs auf Urheberrechtsverletzungen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-20 bg-secondary mb-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Beginne noch heute mit deinen Nano Banana Kreationen
+        </h2>
+        <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+          Egal, ob du 3D-Modelle für den Druck, digitale Figuren oder eine ganze Sammlung erstellen möchtest – unser kostenloser Generator macht es möglich.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#generator"
+            class="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
+            <i class="fa fa-magic mr-2"></i> Jetzt generieren
+          </a>
+          <a href="nano-banana-model-kit.html"
+            class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/30 text-lg font-semibold rounded-xl hover:bg-white/20 transition-all">
+            <i class="fa fa-cube mr-2"></i> 3D-Modelle erkunden
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-secondary text-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div
+              class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center"
+            >
+              <span class="text-white font-bold text-xl">N</span>
+            </div>
+            <span class="text-xl font-bold">NanoBananas</span>
+          </a>
+          <p class="text-gray-300 mb-4">
+            Create amazing nano banana figures and models with our free AI
+            generator.
+          </p>
+          <div class="flex gap-4">
+            <a
+              href="#"
+              class="text-gray-300 hover:text-primary transition-colors"
+              ><i class="fa fa-facebook"></i
+            ></a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-primary transition-colors"
+              ><i class="fa fa-twitter"></i
+            ></a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-primary transition-colors"
+              ><i class="fa fa-instagram"></i
+            ></a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-primary transition-colors"
+              ><i class="fa fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-bold mb-4">Generators</h4>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="index.html#generator"
+                class="text-gray-300 hover:text-primary transition-colors"
+                >Basic Generator</a
+              >
+            </li>
+            <li>
+              <a href="bandai-nano-banana.html" class="text-primary"
+                >Bandai Style</a
+              >
+            </li>
+            <li>
+              <a
+                href="nano-banana-model-kit.html"
+                class="text-gray-300 hover:text-primary transition-colors"
+                >3D Models</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#figures"
+                class="text-gray-300 hover:text-primary transition-colors"
+                >Custom Figures</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-bold mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="index.html#prompts"
+                class="text-gray-300 hover:text-primary transition-colors"
+                >Prompt Guide</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#examples"
+                class="text-gray-300 hover:text-primary transition-colors"
+                >Examples Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#ratings"
+                class="text-gray-300 hover:text-primary transition-colors"
+                >Community Reviews</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#faq"
+                class="text-gray-300 hover:text-primary transition-colors"
+                >FAQ</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-bold mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="#"
+                class="text-gray-300 hover:text-primary transition-colors"
+                >Terms of Service</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-300 hover:text-primary transition-colors"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-300 hover:text-primary transition-colors"
+                >Copyright</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-300 hover:text-primary transition-colors"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400"
+      >
+        <p>&copy; 2025 NanoBananas AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div
+    id="image-preview-modal"
+    class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-opacity duration-300"
+  >
+    <div class="relative max-w-4xl max-h-[90vh] w-full h-full">
+      <!-- Close Button -->
+      <button
+        id="close-preview-modal-btn"
+        class="absolute -top-10 right-0 text-white hover:text-primary transition-colors z-10"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
+      <!-- Image Container -->
+      <div class="w-full h-full flex items-center justify-center">
+        <img
+          id="preview-modal-image"
+          src=""
+          alt="Generated Image Preview"
+          class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================== -->
+  <!-- Login Modal -->
+  <!-- =============================================================== -->
+  <div
+    id="login-modal"
+    class="hidden fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-4"
+  >
+    <div
+      class="bg-dark text-light p-8 rounded-2xl shadow-2xl w-full max-w-md relative"
+      id="login-modal-content"
+    >
+      <button
+        id="close-login-modal-btn"
+        class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <div class="text-center mb-6">
+        <p class="text-sm text-gray-400">Nano Banana AI</p>
+        <h1
+          class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-white"
+        >
+          Welcome to <span class="text-gray-400">Nano Banana</span>
+        </h1>
+      </div>
+      <div
+        class="w-full bg-white/5 p-2 rounded-xl backdrop-blur-sm border border-white/10"
+      >
+        <p
+          class="flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg font-medium text-white"
+        >
+          <span class="text-lg mr-2">🎁</span> Free Usage credits daily after
+          sign-in
+        </p>
+      </div>
+      <button
+        id="loginBtn"
+        class="mt-4 w-full h-10 px-4 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-black text-sm sm:text-base font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          stroke="none"
+          class="h-4 w-4"
+        >
+          <path
+            d="M12 2a9.96 9.96 0 0 1 6.29 2.226a1 1 0 0 1 .04 1.52l-1.51 1.362a1 1 0 0 1 -1.265 .06a6 6 0 1 0 2.103 6.836l.001 -.004h-3.66a1 1 0 0 1 -.992 -.883l-.007 -.117v-2a1 1 0 0 1 1 -1h6.945a1 1 0 0 1 .994 .89c.04 .367 .061 .737 .061 1.11c0 5.523 -4.477 10 -10 10s-10 -4.477 -10 -10s4.477 -10 10 -10z"
+          ></path>
+        </svg>
+        Sign in with Google
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // --- Start of existing code ---
+    const uploadZone = document.getElementById("image-upload-zone");
+    const inputElement = document.getElementById("image-upload-input");
+    const labelElement = uploadZone.querySelector("label");
+    const imageElement = document.getElementById("image-upload-image");
+    document
+      .getElementById("menu-toggle")
+      .addEventListener("click", function () {
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenu.classList.toggle("hidden");
+      });
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        if (targetId === "#") return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: "smooth",
+          });
+
+          document.getElementById("mobile-menu").classList.add("hidden");
+        }
+      });
+    });
+
+    let promptList = [
+      {
+        index: 0,
+        prompt:
+          "Use the nano-banana model to create a 1/7 scale model, in a realistic style and environment. Place the figure on a computer desk, using a circular transparent acrylic base without any text.On the computer screen, display the ZBrush modeling process of the figure.Next to the computer screen, place a TAMIYA-style toy packaging box printedwith the original artwork. ",
+      },
+      {
+        index: 1,
+        prompt:
+          "Generate a 3x3 grid of portraits of the same person, each with a different hairstyle. Keep the face consistent in all nine portraits, but vary hair length, color, and style (e.g., short, long, curly, straight, ponytail, braids, updo, etc.). Use realistic lighting and detailed facial features. Arrange the nine portraits in a 3x3 grid.",
+      },
+      {
+        index: 2,
+        prompt: " bandai style",
+      },
+      {
+        index: 3,
+        prompt: "futuristic design",
+      },
+    ];
+
+    document.querySelectorAll(".prompt-suggestion").forEach((btn, index) => {
+      btn.addEventListener("click", function () {
+        document.getElementById("prompt").value = promptList[index].prompt;
+      });
+    });
+
+    document.querySelectorAll(".star").forEach((star) => {
+      star.addEventListener("click", function () {
+        const rating = this.getAttribute("data-rating");
+        document.querySelectorAll(".star").forEach((s) => {
+          if (s.getAttribute("data-rating") <= rating) {
+            s.classList.add("active");
+          } else {
+            s.classList.remove("active");
+          }
+        });
+      });
+    });
+
+    document.getElementById("new-btn").addEventListener("click", function () {
+      resetUploadZone();
+      document.getElementById("prompt").value = "";
+      document.getElementById("generation-result").innerHTML = `
+              <div id="result-placeholder" class="text-center text-gray-400">
+                  <svg class="mx-auto h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p class="mt-4 text-gray-500">
+                  Your creation will appear here.
+                  </p>
+              </div>
+          `;
+      document.getElementById("rating-section").classList.add("hidden");
+      document
+        .querySelectorAll("#download-btn, #variation-btn, #new-btn")
+        .forEach((btn) => btn.classList.add("hidden"));
+    });
+
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector("header");
+      if (window.scrollY > 50) {
+        header.classList.add("shadow-md");
+        header.classList.remove("shadow-sm");
+      } else {
+        header.classList.remove("shadow-md");
+        header.classList.add("shadow-sm");
+      }
+    });
+
+    document
+      .getElementById("download-btn")
+      .addEventListener("click", async function () {
+        const resultContainer = document.getElementById("generation-result");
+        const loader = document.getElementById("download-loader");
+        const img = resultContainer.querySelector("img");
+
+        if (!img || !img.src) {
+          console.error("No image found to download.");
+          alert("There is no image to download yet!");
+          return;
+        }
+
+        console.log("Downloading image:", img.src, loader);
+
+        loader.classList.remove("hidden");
+
+        const newData = () => {
+          const d = new Date();
+          return (
+            d.getFullYear().toString() +
+            (d.getMonth() + 1).toString().padStart(2, "0") +
+            d.getDate().toString().padStart(2, "0") +
+            d.getHours().toString().padStart(2, "0") +
+            d.getMinutes().toString().padStart(2, "0") +
+            d.getSeconds().toString().padStart(2, "0")
+          );
+        };
+
+        try {
+          const imgUrl = `https://api.nanobananas.me/prod-api/gemini/download?url=${img.src}`;
+          const response = await fetch(imgUrl, { mode: "cors" });
+
+          if (!response.ok) {
+            throw new Error(
+              `Download failed with status: ${response.status}`
+            );
+          }
+
+          const blob = await response.blob();
+          const blobUrl = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = blobUrl;
+          link.download = `${newData()}_nano_banana.png`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(blobUrl);
+        } catch (err) {
+          console.error("download error:", err);
+          alert("Sorry, the download failed. Please try again.");
+        } finally {
+          loader.classList.add("hidden");
+        }
+      });
+
+    function newData() {
+      const timestamp = new Date().getTime();
+      return timestamp;
+    }
+
+    const promptExampleList = [
+      {
+        index: 0,
+        img: `../image/ai-realistic-mecha-model-mockup.jpeg`,
+        prompt:
+          "Use the nano-banana model to create a 1/7 scale model, in a realistic style and environment. Place the figure on a computer desk, using a circular transparent acrylic base without any text. On the computer screen, display the ZBrush modeling process of the figure. Next to the computer screen, place a TAMIYA-style toy packaging box printed with the original artwork.",
+        title: "Create Realistic Product Mockups",
+      },
+      {
+        index: 1,
+        img: "../image/ai-dynamic-3d-chibi-character-portal.jpeg",
+        prompt:
+          "A 3D chibi version of the character from the photo is passing through a portal, holding the viewer’s hand, glancing back dynamically as they pull the viewer forward. Outside the portal is the viewer’s real-world background, a typical programmer’s study with a desk, monitor, and laptop. Inside the portal is the 3D chibi world where the character resides, with details referencing the photo. The overall scene has a blue tone, contrasting sharply with the real world. The portal emits mysterious blue and purple hues, forming a perfect oval frame between the two worlds, centered in the composition. Shot from a third-person perspective, showing the viewer’s hand being pulled into the character’s world. Aspect ratio 2:3.",
+        title: "Generate Dynamic Character Scenes",
+      },
+      {
+        index: 2,
+        img: "../image/ai-character-hairstyle-variations.jpg",
+        prompt:
+          "Generate a 3x3 grid of portraits of the same person, each with a different hairstyle. Keep the face consistent in all nine portraits, but vary hair length, color, and style (e.g., short, long, curly, straight, ponytail, braids, updo, etc.). Use realistic lighting and detailed facial features. Arrange the nine portraits in a 3x3 grid.",
+        title: "Ensure Consistent Characters with AI",
+      },
+      {
+        index: 3,
+        img: "../image/ai-photorealistic-fashion-scene-pink-car.jpeg",
+        prompt:
+          "A model is posing and leaning against a pink bmw. She is wearing the following items, the scene is against a light grey background. The green alien is a keychain and it’s attached to the pink handbag. The model also has a pink parrot on her shoulder. There is a pug sitting next to her wearing a pink collar and gold headphones",
+        title: "Produce Complex Photorealistic Scenes", // Changed "Dynamic Mecha Style" to be more specific
+      },
+    ];
+    const container = document.querySelector("#prompt-container");
+    if (container) {
+      promptExampleList.forEach((item) => {
+        const promptExample = document.createElement("div");
+        promptExample.innerHTML = `
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full group transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2">
+              <!-- Image container with fixed aspect ratio to solve size differences -->
+              <div class="overflow-hidden aspect-video">
+                  <img src="${item.img}"
+                       alt="${item.title}"
+                       class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                  <h4 class="text-xl font-bold mb-3 text-gray-800">${item.title}</h4>
+                  <div class="mt-auto bg-gray-50 p-4 rounded-lg border-l-4 border-pink-400">
+                      <p class="text-gray-600 text-sm font-mono leading-relaxed">
+                      ${item.prompt}
+                      </p>
+                  </div>
+              </div>
+          </div>
+      `;
+        container.appendChild(promptExample);
+      });
+    }
+
+    const initialStateDiv = document.getElementById("upload-initial-state");
+    const generateBtn = document.getElementById("generate-btn");
+
+    let selectedFile = null;
+    let previewContainer = null;
+
+    function resetUploadZone() {
+      selectedFile = null;
+      inputElement.value = "";
+      if (previewContainer) {
+        previewContainer.remove();
+        previewContainer = null;
+      }
+      // Show the initial state again
+      initialStateDiv.classList.remove("hidden");
+      labelElement.classList.remove("p-0"); // Restore padding if needed
+    }
+
+    function handleFileSelect(file) {
+      if (!file) return;
+      const allowedTypes = ["image/png", "image/jpeg", "image/webp"];
+      if (!allowedTypes.includes(file.type)) {
+        alert("Invalid file type. Please upload a PNG, JPG, or WEBP file.");
+        resetUploadZone();
+        return;
+      }
+
+      if (previewContainer) {
+        resetUploadZone();
+      }
+
+      selectedFile = file;
+      const newObjectUrl = URL.createObjectURL(file);
+
+      initialStateDiv.classList.add("hidden");
+
+      labelElement.classList.add("p-0");
+
+      // Create a new container for the preview and button
+      previewContainer = document.createElement("div");
+      previewContainer.classList.add("relative", "w-full", "h-full");
+      previewContainer.innerHTML = `
+          <img src="${newObjectUrl}" alt="Selected image preview" class="w-full h-full object-contain rounded-xl">
+          <button type="button" id="remove-image-btn" title="Remove image"
+                  class="absolute top-2 right-2 w-7 h-7 bg-gray-800 bg-opacity-50 text-white rounded-full flex items-center justify-center hover:bg-opacity-75 transition-all">
+              <i class="fa fa-times pointer-events-none"></i> <!-- pointer-events-none is important -->
+          </button>
+      `;
+
+      labelElement.appendChild(previewContainer);
+    }
+
+    function getSelectedFile() {
+      return selectedFile;
+    }
+
+    uploadZone.addEventListener("click", function (event) {
+      const removeButton = event.target.closest("#remove-image-btn");
+      if (removeButton) {
+        event.preventDefault();
+        event.stopPropagation();
+        resetUploadZone();
+      }
+    });
+
+    inputElement.addEventListener("change", (event) => {
+      if (event.target.files && event.target.files.length > 0) {
+        handleFileSelect(event.target.files[0]);
+      }
+    });
+    uploadZone.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      labelElement.classList.add("bg-gray-200");
+    });
+    uploadZone.addEventListener("dragleave", () => {
+      labelElement.classList.remove("bg-gray-200");
+    });
+    uploadZone.addEventListener("drop", (event) => {
+      event.preventDefault();
+      labelElement.classList.remove("bg-gray-200");
+      if (event.dataTransfer.files && event.dataTransfer.files.length > 0) {
+        handleFileSelect(event.dataTransfer.files[0]);
+        inputElement.files = event.dataTransfer.files;
+      }
+    });
+
+    function getToken() {
+      return localStorage.getItem("auth_token");
+    }
+
+    // --- 1. Constants and Configuration ---
+    const API_BASE_URL = "https://api.nanobananas.me/prod-api/gemini";
+    const CSS_HIDDEN_CLASS = "hidden";
+
+    // --- 2. DOM Element Caching ---
+    const promptInput = document.getElementById("prompt");
+    const resultContainer = document.getElementById("generation-result");
+    const ratingSection = document.getElementById("rating-section");
+    const textLimitDisplay = document.getElementById("textLimit");
+    const actionButtons = document.querySelectorAll(
+      "#download-btn, #variation-btn, #new-btn"
+    );
+
+    // --- NEW: MODAL ELEMENTS CACHING ---
+    const creditsModal = document.getElementById("out-of-credits-modal");
+    const closeCreditsModalBtn = document.getElementById(
+      "close-credits-modal-btn"
+    );
+    const closeCreditsModalSecondaryBtn = document.getElementById(
+      "close-credits-modal-secondary-btn"
+    );
+
+    // --- 3. UI Helper Functions ---
+
+    function toggleActionUI(show) {
+      const method = show ? "remove" : "add";
+      ratingSection.classList[method](CSS_HIDDEN_CLASS);
+      actionButtons.forEach((btn) => btn.classList[method](CSS_HIDDEN_CLASS));
+    }
+
+    function renderSpinner() {
+      resultContainer.innerHTML = `
+      <div class="flex justify-center items-center w-full min-h-[256px]">
+          <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary"></div>
+      </div>`;
+    }
+
+    function renderError(title, details = "") {
+      resultContainer.innerHTML = `
+      <div class="text-center text-red-500 bg-red-50 p-4 rounded-lg">
+          <p class="font-bold">${title}</p>
+          ${
+            details
+              ? `<div class="mt-2 text-sm text-gray-600">${details}</div>`
+              : ""
+          }
+      </div>`;
+    }
+
+    function renderSuccess(imageUrl, altText) {
+      resultContainer.innerHTML = `
+      <img src="${imageUrl}" alt="${altText}" class="w-full h-auto rounded-lg shadow-lg cursor-pointer">
+      <div id="download-loader" class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white rounded-2xl hidden">
+        <svg class="animate-spin h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <p class="mt-2 text-lg">Downloading...</p>
+      </div>`;
+    }
+
+    async function updateProdLimit() {
+      if (!textLimitDisplay) return;
+      try {
+        const response = await fetch(`${API_BASE_URL}/limit`);
+        if (!response.ok) throw new Error(`API Error: ${response.status}`);
+        const { data } = await response.json();
+        const { limit, remaining, used, global_limit } = data;
+        textLimitDisplay.innerHTML = `Due to the large number of visits, the overall access limit is: ${global_limit}, used: ${used}/${limit}, remaining: ${remaining}/${limit}`;
+      } catch (error) {
+        console.error("Failed to fetch production limit:", error);
+        textLimitDisplay.textContent = "Could not load usage limit.";
+      }
+    }
+
+    // --- NEW: MODAL CONTROL FUNCTIONS ---
+    function showCreditsModal() {
+      if (creditsModal) creditsModal.classList.remove("hidden");
+    }
+    function hideCreditsModal() {
+      if (creditsModal) creditsModal.classList.add("hidden");
+    }
+
+    // --- MODIFIED: Core Generation Logic ---
+    async function handleImageGeneration() {
+      const promptText = promptInput.value.trim();
+      if (!promptText) {
+        alert("Please enter a prompt first!");
+        return;
+      }
+
+      toggleActionUI(false);
+      renderSpinner();
+      generateBtn.disabled = true;
+
+      try {
+        const imageFile = getSelectedFile();
+        const formData = new FormData();
+        formData.append("prompt", promptText);
+        if (imageFile) {
+          formData.append("file", imageFile);
+        }
+
+        const response = await fetch(`${API_BASE_URL}/gen`, {
+          method: "POST",
+          headers: {
+            ...(getToken() && { Authorization: "Bearer " + getToken() }),
+          },
+          body: formData,
+        });
+
+        if (!response.ok) {
+          // It's a different kind of error (e.g., 500 server error)
+          const errorData = await response
+            .json()
+            .catch(() => ({ msg: "Server returned an unexpected error." }));
+          throw new Error(
+            errorData.msg || `Server responded with ${response.status}`
+          );
+        }
+
+        const data = await response.json();
+        if (data.code === 1) {
+          // Your specific application-level error
+          renderError(data.msg);
+          showCreditsModal();
+        } else {
+          // Success
+          const imageUrl = data.data.url;
+          renderSuccess(
+            imageUrl,
+            `AI image generated for prompt: ${promptText}`
+          );
+          toggleActionUI(true);
+        }
+      } catch (error) {
+        console.error("Generation Failed:", error);
+        renderError(
+          "Oops! Something went wrong.",
+          `The service might be temporarily unavailable. Please try again later. Error: ${error.message}`
+        );
+      } finally {
+        generateBtn.disabled = false;
+        updateUser();
+        updateProdLimit();
+      }
+    }
+
+    // --- EVENT LISTENERS ---
+    generateBtn.addEventListener("click", handleImageGeneration);
+
+    if (closeCreditsModalBtn)
+      closeCreditsModalBtn.addEventListener("click", hideCreditsModal);
+    if (closeCreditsModalSecondaryBtn)
+      closeCreditsModalSecondaryBtn.addEventListener(
+        "click",
+        hideCreditsModal
+      );
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateUser();
+      updateProdLimit();
+    });
+
+    const imagePreviewModal = document.getElementById("image-preview-modal");
+    const previewModalImage = document.getElementById("preview-modal-image");
+    const closePreviewModalBtn = document.getElementById(
+      "close-preview-modal-btn"
+    );
+    const generationResultContainer =
+      document.getElementById("generation-result");
+
+    function openPreviewModal(imageUrl) {
+      previewModalImage.src = imageUrl;
+      imagePreviewModal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePreviewModal() {
+      imagePreviewModal.classList.add("hidden");
+      document.body.style.overflow = "";
+      previewModalImage.src = "";
+    }
+
+    generationResultContainer.addEventListener("click", function (event) {
+      if (event.target.tagName === "IMG") {
+        openPreviewModal(event.target.src);
+      }
+    });
+
+    closePreviewModalBtn.addEventListener("click", closePreviewModal);
+
+    imagePreviewModal.addEventListener("click", function (event) {
+      if (event.target === imagePreviewModal) {
+        closePreviewModal();
+      }
+    });
+
+    window.addEventListener("keydown", function (event) {
+      if (
+        event.key === "Escape" &&
+        !imagePreviewModal.classList.contains("hidden")
+      ) {
+        closePreviewModal();
+      }
+    });
+
+    document.querySelectorAll(".faq-toggle").forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        const content = toggle.nextElementSibling;
+        const icon = toggle.querySelector("i");
+        content.classList.toggle("hidden");
+        icon.classList.toggle("rotate-180");
+      });
+    });
+
+    // --- Authentication logic (no changes needed here, it's correct) ---
+    const loginModal = document.getElementById("login-modal");
+    const openSignInBtn = document.getElementById("open-login-modal-btn");
+    const closeModalBtn = document.getElementById("close-login-modal-btn");
+    const googleLoginBtn = document.getElementById("loginBtn");
+    const userInfoContainer = document.getElementById("user-info-container");
+    const userAvatarImg = document.getElementById("user-avatar");
+    const userNameSpan = document.getElementById("user-name");
+    const logoutBtn = document.getElementById("logout-btn");
+    const GOOGLE_CLIENT_ID =
+      "98611438844-610u4rlujgvhb6egkrgjctj7765m3vji.apps.googleusercontent.com";
+    const BACKEND_REDIRECT_URI =
+      "https://api.nanobananas.me/prod-api/g/callback";
+    const dropdownUserName = document.getElementById("dropdown-user-name");
+    const dropdownUserEmail = document.getElementById("dropdown-user-email");
+    const dropdownUserCreditsSpan = document.getElementById("user-credits");
+    const userMenuButton = document.getElementById("user-menu-button");
+    const userMenuDropdown = document.getElementById("user-menu-dropdown");
+
+    openSignInBtn.addEventListener("click", () => {
+      loginModal.classList.remove("hidden");
+    });
+    closeModalBtn.addEventListener("click", () => {
+      loginModal.classList.add("hidden");
+    });
+    googleLoginBtn.addEventListener("click", () => {
+      loginDialog();
+    });
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("user_info");
+      localStorage.removeItem("auth_token");
+      updateUIForLogout();
+    });
+
+    function loginDialog() {
+      const googleAuthUrl = "https://accounts.google.com/o/oauth2/v2/auth";
+      const params = {
+        client_id: GOOGLE_CLIENT_ID,
+        redirect_uri: BACKEND_REDIRECT_URI,
+        response_type: "code",
+        scope: "openid email profile",
+        prompt: "select_account",
+        state: "1111",
+      };
+      const finalAuthUrl = `${googleAuthUrl}?${new URLSearchParams(params)}`;
+      const width = 600,
+        height = 600;
+      const left = window.screen.width / 2 - width / 2;
+      const top = window.screen.height / 2 - height / 2;
+      const popup = window.open(
+        finalAuthUrl,
+        "GoogleLogin",
+        `width=${width},height=${height},left=${left},top=${top}`
+      );
+      window.removeEventListener("message", handleAuthMessage);
+      window.addEventListener("message", handleAuthMessage);
+      const checkPopupClosed = setInterval(() => {
+        if (popup && popup.closed) {
+          clearInterval(checkPopupClosed);
+          window.removeEventListener("message", handleAuthMessage);
+        }
+      }, 500);
+    }
+
+    function handleAuthMessage(event) {
+      if (
+        event.origin !== "https://api.nanobananas.me" ||
+        !event.data ||
+        !event.data.token
+      )
+        return;
+      loginModal.classList.add("hidden");
+      window.removeEventListener("message", handleAuthMessage);
+      try {
+        const { user, token: jwtToken } = JSON.parse(event.data.token);
+        if (!jwtToken || !user) return;
+        localStorage.setItem("auth_token", jwtToken);
+        localStorage.setItem("user_info", JSON.stringify(user));
+        updateUIForLogin(user);
+        updateUser();
+      } catch (error) {
+        console.error("Error parsing auth response:", error);
+        updateUser();
+      }
+    }
+
+    function updateUIForLogin(user) {
+      openSignInBtn.classList.add("hidden");
+      userInfoContainer.classList.remove("hidden");
+      userInfoContainer.classList.add("flex");
+      userAvatarImg.src = user.picture;
+      userNameSpan.textContent = user.name;
+      const credits = user.score || 0;
+      if (dropdownUserCreditsSpan)
+        dropdownUserCreditsSpan.textContent = credits;
+      if (dropdownUserName) dropdownUserName.textContent = user.name;
+      if (dropdownUserEmail) dropdownUserEmail.textContent = user.email;
+      loginModal.classList.add("hidden");
+    }
+
+    function updateUIForLogout() {
+      openSignInBtn.classList.remove("hidden");
+      userInfoContainer.classList.add("hidden");
+      userAvatarImg.src = "";
+      userNameSpan.textContent = "";
+      if (dropdownUserName) dropdownUserName.textContent = "";
+      if (dropdownUserEmail) dropdownUserEmail.textContent = "";
+    }
+
+    function checkLoginStatus() {
+      const userInfoStr = localStorage.getItem("user_info");
+      if (userInfoStr) {
+        try {
+          const user = JSON.parse(userInfoStr);
+          if (user) updateUIForLogin(user);
+          else localStorage.removeItem("user_info");
+        } catch (e) {
+          console.error("Failed to parse user info from localStorage", e);
+          localStorage.removeItem("user_info");
+        }
+      }
+    }
+    document.addEventListener("DOMContentLoaded", checkLoginStatus);
+
+    if (userMenuButton)
+      userMenuButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        userMenuDropdown.classList.toggle("hidden");
+      });
+
+    window.addEventListener("click", () => {
+      if (
+        userMenuDropdown &&
+        !userMenuDropdown.classList.contains("hidden")
+      ) {
+        userMenuDropdown.classList.add("hidden");
+      }
+    });
+
+    async function updateUser() {
+      if (!getToken()) return; // Don't try to fetch user if there's no token
+      try {
+        const response = await fetch(
+          "https://api.nanobananas.me/prod-api/g/getUser",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + getToken(),
+            },
+          }
+        );
+        if (!response.ok) return;
+        const data = await response.json();
+        if (data.data) {
+          localStorage.setItem("user_info", JSON.stringify(data.data)); // Sync local storage
+          updateUIForLogin(data.data);
+        }
+      } catch (error) {
+        console.error("Failed to update user:", error);
+      }
+    }
+  </script>
+</body>
+
+</html>

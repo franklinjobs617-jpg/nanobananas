@@ -145,9 +145,6 @@
                             class="bg-primary text-secondary font-semibold px-5 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
                             Sign In
                         </button>
-
-                        <!-- AFTER -->
-                        <!-- User Info Display (Visible when logged in) -->
                         <div id="user-info-container" class="hidden relative">
                             <!-- This button is the trigger for the dropdown -->
                             <button id="user-menu-button"
@@ -160,7 +157,7 @@
 
                             <!-- New Dropdown Menu Styled to Match Your Image -->
                             <div id="user-menu-dropdown"
-                                class="absolute right-0 mt-3 w-64 origin-top-right bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                                class="absolute right-0 top-4 md:top-10 mt-3 w-64 origin-top-right bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
                                 role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                 tabindex="-1">
                                 <div class="p-4" role="none">
@@ -207,7 +204,8 @@
             <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
                 <div class="container mx-auto px-4 py-3 space-y-3">
                     <a href="./nano_banana_ai_saree.html"
-                        class="text-gray-600 hover:text-primary transition-colors font-medium">Ai Saree</a>
+                        class="text-gray-600 hover:text-primary transition-colors font-medium">Ai
+                        Saree</a>
                     <a href="./nano-banana-collection-prompts.html"
                         class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">Prompts</a>
                     <a href="#examples"
@@ -229,9 +227,7 @@
                     <a href="#faq"
                         class="block py-2 text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
 
-                    <div class="">
 
-                    </div>
                 </div>
             </div>
         </header>
@@ -963,7 +959,6 @@
                             }
 
                         } catch (error) {
-                            console.error("Purchase failed:", error);
                             alert("An error occurred while processing your request. Please try again.");
                             button.disabled = false;
                             button.innerHTML = originalButtonText;
@@ -1037,29 +1032,22 @@
                         if (popup && popup.closed) {
                             clearInterval(checkPopupClosed);
                             window.removeEventListener('message', handleAuthMessage);
-                            console.log("Login popup closed by user.");
                         }
                     }, 500); // Check every half second
                 }
 
                 function handleAuthMessage(event) {
                     if (event.origin !== "https://api.nanobananas.me") {
-                        return; // Ignore messages from other sources (like browser extensions)
+                        return;
                     }
 
                     if (!event.data || !event.data.token) {
-                        return; // The message is from our origin but not the one we want.
+                        return;
                     }
 
-                    console.log("Received valid auth message:", event.data);
-
-                    // If we've reached this point, the message is valid.
-                    // We can now close the login modal.
                     loginModal.classList.add('hidden');
 
-                    // Now we remove the listener because we are done.
                     window.removeEventListener('message', handleAuthMessage);
-
                     const { token: nestedJsonString } = event.data;
 
                     try {

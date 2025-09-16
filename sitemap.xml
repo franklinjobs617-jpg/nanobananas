@@ -3,18 +3,15 @@
        <url>
         <loc>https://nanobananas.me/</loc>
         <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://nanobananas.me/index.html"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://nanobananas.me/de/index.html"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://nanobananas.me/es/index.html"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://nanobananas.me/index.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://nanobananas.me/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://nanobananas.me/de/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://nanobananas.me/es/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://nanobananas.me/"/>
     </url>
-    
     <url>
         <loc>https://nanobananas.me/nano-banana-model.html</loc>
         <priority>0.8</priority>
     </url>
-    
-    <!-- Bandai风格页面 -->
     <url>
         <loc>https://nanobananas.me/bandai-nano-banana.html</loc>
         <priority>0.8</priority>

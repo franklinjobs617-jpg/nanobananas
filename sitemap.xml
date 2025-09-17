@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-       <url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
         <loc>https://nanobananas.me/</loc>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanobananas.me/"/>
@@ -16,33 +17,27 @@
         <loc>https://nanobananas.me/bandai-nano-banana.html</loc>
         <priority>0.8</priority>
     </url>
-
     <url>
         <loc>https://nanobananas.me/nano-banana-model-kit.html</loc>
         <priority>0.8</priority>
     </url>
-
     <url>
         <loc>https://nanobananas.me/nano_banana_ai_saree.html</loc>
         <priority>0.8</priority>
     </url>
-
-      <url>
+    <url>
         <loc>https://nanobananas.me/nano-banana-3d-figurines-guide.html</loc>
         <priority>0.8</priority>
     </url>
-
-          <url>
+    <url>
         <loc>https://nanobananas.me/nano-banana-collection-prompts.html</loc>
         <priority>0.8</priority>
     </url>
-    
     <!-- 服务条款页面 -->
     <url>
         <loc>https://nanobananas.me/terms.html</loc>
         <priority>0.7</priority>
     </url>
-    
     <!-- 隐私政策页面 -->
     <url>
         <loc>https://nanobananas.me/privacy.html</loc>
